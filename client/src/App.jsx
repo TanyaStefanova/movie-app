@@ -1,4 +1,5 @@
 import Topbar from "./components/topBar/Topbar"
+import './assets/css/style.css'
 
 function App() {
 
@@ -9,4 +10,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
