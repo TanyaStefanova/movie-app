@@ -49,7 +49,7 @@ export default function Footer(){
                 <div className="col-lg-3 col-md-6">
                     <h4 className="text-white mb-3">Newsletter</h4>
                     <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                    <div className="position-relative mx-auto" style={{'max-width': '400px'}}>
+                    <div className="position-relative mx-auto" style={{'maxWidth': '400px'}}>
                         <input className="form-control border-primary w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email" />
                         <button type="button" className="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
                     </div>
@@ -68,7 +68,7 @@ export default function Footer(){
                             <a href="">Home</a>
                             <a href="">Cookies</a>
                             <a href="">Help</a>
-                            <a href="">FQAs</a>
+                            <a href="">FAQs</a>
                         </div>
                     </div>
                 </div>
