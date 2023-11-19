@@ -11,6 +11,7 @@ import Packages from "./components/packages/Packages";
 import OnlineBooking from "./components/online-booking/OnlineBooking";
 import Process from "./components/process/Process";
 import Team from "./components/team/Team";
+import Testimonial from "./components/testimonial/Testimonial";
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
      <OnlineBooking />
      <Process />
      <Team />
+     {/* <Testimonial /> */}
      <Footer />
      <BackToTopButton />
     </>
