@@ -7,6 +7,7 @@ import BackToTopButton from "./components/back-to-top-button/BackToTopButton";
 import AboutUs from "./components/about-us/AboutUs";
 import Services from "./components/services/Services";
 import Destinations from "./components/destinations/Destinations";
+import Packages from "./components/packages/Packages";
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
      <AboutUs />
      <Services />
      <Destinations />
+     <Packages />
      <Footer />
      <BackToTopButton />
     </>
