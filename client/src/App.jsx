@@ -6,6 +6,7 @@ import Footer from "./components/footer/Footer";
 import BackToTopButton from "./components/back-to-top-button/BackToTopButton";
 import AboutUs from "./components/about-us/AboutUs";
 import Services from "./components/services/Services";
+import Destinations from "./components/destinations/Destinations";
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
      <HeroBanner />
      <AboutUs />
      <Services />
+     <Destinations />
      <Footer />
      <BackToTopButton />
     </>
