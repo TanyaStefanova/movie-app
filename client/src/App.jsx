@@ -8,6 +8,7 @@ import AboutUs from "./components/about-us/AboutUs";
 import Services from "./components/services/Services";
 import Destinations from "./components/destinations/Destinations";
 import Packages from "./components/packages/Packages";
+import OnlineBooking from "./components/online-booking/OnlineBooking";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
      <Services />
      <Destinations />
      <Packages />
+     <OnlineBooking />
      <Footer />
      <BackToTopButton />
     </>
