@@ -9,6 +9,7 @@ import Services from "./components/services/Services";
 import Destinations from "./components/destinations/Destinations";
 import Packages from "./components/packages/Packages";
 import OnlineBooking from "./components/online-booking/OnlineBooking";
+import Process from "./components/process/Process";
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
      <Destinations />
      <Packages />
      <OnlineBooking />
+     <Process />
      <Footer />
      <BackToTopButton />
     </>
