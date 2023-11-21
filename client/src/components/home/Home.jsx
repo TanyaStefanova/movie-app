@@ -1,4 +1,4 @@
-export default function HeroBanner(){
+export default function Home(){
     return(
         <div className="container-fluid position-relative p-0">
        
