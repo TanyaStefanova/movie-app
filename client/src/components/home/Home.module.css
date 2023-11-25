@@ -1,0 +1,20 @@
+.heroContainer {
+    background-image: url("https://www.shutterstock.com/image-vector/old-cinema-background-vector-illustration-260nw-770497021.jpg");
+    background-size: cover;
+    color: '#fffff';
+}
+
+.searchButton{
+    margin-bottom: 4px;
+    margin-left: 10px;
+    border-radius: 50px;
+}
+
+.searchField {
+    border-radius: 50px;
+}
+
+.formField {
+    width: 80%;
+    border-radius: 50px;
+}
