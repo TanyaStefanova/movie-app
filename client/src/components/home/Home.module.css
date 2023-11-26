@@ -1,3 +1,7 @@
+body {
+    background: #141414;
+}
+
 .heroContainer {
     background-image: url("https://www.shutterstock.com/image-vector/old-cinema-background-vector-illustration-260nw-770497021.jpg");
     background-size: cover;
