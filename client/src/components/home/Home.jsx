@@ -14,7 +14,7 @@ export default function Home() {
                     <p>Your hero description goes here. You can add more content or customize as needed.</p>
                     <p>Your hero description goes here. You can add more content or customize as needed.</p>
                     <Container className="mt-4">
-                        <Form inline >
+                        <Form >
                             <FormControl type="text" placeholder="Search" className="mr-sm-2" style={{
                                 display: 'inline',
                                 width: '80%',
