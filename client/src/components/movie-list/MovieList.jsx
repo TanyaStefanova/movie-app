@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 // import ExampleCarouselImage from 'components/ExampleCarouselImage';
 
-export default function Movies() {
+export default function MovieList() {
 
     const [index, setIndex] = useState(0);
 
