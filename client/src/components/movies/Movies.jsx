@@ -12,7 +12,7 @@ export default function Movies() {
 
     return (
         <>
-        {/* Display favorites if any */}
+        {/* Display favorites if any and only for logged in user!!!*/}
        <h3>Favourites</h3>
         <Carousel activeIndex={index} onSelect={handleSelect}>
             <Carousel.Item>
