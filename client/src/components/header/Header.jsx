@@ -7,7 +7,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-export default function Header({ onClick }) {
+export default function Header({ onClickOpen }) {
 
   return (
     <Navbar bg="dark" data-bs-theme="dark">
@@ -15,7 +15,7 @@ export default function Header({ onClick }) {
         <h2><Link to="/" className={styles.logo}>Filmster</Link></h2>
         <Nav>
           <Link className={styles.navLink} to="/movies">Movies</Link>
-          <Link className={styles.navLink} to="/movies/create" onClick={onClick}>Add Movie</Link>
+          <Link className={styles.navLink} to="/movies/create" onClick={onClickOpen}>Add Movie</Link>
           <Link className={styles.navLink} to="/login">Login</Link>
           <Link className={styles.navLink} to="/register">Register</Link>
           <Link className={styles.navLink} to="/logout">Logout</Link>
