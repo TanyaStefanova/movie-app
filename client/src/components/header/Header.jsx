@@ -16,9 +16,9 @@ export default function Header({ onClickOpen }) {
         <Nav>
           <Link className={styles.navLink} to="/movies">Movies</Link>
           <Link className={styles.navLink} to="/movies/create" onClick={onClickOpen}>Add Movie</Link>
-          <Link className={styles.navLink} to="/login" onClick={onClickOpen}>Login</Link>
-          <Link className={styles.navLink} to="/register">Register</Link>
           <Link className={styles.navLink} to="/logout">Logout</Link>
+          <Link className={styles.navLink} to="/login" onClick={onClickOpen}>Login</Link>
+          <Link className={styles.navLink} to="/register" onClick={onClickOpen}>Register</Link>
         </Nav>
       </Container>
     </Navbar>
