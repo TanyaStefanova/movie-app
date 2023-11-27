@@ -1,46 +1,15 @@
-import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
 export default function MovieCreate({ show, onClose }) {
 
-
     return (
-        //     <form >
-        //     <label htmlFor="title">Title:</label>
-        //     <input type="text" id="title" name="title" />
-
-        //     <label htmlFor="title">Title:</label>
-        //     <input type="text" id="title" name="title" />
-
-        //     <label htmlFor="title">Title:</label>
-        //     <input type="text" id="title" name="title" />
-
-        //     <label htmlFor="title">Title:</label>
-        //     <input type="text" id="title" name="title" />
-
-        //     <label htmlFor="category">Category:</label>
-        //     <select id="category" name="category" >
-        //         <option value="movie">Movie</option>
-        //         <option value="book">Book</option>
-        //         <option value="music">Music</option>
-        //     </select>
-
-        //     <label htmlFor="description">Description:</label>
-        //     <textarea id="description" name="description" rows="4"></textarea>
-
-        //     <button type="submit">Create Resource</button>
-        // </form>
         <>
-            {/* <Button variant="primary" onClick={handleShow}>
-                Launch demo modal
-            </Button> */}
 
-            {/* <Modal show={show} onHide={handleClose}> */}
             <Modal show={show} onHide={onClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Title>Add Movie</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
@@ -95,7 +64,7 @@ export default function MovieCreate({ show, onClose }) {
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="primary" type="submit" onClick={onClose}>
-                       Add Movie
+                        Add Movie
                     </Button>
                     <Button variant="secondary" onClick={onClose}>
                         Close
