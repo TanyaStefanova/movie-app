@@ -74,7 +74,6 @@ export default function MovieCreate({ show, onClose }) {
                 <Modal.Body>
                     <Form onSubmit={submitHandler}>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                            {/* <Form.Group className="mb-3"> */}
                             <Form.Label >Title</Form.Label>
                             <Form.Control
                                 type="text"
@@ -87,7 +86,6 @@ export default function MovieCreate({ show, onClose }) {
                             />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
-                            {/* <Form.Group className="mb-3"> */}
                             <Form.Label >Year</Form.Label>
                             <Form.Control
                                 type="number"
@@ -99,7 +97,6 @@ export default function MovieCreate({ show, onClose }) {
                             />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
-                            {/* <Form.Group className="mb-3" > */}
                             <Form.Label >Poster Url</Form.Label>
                             <Form.Control
                                 type="text"
@@ -111,7 +108,6 @@ export default function MovieCreate({ show, onClose }) {
                             />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
-                            {/* <Form.Group className="mb-3"> */}
                             <Form.Select
                                 aria-label="type"
                                 placeholder="Type"
@@ -126,7 +122,6 @@ export default function MovieCreate({ show, onClose }) {
                             </Form.Select>
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
-                            {/* <Form.Group className="mb-3"> */}
                             <Form.Select
                                 aria-label="genres"
                                 placeholder="Genres"
@@ -146,7 +141,6 @@ export default function MovieCreate({ show, onClose }) {
                             </Form.Select>
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                            {/* <Form.Group className="mb-3"> */}
                             <Form.Label >Plot</Form.Label>
                             <Form.Control
                                 as="textarea"
