@@ -10,6 +10,7 @@ import Layout from './components/layout/Layout';
 import Login from './components/login/Login';
 import Register from './components/register/Register';
 import AuthContext from './contexts/authContext';
+import Logout from './components/logout/Logout';
 
 
 function App() {
@@ -38,6 +39,11 @@ function App() {
     navigate('/');
   }
 
+  const logoutHandler = () => {
+    setAuth({});
+    localStorage.removeItem('accessToken');
+  }
+
   const onClickOpen = () => {
     setShowModal(true);
   };
@@ -49,6 +55,7 @@ function App() {
   const values = {
     loginSubmitHandler,
     registerSubmitHandler,
+    logoutHandler,
     onClickOpen,
     onClickClose,
     showModal
@@ -63,6 +70,7 @@ function App() {
             <Route path='movies/create' element={<MovieCreate />} />
             <Route path='login' element={<Login />} />
             <Route path='register' element={<Register />} />
+            <Route path='logout' element={<Logout />} />
           </Route>
 
         </Routes>
