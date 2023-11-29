@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import * as movieService from "../../services/movieService";
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
-import { useNavigate } from "react-router-dom";
+import AuthContext from "../../contexts/authContext";
 
 const FORM_KEYS = {
     title: 'title',
@@ -26,9 +27,10 @@ const formInitialState = {
 }
 
 
-export default function MovieCreate({ show, onClose }) {
+export default function MovieCreate() {
     const [formValues, setFormValues] = useState(formInitialState);
     const navigate = useNavigate();
+    const {showModal, onClickClose} = useContext(AuthContext);
 
 
     const changeHandler = (e) => {
@@ -67,7 +69,7 @@ export default function MovieCreate({ show, onClose }) {
 
     return (
         <>
-            <Modal show={show} onHide={onClose}>
+            <Modal show={showModal} onHide={onClickClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Add Movie</Modal.Title>
                 </Modal.Header>
@@ -158,7 +160,7 @@ export default function MovieCreate({ show, onClose }) {
                     <Button variant="primary" type="submit" onClick={submitHandler}>
                         Add
                     </Button>
-                    <Button variant="secondary" onClick={onClose}>
+                    <Button variant="secondary" onClick={onClickClose}>
                         Close
                     </Button>
                 </Modal.Footer>

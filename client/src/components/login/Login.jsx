@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
 import useForm from '../../hooks/useForm'
 
@@ -7,16 +7,20 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import AuthContext from '../../contexts/authContext';
 
 
-export default function Login ({ show, onClose, loginSubmitHandler }){
+export default function Login (){
+
+  const { showModal, onClickClose, loginSubmitHandler } = useContext(AuthContext);
+
   const {values, onChange, onSubmit} = useForm(loginSubmitHandler, {
     email: '',
     password: ''
   });
 
     return(
-        <Modal show={show} onHide={onClose}>
+        <Modal show={showModal} onHide={onClickClose}>
         <Modal.Header closeButton>
             <Modal.Title>Login</Modal.Title>
         </Modal.Header>
@@ -61,7 +65,7 @@ export default function Login ({ show, onClose, loginSubmitHandler }){
                     <Button variant="primary" type="submit" onClick={onSubmit}>
                        Login
                     </Button>
-                    <Button variant="secondary" onClick={onClose}>
+                    <Button variant="secondary" onClick={onClickClose}>
                         Close
                     </Button>
                 </Modal.Footer>
