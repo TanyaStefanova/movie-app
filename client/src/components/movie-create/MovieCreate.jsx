@@ -5,6 +5,7 @@ import * as movieService from "../../services/movieService";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import { useNavigate } from "react-router-dom";
 
 const FORM_KEYS = {
     title: 'title',
@@ -27,14 +28,15 @@ const formInitialState = {
 
 export default function MovieCreate({ show, onClose }) {
     const [formValues, setFormValues] = useState(formInitialState);
+    const navigate = useNavigate();
 
-    
+
     const changeHandler = (e) => {
         // console.log(e.target.name);
         // console.log(e.target.value);
         let value = e.target.value;
 
-        if(e.target.type === 'number'){
+        if (e.target.type === 'number') {
             value = Number(e.target.value);
         }
 
@@ -48,11 +50,17 @@ export default function MovieCreate({ show, onClose }) {
         setFormValues(formInitialState);
     }
 
-    const submitHandler = (e) => {
+    const submitHandler = async (e) => {
         e.preventDefault();
         resetFormHandler();
 
-        movieService.create(formValues)
+        // TODO handle error
+        try {
+            await movieService.create(formValues);
+            navigate('/movies');
+        } catch (error) {
+            console.log(error);
+        }
         console.log(formValues);
     }
 
@@ -66,7 +74,7 @@ export default function MovieCreate({ show, onClose }) {
                 <Modal.Body>
                     <Form onSubmit={submitHandler}>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                        {/* <Form.Group className="mb-3"> */}
+                            {/* <Form.Group className="mb-3"> */}
                             <Form.Label >Title</Form.Label>
                             <Form.Control
                                 type="text"
@@ -79,7 +87,7 @@ export default function MovieCreate({ show, onClose }) {
                             />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
-                        {/* <Form.Group className="mb-3"> */}
+                            {/* <Form.Group className="mb-3"> */}
                             <Form.Label >Year</Form.Label>
                             <Form.Control
                                 type="number"
@@ -91,7 +99,7 @@ export default function MovieCreate({ show, onClose }) {
                             />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
-                        {/* <Form.Group className="mb-3" > */}
+                            {/* <Form.Group className="mb-3" > */}
                             <Form.Label >Poster Url</Form.Label>
                             <Form.Control
                                 type="text"
@@ -103,7 +111,7 @@ export default function MovieCreate({ show, onClose }) {
                             />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
-                        {/* <Form.Group className="mb-3"> */}
+                            {/* <Form.Group className="mb-3"> */}
                             <Form.Select
                                 aria-label="type"
                                 placeholder="Type"
@@ -118,7 +126,7 @@ export default function MovieCreate({ show, onClose }) {
                             </Form.Select>
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
-                        {/* <Form.Group className="mb-3"> */}
+                            {/* <Form.Group className="mb-3"> */}
                             <Form.Select
                                 aria-label="genres"
                                 placeholder="Genres"
@@ -130,6 +138,7 @@ export default function MovieCreate({ show, onClose }) {
                                 {/* Genres */}
                                 <option value="crime">Crime</option>
                                 <option value="drama">Drama</option>
+                                <option value="action">Action</option>
                                 <option value="adventure">Adventure</option>
                                 <option value="comedy">Comedy</option>
                                 <option value="history">History</option>
@@ -137,7 +146,7 @@ export default function MovieCreate({ show, onClose }) {
                             </Form.Select>
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                        {/* <Form.Group className="mb-3"> */}
+                            {/* <Form.Group className="mb-3"> */}
                             <Form.Label >Plot</Form.Label>
                             <Form.Control
                                 as="textarea"
