@@ -6,9 +6,16 @@ import Row from 'react-bootstrap/Row';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import AuthContext from '../../contexts/authContext';
+import useForm from '../../hooks/useForm';
 
 export default function Register() {
-    const { showModal, onClickClose } = useContext(AuthContext);
+    const { registerSubmitHandler, showModal, onClickClose } = useContext(AuthContext);
+
+    const { values, onChange, onSubmit } = useForm(registerSubmitHandler, {
+        email: '',
+        password: '',
+        repeatPassword: '',
+    });
 
     return (
         <Modal show={showModal} onHide={onClickClose}>
@@ -22,7 +29,13 @@ export default function Register() {
                             Email
                         </Form.Label>
                         <Col sm="10">
-                            <Form.Control type="text" placeholder="email@example.com" />
+                            <Form.Control
+                                type="text"
+                                name="email"
+                                value={values.email}
+                                onChange={onChange}
+                                placeholder="email@example.com"
+                            />
                         </Col>
                     </Form.Group>
 
@@ -31,7 +44,13 @@ export default function Register() {
                             Password
                         </Form.Label>
                         <Col sm="10">
-                            <Form.Control type="password" placeholder="Password" />
+                            <Form.Control
+                                type="password"
+                                name="password"
+                                value={values.password}
+                                onChange={onChange}
+                                placeholder="Password"
+                            />
                         </Col>
                     </Form.Group>
                     <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
@@ -39,7 +58,13 @@ export default function Register() {
                             Repeat Password
                         </Form.Label>
                         <Col sm="10">
-                            <Form.Control type="password" placeholder="Password" />
+                            <Form.Control
+                                type="password"
+                                name="repeatPassword"
+                                value={values.repeatPassword}
+                                onChange={onChange}
+                                placeholder="Password"
+                            />
                         </Col>
                     </Form.Group>
                 </Form>
@@ -47,7 +72,7 @@ export default function Register() {
             <Modal.Footer>
                 {/* TODO make the link to not refresh the page + style*/}
                 <p>Click <a href="/login">here</a> if you already have an account</p>
-                <Button variant="primary" type="submit" onClick={onClickClose}>
+                <Button variant="primary" type="submit" onClick={onSubmit}>
                     Register
                 </Button>
                 <Button variant="secondary" onClick={onClickClose}>
