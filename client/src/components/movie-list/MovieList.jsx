@@ -2,13 +2,12 @@ import { useEffect, useState } from 'react';
 
 import * as movieService from "../../services/movieService";
 
-import Carousel from 'react-bootstrap/Carousel';
 import Favourites from './favourites/Favourites';
 import Movies from './movies/Movies';
+import TvShows from './tv-shows/TvShows';
 
 export default function MovieList() {
 
-    const [index, setIndex] = useState(0);
     const [movies, setMovies] = useState([]);
 
     // TODO handle error
@@ -18,36 +17,17 @@ export default function MovieList() {
             .catch(err => console.log(err));
     }, []);
 
-    const handleSelect = (selectedIndex) => {
-        setIndex(selectedIndex);
-    };
-
-    const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+   
 
     return (
         <>
             {/* Display favorites if any and only for logged in user!!!*/}
 
-            {/* <Carousel activeIndex={index} onSelect={handleSelect}>
-                <Carousel.Item>
-                    {movies.map(movie => (
-                        <img key={movie._id} src={movie.posterUrl} />
-                    ))}
-                </Carousel.Item>
-            </Carousel> */}
-
             <Favourites movies={movies} />
 
             <Movies movies={movies}/>
 
-            <h3>TV Shows</h3>
-            <Carousel activeIndex={index} onSelect={handleSelect}>
-                <Carousel.Item>
-                    {movies.map(movie => (
-                        <img key={movie._id} src={movie.posterUrl} />
-                    ))}
-                </Carousel.Item>
-            </Carousel>
+            <TvShows movies={movies}/>
         </>
     );
 }
