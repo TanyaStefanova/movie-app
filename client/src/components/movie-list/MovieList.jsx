@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import * as movieService from "../../services/movieService";
 
 import Carousel from 'react-bootstrap/Carousel';
+import Favourites from './favourites/Favourites';
 
 export default function MovieList() {
 
@@ -26,6 +27,15 @@ export default function MovieList() {
         <>
             {/* Display favorites if any and only for logged in user!!!*/}
             <h3>Favourites</h3>
+            {/* <Carousel activeIndex={index} onSelect={handleSelect}>
+                <Carousel.Item>
+                    {movies.map(movie => (
+                        <img key={movie._id} src={movie.posterUrl} />
+                    ))}
+                </Carousel.Item>
+            </Carousel> */}
+                <Favourite movies={movies} />
+            <h3>Movies</h3>
             <Carousel activeIndex={index} onSelect={handleSelect}>
                 <Carousel.Item>
                     {movies.map(movie => (
@@ -34,18 +44,9 @@ export default function MovieList() {
                 </Carousel.Item>
             </Carousel>
 
-            <h3>Movies</h3>
-            <Carousel activeIndex={index} onSelect={handleSelect}>
-            <Carousel.Item>
-                    {movies.map(movie => (
-                        <img key={movie._id} src={movie.posterUrl} />
-                    ))}
-                </Carousel.Item>
-            </Carousel>
-
             <h3>TV Shows</h3>
             <Carousel activeIndex={index} onSelect={handleSelect}>
-            <Carousel.Item>
+                <Carousel.Item>
                     {movies.map(movie => (
                         <img key={movie._id} src={movie.posterUrl} />
                     ))}
