@@ -1,0 +1,26 @@
+.row {
+    /* flex-wrap: nowrap; */
+    overflow-x: scroll;
+    overflow-y: hidden;
+    display: flex;
+    padding: 20px;
+}
+
+ .row::-webkit-scrollbar{
+    display: none;
+} 
+
+.rowPoster {
+    width: 100%;
+    object-fit: contain;
+    max-height: 270px;
+    margin-right: 10px;
+    transition: transform 450ms;
+}
+
+.rowPoster:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
