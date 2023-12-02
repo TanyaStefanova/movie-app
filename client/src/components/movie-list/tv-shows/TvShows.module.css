@@ -1,0 +1,56 @@
+.container-fluid {
+    width: (100% - 10rem);
+
+}
+
+.row {
+    /* flex-wrap: nowrap; */
+    overflow-x: scroll;
+    overflow-y: hidden;
+    display: flex;
+    padding: 20px;
+    /* transform: translate(-100%); */
+}
+
+.row::-webkit-scrollbar {
+    display: none;
+}
+
+.imageContainer {
+    position: relative;
+}
+
+.imageContainer:hover{
+    cursor: pointer;
+}
+
+.imageContainer:hover .overlay {
+    opacity: 1;
+    /* transform: scale(1.1); */
+}
+
+.rowPoster {
+    width: 100%;
+    /* width: 11em !important; */
+    object-fit: contain;
+    max-height: 270px;
+    margin-right: 10px;
+    transition: transform 450ms;
+}
+
+.rowPoster:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.overlay {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    width: 95%;
+    transition: 0.5s ease;
+    opacity: 0;
+    bottom: 0;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+}
