@@ -1,13 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import * as movieService from "../../services/movieService";
 
 import Favourites from './favourites/Favourites';
 import Movies from './movies/Movies';
 import TvShows from './tv-shows/TvShows';
+import AuthContext from '../../contexts/authContext';
 
 export default function MovieList() {
-
+    const { isAuthenticated } = useContext(AuthContext);
     const [movies, setMovies] = useState([]);
 
     // TODO handle error
@@ -22,11 +23,13 @@ export default function MovieList() {
         <>
             {/* Display favorites if any and only for logged in user!!!*/}
 
-            <Favourites movies={movies} />
+            {isAuthenticated && (
+                <Favourites movies={movies} />
+            )}
 
-            <Movies movies={movies}/>
+            <Movies movies={movies} />
 
-            <TvShows movies={movies}/>
+            <TvShows movies={movies} />
         </>
     );
 }

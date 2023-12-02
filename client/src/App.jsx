@@ -59,7 +59,8 @@ function App() {
     logoutHandler,
     onClickOpen,
     onClickClose,
-    showModal
+    showModal,
+    isAuthenticated: !!auth.accessToken
   }
 
   return (

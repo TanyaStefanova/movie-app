@@ -1,10 +1,12 @@
+import { useContext, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+
+import * as movieService from '../../services/movieService'
+
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { useContext, useEffect, useState } from 'react';
 import AuthContext from '../../contexts/authContext';
 import { Modal } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
-import * as movieService from '../../services/movieService'
 
 export default function MovieDetails() {
 
