@@ -13,6 +13,7 @@ import AuthContext from './contexts/authContext';
 import Logout from './components/logout/Logout';
 import MovieDetails from './components/movie-details/MovieDetails';
 import MovieEdit from './components/movie-edit/MovieEdit';
+import PageNotFound from './components/page-not-found/PageNotFound';
 
 
 function App() {
@@ -78,6 +79,7 @@ function App() {
             <Route path='/movies/:id' element={<MovieDetails />} />
             <Route path='/movies/:id/edit' element={<MovieEdit />} />
           </Route>
+            <Route path='*' element={<PageNotFound />} />
 
         </Routes>
       </>

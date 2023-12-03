@@ -29,7 +29,7 @@ export default function MovieDetails() {
            navigate('/movies');
         }
     }
-
+console.log(movie);
     return (
         <Modal show={showModal} onHide={onClickClose}>
             {/* <Card style={{ width: '32rem' }}> */}
@@ -52,6 +52,7 @@ export default function MovieDetails() {
                         <div>
                            <Link to={`/movies/${id}/edit`}><Button variant="primary">Edit</Button></Link> 
                           <Button variant="primary" onClick={deleteButtonClickHandler}>Delete</Button>
+                          <Button variant="primary" onClick={onClickClose}>Close</Button>
                         </div>
                     )}
                 </Card.Body>

@@ -28,7 +28,7 @@ const formInitialState = {
 
 
 export default function MovieEdit() {
-    const [formValues, setFormValues] = useState(formInitialState);
+    // const [formValues, setFormValues] = useState(formInitialState);
     const { showModal, onClickClose } = useContext(AuthContext);
     const navigate = useNavigate();
     const { id } = useParams();
@@ -63,7 +63,7 @@ export default function MovieEdit() {
     }
 
     const changeHandler = (e) => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         let value = e.target.value;
 
         if (e.target.type === 'number') {
