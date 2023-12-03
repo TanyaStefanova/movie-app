@@ -1,5 +1,5 @@
-import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 import * as movieService from "../../services/movieService";
 
@@ -29,43 +29,57 @@ const formInitialState = {
 
 export default function MovieEdit() {
     const [formValues, setFormValues] = useState(formInitialState);
+    const { showModal, onClickClose } = useContext(AuthContext);
     const navigate = useNavigate();
-    const {showModal, onClickClose} = useContext(AuthContext);
+    const { id } = useParams();
+    const [movie, setMovie] = useState({
+        title: '',
+        year: '',
+        posterUrl: '',
+        type: '',
+        genres: '',
+        plot: '',
+    });
 
+    useEffect(() => {
+        movieService.getOne(id)
+            .then(result => {
+                setMovie(result)
+            });
+    }, [id]);
+
+
+
+    const editSubmitHandler = async (e) => {
+        e.preventDefault();
+
+        // TODO handle error
+        try {
+            await movieService.edit(id, movie);
+            navigate('/movies');
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     const changeHandler = (e) => {
-        // console.log(e.target.name);
-        // console.log(e.target.value);
+        console.log(e.target.value);
         let value = e.target.value;
 
         if (e.target.type === 'number') {
             value = Number(e.target.value);
         }
 
-        setFormValues(state => ({
+        setMovie(state => ({
             ...state,
             [e.target.name]: value,
         }));
+
+        // setFormValues(state => ({
+        //     ...state,
+        //     [e.target.name]: value,
+        // }));
     }
-
-    const resetFormHandler = (e) => {
-        setFormValues(formInitialState);
-    }
-
-    const submitHandler = async (e) => {
-        e.preventDefault();
-        resetFormHandler();
-
-        // TODO handle error
-        try {
-            await movieService.create(formValues);
-            navigate('/movies');
-        } catch (error) {
-            console.log(error);
-        }
-        console.log(formValues);
-    }
-
 
     return (
         <>
@@ -74,14 +88,13 @@ export default function MovieEdit() {
                     <Modal.Title>Edit Movie</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form onSubmit={submitHandler}>
+                    <Form onSubmit={editSubmitHandler}>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Label >Title</Form.Label>
                             <Form.Control
                                 type="text"
                                 name={FORM_KEYS.title}
-                                // id="title"
-                                value={formValues.title}
+                                value={movie.title}
                                 onChange={changeHandler}
                                 autoFocus
                             />
@@ -91,8 +104,7 @@ export default function MovieEdit() {
                             <Form.Control
                                 type="number"
                                 name={FORM_KEYS.year}
-                                // id="year"
-                                value={formValues.year}
+                                value={movie.year}
                                 onChange={changeHandler}
                             />
                         </Form.Group>
@@ -101,8 +113,7 @@ export default function MovieEdit() {
                             <Form.Control
                                 type="text"
                                 name={FORM_KEYS.posterUrl}
-                                // id="posterUrl"
-                                value={formValues.posterUrl}
+                                value={movie.posterUrl}
                                 onChange={changeHandler}
                             />
                         </Form.Group>
@@ -110,8 +121,7 @@ export default function MovieEdit() {
                             <Form.Select
                                 aria-label="type"
                                 name={FORM_KEYS.type}
-                                // id="type"
-                                value={formValues.type}
+                                value={movie.type}
                                 onChange={changeHandler}
                             >
                                 {/* <option>Type</option> */}
@@ -123,8 +133,7 @@ export default function MovieEdit() {
                             <Form.Select
                                 aria-label="genres"
                                 name={FORM_KEYS.genres}
-                                // id="genres"
-                                value={formValues.genres}
+                                value={movie.genres}
                                 onChange={changeHandler}
                             >
                                 {/* Genres */}
@@ -144,16 +153,15 @@ export default function MovieEdit() {
                                 rows={3}
                                 type="text"
                                 name={FORM_KEYS.plot}
-                                // id="plot"
-                                value={formValues.plot}
+                                value={movie.plot}
                                 onChange={changeHandler}
                             />
                         </Form.Group>
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="primary" type="submit" onClick={submitHandler}>
-                        Add
+                    <Button variant="primary" type="submit" onClick={editSubmitHandler}>
+                        Edit
                     </Button>
                     <Button variant="secondary" onClick={onClickClose}>
                         Close
