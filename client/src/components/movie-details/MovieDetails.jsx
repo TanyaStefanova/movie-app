@@ -34,7 +34,9 @@ export default function MovieDetails() {
                     <Card.Text> 
                         Year: {movie.year}
                     </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
+                    {/* TODO Show only for the owner */}
+                    {/* <Button variant="primary">Edit</Button>
+                    <Button variant="primary">Delete</Button> */}
                 </Card.Body>
             </Card>
         </Modal>
