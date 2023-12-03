@@ -1,0 +1,16 @@
+footer{
+    background-color: #032541;
+    
+}
+
+.foot-col{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    
+}
+
+.foot-col a{
+    color: whitesmoke;
+    text-decoration: none;
+}
