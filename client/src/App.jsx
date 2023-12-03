@@ -60,6 +60,7 @@ function App() {
     onClickOpen,
     onClickClose,
     showModal,
+    ownerId: auth._id,
     isAuthenticated: !!auth.accessToken
   }
 

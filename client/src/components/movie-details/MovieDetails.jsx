@@ -10,7 +10,7 @@ import { Modal } from 'react-bootstrap';
 
 export default function MovieDetails() {
 
-    const { showModal, onClickClose } = useContext(AuthContext);
+    const { showModal, onClickClose, ownerId } = useContext(AuthContext);
     const [movie, setMovie] = useState({});
     const { id } = useParams();
 
@@ -28,15 +28,20 @@ export default function MovieDetails() {
                     <Card.Text>
                         {movie.plot}
                     </Card.Text>
-                    <Card.Text> 
+                    <Card.Text>
                         Genre: {movie.genres}
                     </Card.Text>
-                    <Card.Text> 
-                        Year: {movie.year}
+                    <Card.Text>
+                        Released in {movie.year}
                     </Card.Text>
                     {/* TODO Show only for the owner */}
-                    {/* <Button variant="primary">Edit</Button>
-                    <Button variant="primary">Delete</Button> */}
+                    
+                    {ownerId === movie._ownerId && (
+                        <div>
+                            <Button variant="primary">Edit</Button>
+                            <Button variant="primary">Delete</Button>
+                        </div>
+                    )}
                 </Card.Body>
             </Card>
         </Modal>
