@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 import * as movieService from '../../services/movieService'
 
@@ -13,15 +13,27 @@ export default function MovieDetails() {
     const { showModal, onClickClose, ownerId } = useContext(AuthContext);
     const [movie, setMovie] = useState({});
     const { id } = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         movieService.getOne(id)
             .then(setMovie);
-    }, [id])
+    }, [id]);
+
+    const deleteButtonClickHandler = async () => {
+        const hasConfirmed = confirm(`Are you sure you want to delete ${movie.title}?`);
+
+        if(hasConfirmed){
+           await movieService.remove(id);
+
+           navigate('/movies');
+        }
+    }
 
     return (
         <Modal show={showModal} onHide={onClickClose}>
-            <Card style={{ width: '32rem' }}>
+            {/* <Card style={{ width: '32rem' }}> */}
+            <Card style={{ width: '100%' }}>
                 <Card.Img variant="top" src={movie.posterUrl} />
                 <Card.Body>
                     <Card.Title>{movie.title}</Card.Title>
@@ -38,8 +50,8 @@ export default function MovieDetails() {
                     
                     {ownerId === movie._ownerId && (
                         <div>
-                            <Button variant="primary">Edit</Button>
-                            <Button variant="primary">Delete</Button>
+                           <Link to='/movies/:id/delete'><Button variant="primary">Edit</Button></Link> 
+                          <Button variant="primary" onClick={deleteButtonClickHandler}>Delete</Button>
                         </div>
                     )}
                 </Card.Body>
