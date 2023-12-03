@@ -50,7 +50,7 @@ export default function MovieDetails() {
                     
                     {ownerId === movie._ownerId && (
                         <div>
-                           <Link to='/movies/:id/delete'><Button variant="primary">Edit</Button></Link> 
+                           <Link to='/movies/:id/edit'><Button variant="primary">Edit</Button></Link> 
                           <Button variant="primary" onClick={deleteButtonClickHandler}>Delete</Button>
                         </div>
                     )}

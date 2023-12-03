@@ -12,6 +12,7 @@ import Register from './components/register/Register';
 import AuthContext from './contexts/authContext';
 import Logout from './components/logout/Logout';
 import MovieDetails from './components/movie-details/MovieDetails';
+import MovieEdit from './components/movie-edit/MovieEdit';
 
 
 function App() {
@@ -75,6 +76,7 @@ function App() {
             <Route path='register' element={<Register />} />
             <Route path='logout' element={<Logout />} />
             <Route path='/movies/:id' element={<MovieDetails />} />
+            <Route path='/movies/:id/edit' element={<MovieEdit />} />
           </Route>
 
         </Routes>
