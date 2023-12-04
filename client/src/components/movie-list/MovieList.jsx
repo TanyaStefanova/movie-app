@@ -24,7 +24,7 @@ export default function MovieList() {
             {/* Display favorites if any and only for logged in user!!!*/}
 
             {isAuthenticated && (
-                <Favourites movies={movies} />
+                <Favourites />
             )}
 
             <Movies movies={movies} />

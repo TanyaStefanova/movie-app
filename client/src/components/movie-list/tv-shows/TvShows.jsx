@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import AuthContext from '../../../contexts/authContext';
 
 export default function TvShows({ movies }) {
-    const { showModal, onClickOpen } = useContext(AuthContext);
+    const { showModal, onClickOpen, addFavouriteMovie } = useContext(AuthContext);
 
     return (
         <>
@@ -22,7 +22,7 @@ export default function TvShows({ movies }) {
                                 className={styles.rowPoster}
                                 alt={movie.name}
                                 style={{ width: '11em', height: '100%' }} /></Link>
-                            <div className={`${styles.overlay} d-flex align-items-center justify-content-center`}><AddFavourites /></div>
+                            <div onClick={() => addFavouriteMovie(movie)} className={`${styles.overlay} d-flex align-items-center justify-content-center`}><AddFavourites /></div>
                         </div>
                     ))}
 

@@ -3,6 +3,7 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as authService from './services/authService';
+import * as favouriteService from './services/favouriteService';
 
 import MovieList from './components/movie-list/MovieList';
 import MovieCreate from './components/movie-create/MovieCreate';
@@ -20,6 +21,7 @@ function App() {
   // TODO check if you need a different state for every modal
   const [showModal, setShowModal] = useState(false);
   const [auth, setAuth] = useState({});
+  const [favourites, setFavourites] = useState([]);
   const navigate = useNavigate();
 
   const loginSubmitHandler = async (values) => {
@@ -55,6 +57,19 @@ function App() {
     setShowModal(false);
   };
 
+  const addFavouriteMovie = (movie) => {
+    if (auth._id) {
+      movie.isFavouredBy = auth._id;
+      const newFavouriteList = [...favourites, movie];
+      setFavourites(newFavouriteList);
+
+      favouriteService.create(movie);
+    } else {
+      navigate('/login');
+    }
+
+  }
+
   const values = {
     loginSubmitHandler,
     registerSubmitHandler,
@@ -63,7 +78,8 @@ function App() {
     onClickClose,
     showModal,
     ownerId: auth._id,
-    isAuthenticated: !!auth.accessToken
+    isAuthenticated: !!auth.accessToken,
+    addFavouriteMovie
   }
 
   return (
@@ -79,7 +95,7 @@ function App() {
             <Route path='/movies/:id' element={<MovieDetails />} />
             <Route path='/movies/:id/edit' element={<MovieEdit />} />
           </Route>
-            <Route path='*' element={<PageNotFound />} />
+          <Route path='*' element={<PageNotFound />} />
 
         </Routes>
       </>

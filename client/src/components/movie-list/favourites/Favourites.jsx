@@ -1,16 +1,25 @@
 import AddFavourites from '../../add-favourites/AddFavourites';
 import styles from './Favourites.module.css'
 import { Link } from 'react-router-dom'
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import AuthContext from '../../../contexts/authContext';
+import * as favouriteService from "../../../services/favouriteService";
 
-export default function Favourites({movies}) {
-  const { showModal, onClickOpen } = useContext(AuthContext);
-    
+
+export default function Favourites() {
+  const { onClickOpen, ownerId } = useContext(AuthContext);
+    const [favouriteMovies, setFavouriteMovies] = useState([]);
+
+    // TODO handle error
+    useEffect(() => {
+        favouriteService.getAllFavourites(ownerId)
+        .then(result => setFavouriteMovies(result))
+        .catch(err => console.log(err));
+    }, [ownerId, favouriteMovies])
 
     return (
         <>
-            <h2>Favourites</h2>
+            <h2>My Favourite Movies</h2>
             {/* <div className='slider'> */}
             <div className={styles.containerFluid}>
 
@@ -18,8 +27,11 @@ export default function Favourites({movies}) {
                 {/* <button><div>&#8249;</div></button> */}
                 <div className={styles.row}>
                    
+                   {favouriteMovies.length == 0 && (
+                    <h1>No Favourite movies yet</h1>
+                   )}
               
-                        {movies.map(movie => (
+                        {favouriteMovies.map(movie => (
                             <div className={styles.imageContainer} key={movie._id}>
                             <Link to={`/movies/${movie._id}`} onClick={onClickOpen}><img
                                 
@@ -37,5 +49,6 @@ export default function Favourites({movies}) {
                 {/* <button><div>&#8250;</div></button> */}
             </div>
         </>
+        
     );
 }
