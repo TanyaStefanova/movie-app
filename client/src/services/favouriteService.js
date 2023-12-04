@@ -14,5 +14,5 @@ export const getAllFavourites = async (ownerId) => {
 
 export const create = async (movie) => {
     const newFavouriteMovie = await request.post(baseUrl, {...movie});
-    console.log(newFavouriteMovie);
+    // console.log(newFavouriteMovie);
 }

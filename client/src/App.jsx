@@ -62,7 +62,7 @@ function App() {
       movie.isFavouredBy = auth._id;
       const newFavouriteList = [...favourites, movie];
       setFavourites(newFavouriteList);
-
+      console.log(favourites);
       favouriteService.create(movie);
     } else {
       navigate('/login');
@@ -79,7 +79,8 @@ function App() {
     showModal,
     ownerId: auth._id,
     isAuthenticated: !!auth.accessToken,
-    addFavouriteMovie
+    addFavouriteMovie,
+    favourites
   }
 
   return (

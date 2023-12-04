@@ -7,24 +7,21 @@ import * as favouriteService from "../../../services/favouriteService";
 
 
 export default function Favourites() {
-  const { onClickOpen, ownerId } = useContext(AuthContext);
+  const { onClickOpen, ownerId, favourites } = useContext(AuthContext);
     const [favouriteMovies, setFavouriteMovies] = useState([]);
 
     // TODO handle error
     useEffect(() => {
         favouriteService.getAllFavourites(ownerId)
-        .then(result => setFavouriteMovies(result))
+        .then(setFavouriteMovies)
         .catch(err => console.log(err));
-    }, [ownerId, favouriteMovies])
+    }, [ownerId, favourites])
 
     return (
         <>
             <h2>My Favourite Movies</h2>
-            {/* <div className='slider'> */}
             <div className={styles.containerFluid}>
-
-                {/* {<div style={{ fontSize: "30px", color: 'white'}}>{" < "}</div>} */}
-                {/* <button><div>&#8249;</div></button> */}
+         
                 <div className={styles.row}>
                    
                    {favouriteMovies.length == 0 && (
@@ -43,10 +40,7 @@ export default function Favourites() {
                                 </div>
                         )) }
                         
-
-                    {/* {<div style={{ fontSize: "30px", color: 'white' }}>{" > "}</div>} */}
                 </div>
-                {/* <button><div>&#8250;</div></button> */}
             </div>
         </>
         

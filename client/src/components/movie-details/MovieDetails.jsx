@@ -29,10 +29,9 @@ export default function MovieDetails() {
            navigate('/movies');
         }
     }
-console.log(movie);
+// console.log(movie);
     return (
         <Modal show={showModal} onHide={onClickClose}>
-            {/* <Card style={{ width: '32rem' }}> */}
             <Card style={{ width: '100%' }}>
                 <Card.Img variant="top" src={movie.posterUrl} />
                 <Card.Body>
@@ -46,7 +45,6 @@ console.log(movie);
                     <Card.Text>
                         Released in {movie.year}
                     </Card.Text>
-                    {/* TODO Show only for the owner */}
                     
                     {ownerId === movie._ownerId && (
                         <div>
