@@ -30,7 +30,7 @@ export default function Favourites() {
               
                         {favouriteMovies.map(movie => (
                             <div className={styles.imageContainer} key={movie._id}>
-                            <Link to={`/movies/${movie._id}`} onClick={onClickOpen}><img
+                            <Link to={`/favourites/${movie._id}`} onClick={onClickOpen}><img
                                 
                                 src={movie.posterUrl}
                                 className={styles.rowPoster}

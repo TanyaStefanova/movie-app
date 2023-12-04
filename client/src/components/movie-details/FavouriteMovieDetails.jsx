@@ -1,14 +1,14 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 
-import * as movieService from '../../services/movieService'
+import * as favouriteService from '../../services/favouriteService'
 
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import AuthContext from '../../contexts/authContext';
 import { Modal } from 'react-bootstrap';
 
-export default function MovieDetails() {
+export default function FavouriteMovieDetails() {
 
     const { showModal, onClickClose, ownerId } = useContext(AuthContext);
     const [movie, setMovie] = useState({});
@@ -16,19 +16,19 @@ export default function MovieDetails() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        movieService.getOne(id)
+        favouriteService.getOne(id)
             .then(setMovie);
     }, [id]);
 
-    const deleteButtonClickHandler = async () => {
-        const hasConfirmed = confirm(`Are you sure you want to delete ${movie.title}?`);
+    // const deleteButtonClickHandler = async () => {
+    //     const hasConfirmed = confirm(`Are you sure you want to delete ${movie.title}?`);
 
-        if(hasConfirmed){
-           await movieService.remove(id);
+    //     if(hasConfirmed){
+    //        await favouriteService.remove(id);
 
-           navigate('/movies');
-        }
-    }
+    //        navigate('/movies');
+    //     }
+    // }
     return (
         <Modal show={showModal} onHide={onClickClose}>
             <Card style={{ width: '100%' }}>
@@ -45,13 +45,13 @@ export default function MovieDetails() {
                         Released in {movie.year}
                     </Card.Text>
                     
-                    {ownerId === movie._ownerId && (
+                    {/* {ownerId === movie._ownerId && (
                         <div>
                            <Link to={`/movies/${id}/edit`}><Button variant="primary">Edit</Button></Link> 
                           <Button variant="primary" onClick={deleteButtonClickHandler}>Delete</Button>
                           <Button variant="primary" onClick={onClickClose}>Close</Button>
                         </div>
-                    )}
+                    )} */}
                 </Card.Body>
             </Card>
         </Modal>
