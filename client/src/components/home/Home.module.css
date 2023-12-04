@@ -9,6 +9,26 @@ body {
     color: '#fffff';
 }
 
+.homeContainer {
+    background-image: url("https://www.themoviedb.org/assets/2/v4/marketing/red_pipes-594140f35efb300741add9827cc4f41053b0a4bb7ba249a40375377cc9d22d47.svg");
+    background-size: cover;
+    color: '#fffff';
+}
+
+.heading {
+    height: 233px;
+    line-height: 233px;
+    font-family: "Shrikhand",cursive;
+    font-size: 10em;
+    font-weight: 400;
+    position: relative;
+    color: white;
+    top: 0;
+    left: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .searchButton{
     margin-bottom: 4px;
     margin-left: 10px;

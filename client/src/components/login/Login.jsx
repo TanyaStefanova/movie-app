@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import useForm from '../../hooks/useForm'
 
@@ -61,7 +62,7 @@ export default function Login (){
       </Modal.Body>
                 <Modal.Footer style={{justifyContent: 'flex-start'}}>
                     {/* TODO make the link to not refresh the page + style*/}
-                   <div style={{marginRight: '30px'}}><p>Click <a href="/register">here</a> if you don't have an account</p></div>
+                   <div style={{marginRight: '30px'}}><p>Click <Link to="/register">here</Link> if you don't have an account</p></div>
                     <Button variant="primary" type="submit" onClick={onSubmit}>
                        Login
                     </Button>

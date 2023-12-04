@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -71,7 +72,7 @@ export default function Register() {
             </Modal.Body>
             <Modal.Footer style={{justifyContent: 'flex-start'}}>
                 {/* TODO make the link to not refresh the page + style*/}
-                <div style={{marginRight: '15px'}}><p>Click <a href="/login">here</a> if you already have an account</p></div>
+                <div style={{marginRight: '15px'}}><p>Click <Link to="/login">here</Link> if you already have an account</p></div>
                 <Button variant="primary" type="submit" onClick={onSubmit}>
                     Register
                 </Button>
