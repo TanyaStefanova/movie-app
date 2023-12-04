@@ -32,7 +32,7 @@ function App() {
     console.log(result);
     setAuth(result);
     localStorage.setItem('accessToken', result.accessToken);
-    navigate('/');
+    navigate('/movies');
   }
 
   const registerSubmitHandler = async (values) => {
@@ -42,7 +42,7 @@ function App() {
 
     setAuth(result);
     localStorage.setItem('accessToken', result.accessToken);
-    navigate('/');
+    navigate('/movies');
   }
 
   const logoutHandler = () => {

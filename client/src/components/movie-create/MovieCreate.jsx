@@ -120,7 +120,7 @@ export default function MovieCreate() {
                             >
                                 {/* <option>Type</option> */}
                                 <option value="movie">Movie</option>
-                                <option value="tv-show">TV Show</option>
+                                <option value="tvShow">TV Show</option>
                             </Form.Select>
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">

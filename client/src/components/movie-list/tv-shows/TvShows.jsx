@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { useContext } from 'react';
 import AuthContext from '../../../contexts/authContext';
 
-export default function TvShows({ movies }) {
+export default function TvShows({ tvShows }) {
     const { showModal, onClickOpen, addFavouriteMovie } = useContext(AuthContext);
 
     return (
@@ -14,8 +14,8 @@ export default function TvShows({ movies }) {
 
                 <div className={styles.row} >
 
-                    {movies.map(movie => (
-                        <div className={styles.imageContainer}  key={movie._id}>
+                    {tvShows.map(movie => (
+                        <div className={styles.imageContainer} key={movie._id}>
                            <Link to={`/movies/${movie._id}`} onClick={onClickOpen}><img
                                
                                 src={movie.posterUrl}

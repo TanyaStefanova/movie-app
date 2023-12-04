@@ -1510,7 +1510,48 @@
                 posterUrl: "https://www.movieposters.com/cdn/shop/products/108b520c55e3c9760f77a06110d6a73b_240x360_crop_center.progressive.jpg?v=1573652543",
                 _createdOn: 1614935268135,
                 _id: "a9bae6d8-793e-46c4-a9db-deb9e3484909as10"
+            },
+            "a9bae6d8-793e-46c4-a9db-deb9e3484909as11": {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                title: "Friends",
+                year: "1994",
+                type: "tvShow",
+                genres: [
+                    "Comedy"
+                ],
+                plot: "An American reporter goes to the Australian outback to meet an eccentric crocodile poacher and invites him to New York City.",
+                posterUrl: "https://img.posterstore.com/zoom/wb0074-8friends-milkshake50x70.jpg",
+                _createdOn: 1614935268135,
+                _id: "a9bae6d8-793e-46c4-a9db-deb9e3484909as11"
+            },
+            "a9bae6d8-793e-46c4-a9db-deb9e3484909as12": {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                title: "How I Met Your Mother",
+                year: "2005",
+                type: "tvShow",
+                genres: [
+                    "Comedy"
+                ],
+                plot: "An American reporter goes to the Australian outback to meet an eccentric crocodile poacher and invites him to New York City.",
+                posterUrl: "https://m.media-amazon.com/images/M/MV5BNjg1MDQ5MjQ2N15BMl5BanBnXkFtZTYwNjI5NjA3._V1_FMjpg_UX1000_.jpg",
+                _createdOn: 1614935268135,
+                _id: "a9bae6d8-793e-46c4-a9db-deb9e3484909as12"
+            },
+            "a9bae6d8-793e-46c4-a9db-deb9e3484909as13": {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                title: "Big Bang Theory",
+                year: "2007",
+                type: "tvShow",
+                genres: [
+                    "Comedy"
+                ],
+                plot: "An American reporter goes to the Australian outback to meet an eccentric crocodile poacher and invites him to New York City.",
+                posterUrl: "https://img.posterstore.com/zoom/wb0081-8thebigbangtheory-gang50x70.jpg",
+                _createdOn: 1614935268135,
+                _id: "a9bae6d8-793e-46c4-a9db-deb9e3484909as13"
             }
+
+
         },
         favourites: {
             "a9bae6d8-793e-46c4-a9db-deb9e3484909as1": {

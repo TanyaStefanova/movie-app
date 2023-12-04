@@ -8,6 +8,27 @@ export const getAll = async () => {
     return result;
 }
 
+export const getAllMovies = async () => {
+    const query = new URLSearchParams({
+        where: `type="movie"`,
+    })
+
+    const result = await request.get(`${baseUrl}?${query}`);
+    
+    return result;
+}
+
+export const getAllTvShows = async () => {
+    const query = new URLSearchParams({
+        where: `type="tvShow"`,
+    })
+
+    const result = await request.get(`${baseUrl}?${query}`);
+    
+    return result;
+}
+
+
 export const getOne = async (movieId) => {
     const result = await request.get(`${baseUrl}/${movieId}`);
 
