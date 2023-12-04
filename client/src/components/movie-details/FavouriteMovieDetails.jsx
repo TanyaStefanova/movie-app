@@ -13,7 +13,7 @@ export default function FavouriteMovieDetails() {
     const { showModal, onClickClose, ownerId } = useContext(AuthContext);
     const [movie, setMovie] = useState({});
     const { id } = useParams();
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     useEffect(() => {
         favouriteService.getOne(id)
@@ -45,13 +45,13 @@ export default function FavouriteMovieDetails() {
                         Released in {movie.year}
                     </Card.Text>
                     
-                    {/* {ownerId === movie._ownerId && (
+                  
                         <div>
-                           <Link to={`/movies/${id}/edit`}><Button variant="primary">Edit</Button></Link> 
-                          <Button variant="primary" onClick={deleteButtonClickHandler}>Delete</Button>
-                          <Button variant="primary" onClick={onClickClose}>Close</Button>
+                           {/* <Link to={`/movies/${id}/edit`}><Button variant="primary">Edit</Button></Link>  */}
+                          {/* <Button variant="primary" onClick={deleteButtonClickHandler}>Delete</Button> */}
+                          <Button style={{float: 'inline-end'}} variant="primary" onClick={onClickClose}>Close</Button>
                         </div>
-                    )} */}
+                  
                 </Card.Body>
             </Card>
         </Modal>

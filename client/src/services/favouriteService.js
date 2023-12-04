@@ -23,3 +23,5 @@ export const create = async (movie) => {
     const newFavouriteMovie = await request.post(baseUrl, {...movie});
     // console.log(newFavouriteMovie);
 }
+
+export const remove = async (movieId) => request.remove(`${baseUrl}/${movieId}`);
