@@ -28,6 +28,16 @@ export const getAllTvShows = async () => {
     return result;
 }
 
+export const getSearchedValues = async (value) => {
+    const query = new URLSearchParams({
+        where: `title="${value}"`,
+    })
+
+    const result = await request.get(`${baseUrl}?${query}`);
+    
+    return result;
+}
+
 
 export const getOne = async (movieId) => {
     const result = await request.get(`${baseUrl}/${movieId}`);

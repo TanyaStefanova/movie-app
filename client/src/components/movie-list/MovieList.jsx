@@ -18,14 +18,14 @@ export default function MovieList() {
             .then(result => setMovies(result))
             .catch(err => console.log(err));
         }, []);
-        console.log(movies);
+        // console.log(movies);
         
     useEffect(() => {
         movieService.getAllTvShows()
             .then(setTvShows)
             .catch(err => console.log(err));
         }, [])
-        console.log(tvShows);
+        // console.log(tvShows);
 
     return (
         <>
