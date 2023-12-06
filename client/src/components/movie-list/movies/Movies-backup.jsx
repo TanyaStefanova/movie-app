@@ -3,14 +3,21 @@ import AddFavourites from '../../add-favourites/AddFavourites';
 import { Link } from 'react-router-dom'
 import { useContext, useEffect, useState } from 'react';
 import AuthContext from '../../../contexts/authContext';
+import { Carousel } from 'react-bootstrap';
 import * as request from "../../../lib/request";
 
 
 
-export default function Movies() {
-    const { onClickOpen, addFavouriteMovie } = useContext(AuthContext);
+export default function Movies({ movies }) {
+    const { showModal, onClickOpen, addFavouriteMovie } = useContext(AuthContext);
     const [currentMovies, setCurrentMovies] = useState([]);
     const [offset, setOffset] = useState(0);
+
+    const [index, setIndex] = useState(0);
+
+    const handleSelect = (selectedIndex) => {
+      setIndex(selectedIndex);
+    };
 
     const getCurrentMovies = async () => {
         const query = new URLSearchParams({
@@ -19,7 +26,7 @@ export default function Movies() {
         })
 
         const result = await request.get(`http://localhost:3030/data/movies?${query}`);
-        setCurrentMovies(result)
+        // setCurrentMovies(result)
         return result;
     }
 
@@ -29,28 +36,23 @@ export default function Movies() {
             .then(setCurrentMovies);
 
         console.log(currentMovies);
-    }, [offset])
+    }, [index]);
 
+ 
     const rightButtonClickHandler = () => {
-        setOffset(state => state + 3);
-        if(currentMovies.length <=4) {
-            setOffset(0);
-        }
+        setOffset(state => state - 5);
     }
 
     const leftButtonClickHandler = () => {
-        setOffset(state => state - 5);
-        if(currentMovies.length <=5) {
-            setOffset(0);
-        }
+        setOffset(state => state + 5);
     }
 
     return (
         <>
             <h3>Movies</h3>
-            <div className={styles.containerFluid} >
-
+            <Carousel className={styles.containerFluid} activeIndex={index} onSelect={handleSelect}>
                 <button className={`${styles.handle} ${styles.leftHandle}`} onClick={leftButtonClickHandler}></button>
+            <Carousel.Item>
                 <div className={styles.row} >
 
                     {currentMovies.map(movie => (
@@ -65,9 +67,9 @@ export default function Movies() {
                     ))}
 
                 </div>
+                </Carousel.Item>
                 <button className={`${styles.handle} ${styles.rightHandle}`} onClick={rightButtonClickHandler}></button>
-
-            </div>
+            </Carousel>
         </>
     );
 }

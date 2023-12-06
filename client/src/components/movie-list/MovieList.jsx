@@ -9,23 +9,23 @@ import AuthContext from '../../contexts/authContext';
 
 export default function MovieList() {
     const { isAuthenticated } = useContext(AuthContext);
-    const [movies, setMovies] = useState([]);
+    // const [movies, setMovies] = useState([]);
     const [tvShows, setTvShows] = useState([]);
 
     // TODO handle error
-    useEffect(() => {
-        movieService.getAllMovies()
-            .then(result => setMovies(result))
-            .catch(err => console.log(err));
-        }, []);
-        // console.log(movies);
-        
+    // useEffect(() => {
+    //     movieService.getAllMovies()
+    //         .then(result => setMovies(result))
+    //         .catch(err => console.log(err));
+    // }, []);
+    // console.log(movies);
+
     useEffect(() => {
         movieService.getAllTvShows()
             .then(setTvShows)
             .catch(err => console.log(err));
-        }, [])
-        // console.log(tvShows);
+    }, [])
+    // console.log(tvShows);
 
     return (
         <>
@@ -35,7 +35,7 @@ export default function MovieList() {
                 <Favourites />
             )}
 
-            <Movies movies={movies} />
+            <Movies />
 
             {/* <TvShows movies={movies} /> */}
             <TvShows tvShows={tvShows} />

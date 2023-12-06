@@ -10,8 +10,11 @@ export default function Search({ searchedMovies }) {
                     <div key={movie._id} className="card v4 tight">
                         <div className="wrapper">
                             <div className={styles.image} >
-                                <img src='https://www.themoviedb.org/t/p/w94_and_h141_bestv2/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg' alt="movie-poster" />
-                                <div className="details"></div>
+                                <div><img style={{width: '94px', height: '141px'}} src={movie.posterUrl} alt="movie-poster" /></div>
+                                        <div>
+                                           <div className="title" ><h2>{movie.title}</h2></div>
+                                        <div className="plot" ><p>{movie.plot}</p></div>   
+                                        </div>
                             </div>
                         </div>
                     </div>
