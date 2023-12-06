@@ -1,7 +1,8 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import * as movieService from "../../services/movieService";
+import styles from './MovieCreate.module.css'
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -32,6 +33,9 @@ export default function MovieCreate() {
     const navigate = useNavigate();
     const {showModal, onClickClose} = useContext(AuthContext);
 
+    const [formErrors, setFormErrors] = useState({});
+    const [isSubmit, setIsSubmit] = useState(false);
+
 
     const changeHandler = (e) => {
         // console.log(e.target.name);
@@ -46,6 +50,11 @@ export default function MovieCreate() {
             ...state,
             [e.target.name]: value,
         }));
+
+        setFormErrors(state => ({
+            ...state,
+            [e.target.name]: ''
+        }));
     }
 
     const resetFormHandler = (e) => {
@@ -54,19 +63,52 @@ export default function MovieCreate() {
 
     const submitHandler = async (e) => {
         e.preventDefault();
-        resetFormHandler();
+        // resetFormHandler();
+
+        setFormErrors(validate(formValues));
+        setIsSubmit(true);
 
         // TODO handle error
-        try {
-            await movieService.create(formValues);
-            navigate('/movies');
-        } catch (error) {
-            console.log(error);
-        }
-        console.log(formValues);
+        // try {
+        //     await movieService.create(formValues);
+        //     navigate('/movies');
+        // } catch (error) {
+        //     console.log(error);
+        // }
+        // console.log(formValues);
     }
 
 
+    useEffect(() => {
+        // console.log(formErrors);
+
+        if (Object.keys(formErrors).length === 0 && isSubmit) {
+            // console.log(values);
+            
+            movieService.create(formValues)
+                .then(navigate('/movies'))
+                .catch (error => console.log(error)) 
+                    
+                // navigate('/movies');
+        // console.log(formValues);
+        }
+    }, [formErrors]);
+
+    const validate = (formValues) => {
+        const errors = {};
+
+        // if (values.title !== undefined) {
+            if (!formValues.title || !formValues.year || !formValues.posterUrl || !formValues.plot) {
+                errors.title = 'All fields are required!';
+                errors.year = 'All fields are required!';
+                errors.posterUrl = 'All fields are required!';
+                errors.plot = 'All fields are required!';
+            } 
+        // }
+
+        return errors;
+
+    }
     return (
         <>
             <Modal show={showModal} onHide={onClickClose}>
@@ -74,7 +116,7 @@ export default function MovieCreate() {
                     <Modal.Title>Add Movie</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form onSubmit={submitHandler}>
+                    <Form >
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Label >Title</Form.Label>
                             <Form.Control
@@ -87,6 +129,8 @@ export default function MovieCreate() {
                                 autoFocus
                             />
                         </Form.Group>
+                        <p className={styles.title}>{formErrors.title}</p>
+
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
                             <Form.Label >Year</Form.Label>
                             <Form.Control
@@ -98,6 +142,8 @@ export default function MovieCreate() {
                                 placeholder="1974"
                             />
                         </Form.Group>
+                        <p className={styles.year}>{formErrors.year}</p>
+
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
                             <Form.Label >Poster Url</Form.Label>
                             <Form.Control
@@ -109,6 +155,8 @@ export default function MovieCreate() {
                                 placeholder="https://images-na.ssl-images-amazon.com/images/M/MV5BMTUwODE3MDE0MV5BMl5BanBnXkFtZTgwNTk1MjI4MzE@._V1_SX300.jpg"
                             />
                         </Form.Group>
+                        <p className={styles.posterUrl}>{formErrors.posterUrl}</p>
+
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
                             <Form.Select
                                 aria-label="type"
@@ -154,6 +202,7 @@ export default function MovieCreate() {
                                 onChange={changeHandler}
                             />
                         </Form.Group>
+                        <p className={styles.plot}>{formErrors.plot}</p>
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>

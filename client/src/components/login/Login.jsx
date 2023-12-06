@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import useForm from '../../hooks/useForm'
+import styles from './Login.module.css'
 
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -15,7 +16,7 @@ export default function Login (){
 
   const { showModal, onClickClose, loginSubmitHandler } = useContext(AuthContext);
 
-  const {values, onChange, onSubmit} = useForm(loginSubmitHandler, {
+  const {values, onChange, onSubmit, formErrors} = useForm(loginSubmitHandler, {
     email: '',
     password: ''
   });
@@ -26,7 +27,7 @@ export default function Login (){
             <Modal.Title>Login</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-        <Form onSubmit={onSubmit}>
+        <Form>
         <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
           <Form.Label column sm="2">
             Email
@@ -38,10 +39,12 @@ export default function Login (){
             name="email"
             value={values.email}
             onChange={onChange}
+            required
             placeholder="email@example.com"
             />
           </Col>
         </Form.Group>
+        <p className={styles.email}>{formErrors.email}</p>
   
         <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
           <Form.Label column sm="2">
@@ -54,14 +57,15 @@ export default function Login (){
             name="password"
             value={values.password}
             onChange={onChange}
+            required
             placeholder="Password"
             />
           </Col>
         </Form.Group>
+        <p className={styles.password}>{formErrors.password}</p>
       </Form>
       </Modal.Body>
                 <Modal.Footer style={{justifyContent: 'flex-start'}}>
-                    {/* TODO make the link to not refresh the page + style*/}
                    <div style={{marginRight: '30px'}}><p>Click <Link to="/register">here</Link> if you don't have an account</p></div>
                     <Button variant="primary" type="submit" onClick={onSubmit}>
                        Login

@@ -40,7 +40,7 @@ export default function Home() {
 
     const { seacrhSubmitHandler } = useContext(AuthContext);
 
-    const { values, onChange, onSubmit } = useForm(seacrhSubmitHandler, {
+    const { values, onChange, onSubmit, formErrors } = useForm(seacrhSubmitHandler, {
         search: ''
     });
 
@@ -73,6 +73,7 @@ export default function Home() {
                                     }} />
                                 <Button variant="primary" className={styles.searchButton} onClick={onSubmit}>Search</Button>
                             </Form>
+                            <p className={styles.searchError}>{formErrors.search}</p>
                         </Container>
 
                         <p>Your hero description goes here. You can add more content or customize as needed.</p>

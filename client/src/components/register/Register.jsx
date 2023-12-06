@@ -1,6 +1,8 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
+import styles from './Register.module.css'
+
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
@@ -12,7 +14,7 @@ import useForm from '../../hooks/useForm';
 export default function Register() {
     const { registerSubmitHandler, showModal, onClickClose } = useContext(AuthContext);
 
-    const { values, onChange, onSubmit } = useForm(registerSubmitHandler, {
+    const { values, onChange, onSubmit, formErrors } = useForm(registerSubmitHandler, {
         email: '',
         password: '',
         repeatPassword: '',
@@ -39,6 +41,7 @@ export default function Register() {
                             />
                         </Col>
                     </Form.Group>
+                    <p className={styles.email}>{formErrors.email}</p>
 
                     <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
                         <Form.Label column sm="2">
@@ -54,6 +57,8 @@ export default function Register() {
                             />
                         </Col>
                     </Form.Group>
+                    <p className={styles.password}>{formErrors.password}</p>
+
                     <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
                         <Form.Label column sm="2">
                             Repeat Password
@@ -68,6 +73,7 @@ export default function Register() {
                             />
                         </Col>
                     </Form.Group>
+                    <p className={styles.repeatPassword}>{formErrors.repeatPassword}</p>
                 </Form>
             </Modal.Body>
             <Modal.Footer style={{justifyContent: 'flex-start'}}>
