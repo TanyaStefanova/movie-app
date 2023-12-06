@@ -12,9 +12,9 @@
     overflow-y: hidden;
     display: flex;
     padding: 20px 0;
-    /* transform: translate(calc(var(--row-index) * -100%)); */
+    /* transform: translate(-20%); */
     flex-grow: 1;
-    /* transition: 250ms ease-in-out; */
+    /* transition: transform 250ms ease-in-out; */
 }
 
 

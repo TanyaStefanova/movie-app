@@ -28,7 +28,7 @@ export default function Movies() {
         getCurrentMovies()
             .then(setCurrentMovies);
 
-        console.log(currentMovies);
+        // console.log(currentMovies);
     }, [offset])
 
     const rightButtonClickHandler = () => {

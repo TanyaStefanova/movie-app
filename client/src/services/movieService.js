@@ -29,12 +29,13 @@ export const getAllTvShows = async () => {
 }
 
 export const getSearchedValues = async (value) => {
-    const query = new URLSearchParams({
-        where: `title="${value}"`,
-    })
+    // const query = new URLSearchParams({
+    //     where: `title LIKE "${value}"`,
+    // })
 
-    const result = await request.get(`${baseUrl}?${query}`);
-    
+    const query = encodeURIComponent(`title LIKE "${value}"`)
+
+    const result = await request.get(`${baseUrl}?where=${query}`);
     return result;
 }
 

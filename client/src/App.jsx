@@ -77,14 +77,15 @@ function App() {
 
   const seacrhSubmitHandler = async ({search}) => {
     try {
-      const list = await movieService.getAll();
-      console.log(list);
-      console.log(search);
-      const filteredList = list.filter(movie => movie.title.toLowerCase().includes(search));
-      
-      // const filteredList = list.filter(movie => movie.year== '1994')
-      setSearched(filteredList);
-      console.log(searched);
+
+      // const list = await movieService.getAll();
+      // const filteredList = list.filter(movie => movie.title.toLowerCase().includes(search));      
+      // setSearched(filteredList);
+
+      const list = await movieService.getSearchedValues(search);
+      setSearched(list);
+
+      // console.log(searched);
       navigate('/movies/search')
     } catch (error) {
       console.log(error);

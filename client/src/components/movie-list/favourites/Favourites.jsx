@@ -18,8 +18,9 @@ export default function Favourites() {
         .catch(err => console.log(err));
     }, [ownerId, favourites]);
 
-    const removeFavouriteHandler = async (movieId) => {
-        const hasConfirmed = confirm(`Are you sure you want to remove ${favouriteMovies.title} from favourites?`);
+    const removeFavouriteHandler = async (movieId, title) => {
+   
+        const hasConfirmed = confirm(`Are you sure you want to remove ${title} from favourites?`);
 
         if (hasConfirmed) {
             
@@ -54,7 +55,7 @@ export default function Favourites() {
                                 className={styles.rowPoster}
                                 alt={movie.name}
                                 style={{ width: '11em', height: '100%'}} /></Link>
-                                <div onClick={() => removeFavouriteHandler(movie._id)} className={`${styles.overlay} d-flex align-items-center justify-content-center`}><RemoveFromFavourites movie={movie}/></div>
+                                <div onClick={() => removeFavouriteHandler(movie._id, movie.title)} className={`${styles.overlay} d-flex align-items-center justify-content-center`}><RemoveFromFavourites movie={movie}/></div>
                                 </div>
                         )) }
                         
