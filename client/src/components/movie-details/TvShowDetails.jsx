@@ -8,11 +8,11 @@ import Card from 'react-bootstrap/Card';
 import AuthContext from '../../contexts/authContext';
 import { Modal } from 'react-bootstrap';
 
-export default function MovieDetails() {
+export default function TvShowDetails() {
 
     const { showModal, onClickClose, ownerId } = useContext(AuthContext);
 
-    const [movie, setMovie] = useState({});
+    const [tvShow, setTvShow] = useState({});
     const [error, setError] = useState(null);
 
     const { id } = useParams();
@@ -20,8 +20,8 @@ export default function MovieDetails() {
 
     // TODO test error
     useEffect(() => {
-        movieService.getOne(id)
-            .then(setMovie)
+        movieService.getOneTvShow(id)
+            .then(setTvShow)
             .catch(error => {
                 setError('An error occurred while fetching data. Please try again later.')
             });
@@ -54,20 +54,20 @@ export default function MovieDetails() {
             {error && <p>{error}</p>}
             <Modal show={showModal} onHide={onClickClose}>
                 <Card style={{ width: '100%' }}>
-                    <Card.Img variant="top" src={movie.posterUrl} />
+                    <Card.Img variant="top" src={tvShow.posterUrl} />
                     <Card.Body>
-                        <Card.Title>{movie.title}</Card.Title>
+                        <Card.Title>{tvShow.title}</Card.Title>
                         <Card.Text>
-                            {movie.plot}
+                            {tvShow.plot}
                         </Card.Text>
                         <Card.Text>
-                            Genre: {movie.genres}
+                            Genre: {tvShow.genres}
                         </Card.Text>
                         <Card.Text>
-                            Released in {movie.year}
+                            Released in {tvShow.year}
                         </Card.Text>
 
-                        {ownerId === movie._ownerId && (
+                        {ownerId === tvShow._ownerId && (
                             <div>
                                 <Link to={`/movies/${id}/edit`}><Button variant="primary">Edit</Button></Link>
                                 <Button variant="primary" onClick={deleteButtonClickHandler}>Delete</Button>

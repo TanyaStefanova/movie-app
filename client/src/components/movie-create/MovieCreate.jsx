@@ -102,12 +102,25 @@ export default function MovieCreate() {
         const errors = {};
 
         // if (values.title !== undefined) {
-            if (!formValues.title || !formValues.year || !formValues.posterUrl || !formValues.plot) {
-                errors.title = 'All fields are required!';
-                errors.year = 'All fields are required!';
-                errors.posterUrl = 'All fields are required!';
-                errors.plot = 'All fields are required!';
-            } 
+            // if (!formValues.title || !formValues.year || !formValues.posterUrl || !formValues.plot) {
+            //     errors.title = 'All fields are required!';
+            //     errors.year = 'All fields are required!';
+            //     errors.posterUrl = 'All fields are required!';
+            //     errors.plot = 'All fields are required!';
+            // } 
+            if(!formValues.title) {
+                errors.title = 'Title is required!';
+            }
+            if(!formValues.year){
+                errors.year = 'Year is required!';
+            }
+
+            if(!formValues.posterUrl){
+                errors.posterUrl = 'Image url is required!';
+            }
+            if(!formValues.plot){
+                errors.plot = 'Movie plot is required!';
+            }
         // }
 
         return errors;

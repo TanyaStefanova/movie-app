@@ -1,6 +1,6 @@
 import * as request from "../lib/request";
 
-const baseUrl = 'http://localhost:3030/data/movies'
+let baseUrl = 'http://localhost:3030/data/movies'
 
 export const getAll = async () => {
     const result = await request.get(baseUrl);
@@ -41,22 +41,45 @@ export const getSearchedValues = async (value) => {
 
 
 export const getOne = async (movieId) => {
+   
     const result = await request.get(`${baseUrl}/${movieId}`);
+
+    return result;
+}
+
+export const getOneTvShow = async (showId) => {
+
+    baseUrl = 'http://localhost:3030/data/tvshows';
+   
+    const result = await request.get(`${baseUrl}/${showId}`);
 
     return result;
 }
 
 export const create = async (movieData) => {
 
+    if(movieData.type == 'tvShow'){
+        baseUrl = 'http://localhost:3030/data/tvshows'
+    }
+    console.log(movieData);
     const result = await request.post(baseUrl, movieData);
 
     return result;
 }
 
 export const edit = async(movieId, movieData) => {
+    if(movieData.type == 'tvShow'){
+        baseUrl = 'http://localhost:3030/data/tvshows'
+    }
+    console.log(movieData);
     const result = await request.put(`${baseUrl}/${movieId}`, movieData);
 
     return result;
 }
 
-export const remove = async (movieId) => request.remove(`${baseUrl}/${movieId}`);
+export const remove = async (movieId, type) => {
+    if(type == 'tvShow'){
+        baseUrl = 'http://localhost:3030/data/tvshows'
+    } 
+    request.remove(`${baseUrl}/${movieId}`)
+};

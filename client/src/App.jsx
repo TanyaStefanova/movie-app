@@ -14,6 +14,7 @@ import Register from './components/register/Register';
 import AuthContext from './contexts/authContext';
 import Logout from './components/logout/Logout';
 import MovieDetails from './components/movie-details/MovieDetails';
+import TvShowDetails from './components/movie-details/TvShowDetails';
 import MovieEdit from './components/movie-edit/MovieEdit';
 import PageNotFound from './components/page-not-found/PageNotFound';
 import FavouriteMovieDetails from './components/movie-details/FavouriteMovieDetails';
@@ -78,6 +79,7 @@ function App() {
   const seacrhSubmitHandler = async ({search}) => {
     try {
 
+
       // const list = await movieService.getAll();
       // const filteredList = list.filter(movie => movie.title.toLowerCase().includes(search));      
       // setSearched(filteredList);
@@ -119,6 +121,7 @@ function App() {
             <Route path='register' element={<Register />} />
             <Route path='logout' element={<Logout />} />
             <Route path='movies/:id' element={<MovieDetails />} />
+            <Route path='tvshows/:id' element={<TvShowDetails />} />
             <Route path='favourites/:id' element={<FavouriteMovieDetails />} />
             <Route path='movies/:id/edit' element={<MovieEdit />} />
             <Route path='movies/search' element={<Search searchedMovies={searched} />} />

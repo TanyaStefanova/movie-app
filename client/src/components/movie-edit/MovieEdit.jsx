@@ -62,14 +62,18 @@ export default function MovieEdit() {
         // TODO test error
         try {
             const response = await movieService.edit(id, movie);
-            if (response.status == 204) {
-                // TODO do something
-            } else if (!response.ok) {
-                throw new Error('Server returned an error');
-            }
+            console.log(response);
+            console.log(response.status);
+            // if (response.status == 204) {
+            //     // TODO do something
+            // }
+            
+            // if (!response.ok) {
+            //     throw new Error('Server returned an error');
+            // }
             navigate('/movies');
         } catch (error) {
-            console.error('An error occured:', error);
+            console.error(error.message);
         }
     }
 
@@ -138,7 +142,7 @@ export default function MovieEdit() {
                             >
                                 {/* <option>Type</option> */}
                                 <option value="movie">Movie</option>
-                                <option value="tv-show">TV Show</option>
+                                <option value="tvShow">TV Show</option>
                             </Form.Select>
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">

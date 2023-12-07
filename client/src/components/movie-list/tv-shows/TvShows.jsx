@@ -94,7 +94,7 @@ export default function TvShows() {
 
                     {currentShows.map(movie => (
                         <div className={styles.imageContainer} key={movie._id}>
-                            <Link to={`/movies/${movie._id}`} onClick={onClickOpen}><img
+                            <Link to={`/tvshows/${movie._id}`} onClick={onClickOpen}><img
                                 src={movie.posterUrl}
                                 className={styles.rowPoster}
                                 alt={movie.name}
