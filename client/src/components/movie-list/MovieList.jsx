@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 
 import * as movieService from "../../services/movieService";
 
-import Favourites from './favourites/Favourites';
+import Favourites from './favourites/Favourites-old';
 import Movies from './movies/Movies';
 import TvShows from './tv-shows/TvShows';
 import AuthContext from '../../contexts/authContext';
@@ -24,9 +24,9 @@ export default function MovieList() {
     return (
         <>
 
-            {isAuthenticated && (
+            {/* {isAuthenticated && (
                 <Favourites />
-            )}
+            )} */}
 
             <Movies />
 

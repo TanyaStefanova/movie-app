@@ -1,14 +1,13 @@
-import { useContext, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'
+import RemoveFromFavourites from '../../remove-favourites/RemoveFromFavourites';
 import styles from './Favourites.module.css'
-
+import { Link, useNavigate } from 'react-router-dom'
+import { useContext, useEffect, useState } from 'react';
 import AuthContext from '../../../contexts/authContext';
 import * as favouriteService from "../../../services/favouriteService";
 
 
-export default function Favourites({ searchedMovies }) {
-
-    const { onClickOpen, ownerId, favourites } = useContext(AuthContext);
+export default function Favourites() {
+  const { onClickOpen, ownerId, favourites } = useContext(AuthContext);
     const [favouriteMovies, setFavouriteMovies] = useState([]);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
@@ -39,34 +38,34 @@ export default function Favourites({ searchedMovies }) {
             navigate('/movies');
         }
     }
-    console.log(favouriteMovies);
 
     return (
         <>
             <h2>My Favourite Movies</h2>
             {error && <p>{error}</p>}
-
-          
-            <div className="container">
-            {favouriteMovies.length == 0 && (
+            <div className={styles.containerFluid}>
+         
+                <div className={styles.row}>
+                   
+                   {favouriteMovies.length == 0 && (
                     <h1>No Favourite Movies Added</h1>
                    )}
-                {favouriteMovies.map(movie => (
-                    <div key={movie._id} style={{marginTop: '20px', backgroundColor:'#212529'}} className="card v4 tight">
-                        <div className="wrapper">
-                            <div className={styles.image} >
-                            <Link to={`/favourites/${movie._id}`} onClick={onClickOpen}><div style={{float: 'left', width: '10%'}}><img style={{ width: '94px', height: '141px' }} src={movie.posterUrl} alt="movie-poster" /> </div></Link>
-                               
-                                <div className={styles.details}>
-                                    <div className={styles.title}><h2>{movie.title}</h2></div>
-                                    <div className={styles.overview}><p>{movie.plot}</p></div>
+              
+                        {favouriteMovies.map(movie => (
+                            <div className={styles.imageContainer} key={movie._id}>
+                            <Link to={`/favourites/${movie._id}`} onClick={onClickOpen}><img
+                                
+                                src={movie.posterUrl}
+                                className={styles.rowPoster}
+                                alt={movie.name}
+                                style={{ width: '11em', height: '100%'}} /></Link>
+                                <div onClick={() => removeFavouriteHandler(movie._id, movie.title)} className={`${styles.overlay} d-flex align-items-center justify-content-center`}><RemoveFromFavourites movie={movie}/></div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                ))}
+                        )) }
+                        
+                </div>
             </div>
         </>
+        
     );
-
 }

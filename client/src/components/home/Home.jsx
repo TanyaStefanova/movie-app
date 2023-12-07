@@ -70,7 +70,8 @@ export default function Home() {
                                         display: 'inline',
                                         width: '80%',
                                         borderRadius: '50px'
-                                    }} />
+                                    }}
+                                     />
                                 <Button variant="primary" className={styles.searchButton} onClick={onSubmit}>Search</Button>
                             </Form>
                             <p className={styles.searchError}>{formErrors.search}</p>

@@ -20,7 +20,11 @@ import TvShowEdit from './components/movie-edit/TvShowEdit';
 import PageNotFound from './components/page-not-found/PageNotFound';
 import FavouriteMovieDetails from './components/movie-details/FavouriteMovieDetails';
 import Search from './components/search/Search';
+import Favourites from './components/movie-list/favourites/Favourites';
 
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   // TODO check if you need a different state for every modal
@@ -64,20 +68,25 @@ function App() {
     setShowModal(false);
   };
 
+  const notify = () => toast("Succesfully added to favourites!");
+
   const addFavouriteMovie = (movie) => {
     if (auth._id) {
       movie.isFavouredBy = auth._id;
       const newFavouriteList = [...favourites, movie];
       setFavourites(newFavouriteList);
-      console.log(favourites);
       favouriteService.create(movie);
+
+      notify();
+      
     } else {
       navigate('/login');
     }
 
   }
 
-  const seacrhSubmitHandler = async ({search}) => {
+
+  const seacrhSubmitHandler = async ({ search }) => {
     try {
 
 
@@ -89,11 +98,11 @@ function App() {
       setSearched(list);
 
       // console.log(searched);
-      navigate('/movies/search')
+      navigate('/movies/search');
     } catch (error) {
       console.log(error);
     }
-    navigate('/movies/search');
+    // navigate('/movies/search');
   }
 
   const values = {
@@ -108,7 +117,7 @@ function App() {
     isAuthenticated: !!auth.accessToken,
     addFavouriteMovie,
     favourites,
-    searched
+    searched,
   }
 
   return (
@@ -118,6 +127,7 @@ function App() {
           <Route path='/' element={<Layout onClickOpen={onClickOpen} />}>
             <Route path='movies' element={<MovieList />} />
             <Route path='movies/create' element={<MovieCreate />} />
+            <Route path='movies/favourites' element={<Favourites />} />
             <Route path='login' element={<Login />} />
             <Route path='register' element={<Register />} />
             <Route path='logout' element={<Logout />} />

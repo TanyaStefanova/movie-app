@@ -1,6 +1,6 @@
 import * as request from "../lib/request";
 
-let baseUrl = 'http://localhost:3030/data/movies'
+let baseUrl;
 
 export const getAll = async () => {
     const result = await request.get(baseUrl);

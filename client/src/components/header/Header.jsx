@@ -21,6 +21,7 @@ export default function Header() {
           {isAuthenticated && (
             <div id='user'>
               <Link className={styles.navLink} to="/movies/create" onClick={onClickOpen}>Add Movie</Link>
+              <Link className={styles.navLink} to="/movies/favourites">My Favourites</Link>
               <Link className={styles.navLink} to="/logout">Logout</Link>
             </div>
           )}

@@ -1,23 +1,31 @@
-.container-fluid {
-    width: (100% - 10rem);
-
+/*.containerFluid {
+    display: flex;
+    justify-content: center;
+    
 }
 
 .row {
     /* flex-wrap: nowrap; */
+    /* --row-index: 0;
+    width: calc(100% - 6rem);
     overflow-x: scroll;
     overflow-y: hidden;
     display: flex;
-    padding: 20px;
-    /* transform: translate(-100%); */
-}
+    padding: 20px 0; */
+    /* transform: translate(-20%); */
+    /* flex-grow: 1; */
+    /* transition: transform 250ms ease-in-out; */
+/* } */
 
-.row::-webkit-scrollbar {
+
+/* .row::-webkit-scrollbar {
     display: none;
 }
 
 .imageContainer {
     position: relative;
+    flex: 0 0 12%;
+    max-width: 11.2%;
 }
 
 .imageContainer:hover{
@@ -27,18 +35,20 @@
 .imageContainer:hover .overlay {
     opacity: 1;
     /* transform: scale(1.1); */
-}
+/* } */
 
-.rowPoster {
+/* .rowPoster {
     width: 100%;
-    /* width: 11em !important; */
     object-fit: contain;
     max-height: 270px;
-    margin-right: 10px;
+    /* margin-right: 10px; */
+    /* padding: .25rem;
     transition: transform 450ms;
-}
+    border-radius: 1rem; */
 
-.rowPoster:hover {
+/* } */
+
+/* .rowPoster:hover {
     transform: scale(1.1);
     cursor: pointer;
 }
@@ -51,6 +61,72 @@
     opacity: 0;
     bottom: 0;
     font-size: 20px;
-    padding: 20px 0;
+    padding: 20px;
     text-align: center;
+}
+
+.handle {
+    border: none;
+    border-radius: 1rem;
+    width: 3rem;
+    flex-grow: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    margin: 24px 0;
+} */
+
+/* .handle:hover{
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.leftHandle {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.rightHandle {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+} */
+
+/* .handle:hover::after{
+    color: white;
+    font-size: 5rem;
+}
+
+.leftHandle:hover::after{
+    content: '\2039';
+}
+
+.rightHandle:hover::after{
+    content: '\203A';
+}  */
+
+
+
+
+.details {
+    width: 100%;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    float: right;
+    width: 90%;
+    color: white;
+}
+
+.image {
+    box-sizing: border-box;
+}
+
+.overview {
+    padding-top: 20px;
+}
+
+.title {
+    width: 100%;
 }

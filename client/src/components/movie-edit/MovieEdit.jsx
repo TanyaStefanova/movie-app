@@ -140,7 +140,6 @@ export default function MovieEdit() {
                                 value={movie.type}
                                 onChange={changeHandler}
                             >
-                                {/* <option>Type</option> */}
                                 <option value="movie">Movie</option>
                                 <option value="tvShow">TV Show</option>
                             </Form.Select>
@@ -152,7 +151,6 @@ export default function MovieEdit() {
                                 value={movie.genre}
                                 onChange={changeHandler}
                             >
-                                {/* Genre */}
                                 <option value="crime">Crime</option>
                                 <option value="drama">Drama</option>
                                 <option value="action">Action</option>

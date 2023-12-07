@@ -5,7 +5,8 @@ import { useContext, useEffect, useState } from 'react';
 import AuthContext from '../../../contexts/authContext';
 import * as request from "../../../lib/request";
 
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Movies() {
     const { onClickOpen, addFavouriteMovie } = useContext(AuthContext);
@@ -35,6 +36,7 @@ export default function Movies() {
         // console.log(currentMovies);
     }, [offset])
 
+
     const rightButtonClickHandler = () => {
         setOffset(state => state + 3);
         if(currentMovies.length <=4) {
@@ -51,6 +53,7 @@ export default function Movies() {
 
     return (
         <>
+        <ToastContainer />
             <h3>Movies</h3>
             {error && <p>{error}</p>}
             <div className={styles.containerFluid} >
