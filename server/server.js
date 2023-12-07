@@ -1347,10 +1347,7 @@
                 title: "Beetlejuice",
                 year: "1988",
                 type: "movie",
-                genres: [
-                    "Comedy",
-                    "Fantasy"
-                ],
+                genre: "Fantasy",
                 plot: "A couple of recently deceased ghosts contract the services of a \"bio-exorcist\" in order to remove the obnoxious new owners of their house.",
                 posterUrl: "https://www.movieposters.com/cdn/shop/products/108b520c55e3c9760f77a06110d6a73b_240x360_crop_center.progressive.jpg?v=1573652543",
                 createdOn: 1614935055353,
@@ -1361,11 +1358,7 @@
                 title: "The Cotton Club",
                 year: "1984",
                 type: "movie",
-                genres: [
-                    "Crime",
-                    "Drama",
-                    "Music"
-                ],
+                genre: "Crime",
                 plot: "The Cotton Club was a famous night club in Harlem. The story follows the people that visited the club, those that ran it, and is peppered with the Jazz music that made it so famous.",
                 posterUrl: "https://www.movieposters.com/cdn/shop/products/108b520c55e3c9760f77a06110d6a73b_240x360_crop_center.progressive.jpg?v=1573652543",
                 _createdOn: 1614935181470,
@@ -1376,10 +1369,7 @@
                 title: "The Shawshank Redemption",
                 year: "1994",
                 type: "movie",
-                genres: [
-                    "Crime",
-                    "Drama"
-                ],
+                genre: "Crime",
                 plot: "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
                 posterUrl: "https://www.movieposters.com/cdn/shop/products/108b520c55e3c9760f77a06110d6a73b_240x360_crop_center.progressive.jpg?v=1573652543",
                 _createdOn: 1614935268135,
@@ -1390,10 +1380,7 @@
                 title: "Crocodile Dundee",
                 year: "1986",
                 type: "movie",
-                genres: [
-                    "Adventure",
-                    "Comedy"
-                ],
+                genre: "Adventure",
                 plot: "An American reporter goes to the Australian outback to meet an eccentric crocodile poacher and invites him to New York City.",
                 posterUrl: "https://www.movieposters.com/cdn/shop/products/108b520c55e3c9760f77a06110d6a73b_240x360_crop_center.progressive.jpg?v=1573652543",
                 _createdOn: 1614935268136,
@@ -1404,10 +1391,7 @@
                 title: "Crocodile Dundee",
                 year: "1986",
                 type: "movie",
-                genres: [
-                    "Adventure",
-                    "Comedy"
-                ],
+                genre: "Adventure",
                 plot: "An American reporter goes to the Australian outback to meet an eccentric crocodile poacher and invites him to New York City.",
                 posterUrl: "https://www.movieposters.com/cdn/shop/products/108b520c55e3c9760f77a06110d6a73b_240x360_crop_center.progressive.jpg?v=1573652543",
                 _createdOn: 1614935268137,
@@ -1418,10 +1402,7 @@
                 title: "Crocodile Dundee",
                 year: "1986",
                 type: "movie",
-                genres: [
-                    "Adventure",
-                    "Comedy"
-                ],
+                genre: "Adventure",
                 plot: "An American reporter goes to the Australian outback to meet an eccentric crocodile poacher and invites him to New York City.",
                 posterUrl: "https://www.movieposters.com/cdn/shop/products/108b520c55e3c9760f77a06110d6a73b_240x360_crop_center.progressive.jpg?v=1573652543",
                 _createdOn: 1614935268138,
@@ -1432,10 +1413,7 @@
                 title: "Crocodile Dundee",
                 year: "1986",
                 type: "movie",
-                genres: [
-                    "Adventure",
-                    "Comedy"
-                ],
+                genre: "Adventure",
                 plot: "An American reporter goes to the Australian outback to meet an eccentric crocodile poacher and invites him to New York City.",
                 posterUrl: "https://www.movieposters.com/cdn/shop/products/108b520c55e3c9760f77a06110d6a73b_240x360_crop_center.progressive.jpg?v=1573652543",
                 _createdOn: 1614935268139,
@@ -1446,10 +1424,7 @@
                 title: "Crocodile Dundee",
                 year: "1986",
                 type: "movie",
-                genres: [
-                    "Adventure",
-                    "Comedy"
-                ],
+                genre: "Adventure",
                 plot: "An American reporter goes to the Australian outback to meet an eccentric crocodile poacher and invites him to New York City.",
                 posterUrl: "https://www.movieposters.com/cdn/shop/products/108b520c55e3c9760f77a06110d6a73b_240x360_crop_center.progressive.jpg?v=1573652543",
                 _createdOn: 1614935268140,
@@ -1460,10 +1435,7 @@
                 title: "Crocodile Dundee",
                 year: "1986",
                 type: "movie",
-                genres: [
-                    "Adventure",
-                    "Comedy"
-                ],
+                genre: "Adventure",
                 plot: "An American reporter goes to the Australian outback to meet an eccentric crocodile poacher and invites him to New York City.",
                 posterUrl: "https://www.movieposters.com/cdn/shop/products/108b520c55e3c9760f77a06110d6a73b_240x360_crop_center.progressive.jpg?v=1573652543",
                 _createdOn: 1614935268125,
@@ -1474,10 +1446,7 @@
                 title: "Crocodile Dundee",
                 year: "1986",
                 type: "movie",
-                genres: [
-                    "Adventure",
-                    "Comedy"
-                ],
+                genre: "Adventure",
                 plot: "An American reporter goes to the Australian outback to meet an eccentric crocodile poacher and invites him to New York City.",
                 posterUrl: "https://www.movieposters.com/cdn/shop/products/108b520c55e3c9760f77a06110d6a73b_240x360_crop_center.progressive.jpg?v=1573652543",
                 _createdOn: 1614935268126,
@@ -1488,10 +1457,7 @@
                 title: "Crocodile Dundee",
                 year: "1986",
                 type: "movie",
-                genres: [
-                    "Adventure",
-                    "Comedy"
-                ],
+                genre: "Adventure",
                 plot: "An American reporter goes to the Australian outback to meet an eccentric crocodile poacher and invites him to New York City.",
                 posterUrl: "https://www.movieposters.com/cdn/shop/products/108b520c55e3c9760f77a06110d6a73b_240x360_crop_center.progressive.jpg?v=1573652543",
                 _createdOn: 161493526865,
@@ -1502,10 +1468,7 @@
                 title: "Crocodile Dundee",
                 year: "1986",
                 type: "movie",
-                genres: [
-                    "Adventure",
-                    "Comedy"
-                ],
+                genre: "Adventure",
                 plot: "An American reporter goes to the Australian outback to meet an eccentric crocodile poacher and invites him to New York City.",
                 posterUrl: "https://www.movieposters.com/cdn/shop/products/108b520c55e3c9760f77a06110d6a73b_240x360_crop_center.progressive.jpg?v=1573652543",
                 _createdOn: 1614935268196,
@@ -1520,10 +1483,7 @@
                 title: "Crocodile Dundee",
                 year: "1986",
                 type: "movie",
-                genres: [
-                    "Adventure",
-                    "Comedy"
-                ],
+                genre: "Adventure",
                 plot: "An American reporter goes to the Australian outback to meet an eccentric crocodile poacher and invites him to New York City.",
                 posterUrl: "https://www.movieposters.com/cdn/shop/products/108b520c55e3c9760f77a06110d6a73b_240x360_crop_center.progressive.jpg?v=1573652543",
                 _createdOn: 1614935268135,
@@ -1537,10 +1497,7 @@
                 title: "Crocodile Dundee",
                 year: "1986",
                 type: "tvShow",
-                genres: [
-                    "Adventure",
-                    "Comedy"
-                ],
+                genre: "Adventure",
                 plot: "An American reporter goes to the Australian outback to meet an eccentric crocodile poacher and invites him to New York City.",
                 posterUrl: "https://www.movieposters.com/cdn/shop/products/108b520c55e3c9760f77a06110d6a73b_240x360_crop_center.progressive.jpg?v=1573652543",
                 _createdOn: 1614935268135,
@@ -1552,10 +1509,7 @@
                 title: "Crocodile Dundee",
                 year: "1986",
                 type: "tvShow",
-                genres: [
-                    "Adventure",
-                    "Comedy"
-                ],
+                genre: "Adventure",
                 plot: "An American reporter goes to the Australian outback to meet an eccentric crocodile poacher and invites him to New York City.",
                 posterUrl: "https://www.movieposters.com/cdn/shop/products/108b520c55e3c9760f77a06110d6a73b_240x360_crop_center.progressive.jpg?v=1573652543",
                 _createdOn: 1614935268135,
@@ -1567,10 +1521,7 @@
                 title: "Crocodile Dundee",
                 year: "1986",
                 type: "tvShow",
-                genres: [
-                    "Adventure",
-                    "Comedy"
-                ],
+                genre: "Adventure",
                 plot: "An American reporter goes to the Australian outback to meet an eccentric crocodile poacher and invites him to New York City.",
                 posterUrl: "https://www.movieposters.com/cdn/shop/products/108b520c55e3c9760f77a06110d6a73b_240x360_crop_center.progressive.jpg?v=1573652543",
                 _createdOn: 1614935268135,
@@ -1582,10 +1533,7 @@
                 title: "Crocodile Dundee",
                 year: "1986",
                 type: "tvShow",
-                genres: [
-                    "Adventure",
-                    "Comedy"
-                ],
+                genre: "Adventure",
                 plot: "An American reporter goes to the Australian outback to meet an eccentric crocodile poacher and invites him to New York City.",
                 posterUrl: "https://www.movieposters.com/cdn/shop/products/108b520c55e3c9760f77a06110d6a73b_240x360_crop_center.progressive.jpg?v=1573652543",
                 _createdOn: 1614935268135,
@@ -1597,9 +1545,7 @@
                 title: "Friends",
                 year: "1994",
                 type: "tvShow",
-                genres: [
-                    "Comedy"
-                ],
+                genre: "Comedy",
                 plot: "An American reporter goes to the Australian outback to meet an eccentric crocodile poacher and invites him to New York City.",
                 posterUrl: "https://img.posterstore.com/zoom/wb0074-8friends-milkshake50x70.jpg",
                 _createdOn: 1614935268362,
@@ -1610,9 +1556,7 @@
                 title: "How I Met Your Mother",
                 year: "2005",
                 type: "tvShow",
-                genres: [
-                    "Comedy"
-                ],
+                genre: "Comedy",
                 plot: "An American reporter goes to the Australian outback to meet an eccentric crocodile poacher and invites him to New York City.",
                 posterUrl: "https://m.media-amazon.com/images/M/MV5BNjg1MDQ5MjQ2N15BMl5BanBnXkFtZTYwNjI5NjA3._V1_FMjpg_UX1000_.jpg",
                 _createdOn: 1614935268462,
@@ -1623,9 +1567,7 @@
                 title: "Big Bang Theory",
                 year: "2007",
                 type: "tvShow",
-                genres: [
-                    "Comedy"
-                ],
+                genre: "Comedy",
                 plot: "An American reporter goes to the Australian outback to meet an eccentric crocodile poacher and invites him to New York City.",
                 posterUrl: "https://img.posterstore.com/zoom/wb0081-8thebigbangtheory-gang50x70.jpg",
                 _createdOn: 1614935268265,

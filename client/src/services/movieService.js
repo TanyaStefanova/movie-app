@@ -13,8 +13,10 @@ export const getAllMovies = async () => {
         where: `type="movie"`,
     })
 
+    baseUrl = 'http://localhost:3030/data/movies';
+
     const result = await request.get(`${baseUrl}?${query}`);
-    
+
     return result;
 }
 
@@ -23,8 +25,10 @@ export const getAllTvShows = async () => {
         where: `type="tvShow"`,
     })
 
+    baseUrl = 'http://localhost:3030/data/tvshows';
+
     const result = await request.get(`${baseUrl}?${query}`);
-    
+
     return result;
 }
 
@@ -35,13 +39,20 @@ export const getSearchedValues = async (value) => {
 
     const query = encodeURIComponent(`title LIKE "${value}"`)
 
-    const result = await request.get(`${baseUrl}?where=${query}`);
+    // const result = await request.get(`${baseUrl}?where=${query}`);
+    const tvShowResult = await request.get(`http://localhost:3030/data/tvshows?where=${query}`);
+    console.log(typeof tvShowResult);
+    const movieResult = await request.get(`http://localhost:3030/data/movies?where=${query}`);
+    const result = tvShowResult.concat(movieResult);
+
     return result;
 }
 
 
 export const getOne = async (movieId) => {
-   
+
+    baseUrl = 'http://localhost:3030/data/movies';
+
     const result = await request.get(`${baseUrl}/${movieId}`);
 
     return result;
@@ -50,7 +61,7 @@ export const getOne = async (movieId) => {
 export const getOneTvShow = async (showId) => {
 
     baseUrl = 'http://localhost:3030/data/tvshows';
-   
+
     const result = await request.get(`${baseUrl}/${showId}`);
 
     return result;
@@ -58,8 +69,10 @@ export const getOneTvShow = async (showId) => {
 
 export const create = async (movieData) => {
 
-    if(movieData.type == 'tvShow'){
+    if (movieData.type == 'tvShow') {
         baseUrl = 'http://localhost:3030/data/tvshows'
+    } else if (movieData.type == 'movie') {
+        baseUrl = 'http://localhost:3030/data/movies'
     }
     console.log(movieData);
     const result = await request.post(baseUrl, movieData);
@@ -67,9 +80,11 @@ export const create = async (movieData) => {
     return result;
 }
 
-export const edit = async(movieId, movieData) => {
-    if(movieData.type == 'tvShow'){
+export const edit = async (movieId, movieData) => {
+    if (movieData.type == 'tvShow') {
         baseUrl = 'http://localhost:3030/data/tvshows'
+    } else if (movieData.type == 'movie') {
+        baseUrl = 'http://localhost:3030/data/movies'
     }
     console.log(movieData);
     const result = await request.put(`${baseUrl}/${movieId}`, movieData);
@@ -78,8 +93,10 @@ export const edit = async(movieId, movieData) => {
 }
 
 export const remove = async (movieId, type) => {
-    if(type == 'tvShow'){
+    if (type == 'tvShow') {
         baseUrl = 'http://localhost:3030/data/tvshows'
-    } 
+    } else if (type == 'movie') {
+        baseUrl = 'http://localhost:3030/data/movies'
+    }
     request.remove(`${baseUrl}/${movieId}`)
 };

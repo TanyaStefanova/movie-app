@@ -16,6 +16,7 @@ import Logout from './components/logout/Logout';
 import MovieDetails from './components/movie-details/MovieDetails';
 import TvShowDetails from './components/movie-details/TvShowDetails';
 import MovieEdit from './components/movie-edit/MovieEdit';
+import TvShowEdit from './components/movie-edit/TvShowEdit';
 import PageNotFound from './components/page-not-found/PageNotFound';
 import FavouriteMovieDetails from './components/movie-details/FavouriteMovieDetails';
 import Search from './components/search/Search';
@@ -124,6 +125,7 @@ function App() {
             <Route path='tvshows/:id' element={<TvShowDetails />} />
             <Route path='favourites/:id' element={<FavouriteMovieDetails />} />
             <Route path='movies/:id/edit' element={<MovieEdit />} />
+            <Route path='tvshows/:id/edit' element={<TvShowEdit />} />
             <Route path='movies/search' element={<Search searchedMovies={searched} />} />
           </Route>
           <Route path='*' element={<PageNotFound />} />

@@ -29,12 +29,12 @@ export default function TvShowDetails() {
     }, [id]);
 
     const deleteButtonClickHandler = async () => {
-        const hasConfirmed = confirm(`Are you sure you want to delete ${movie.title}?`);
+        const hasConfirmed = confirm(`Are you sure you want to delete ${tvShow.title}?`);
 
         // TODO test error
         if (hasConfirmed) {
             try {
-                const response = await movieService.remove(id, movie.type);
+                const response = await movieService.remove(id, tvShow.type);
 
                 // if (response.status == 204) {
                 //     // TODO do something
@@ -61,7 +61,7 @@ export default function TvShowDetails() {
                             {tvShow.plot}
                         </Card.Text>
                         <Card.Text>
-                            Genre: {tvShow.genres}
+                            Genre: {tvShow.genre}
                         </Card.Text>
                         <Card.Text>
                             Released in {tvShow.year}
@@ -69,7 +69,7 @@ export default function TvShowDetails() {
 
                         {ownerId === tvShow._ownerId && (
                             <div>
-                                <Link to={`/movies/${id}/edit`}><Button variant="primary">Edit</Button></Link>
+                                <Link to={`/tvshows/${id}/edit`}><Button variant="primary">Edit</Button></Link>
                                 <Button variant="primary" onClick={deleteButtonClickHandler}>Delete</Button>
                                 <Button variant="primary" onClick={onClickClose}>Close</Button>
                             </div>

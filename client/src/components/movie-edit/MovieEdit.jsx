@@ -13,7 +13,7 @@ const FORM_KEYS = {
     year: 'year',
     posterUrl: 'posterUrl',
     type: 'type',
-    genres: 'genres',
+    genre: 'genre',
     plot: 'plot',
 }
 
@@ -22,7 +22,7 @@ const formInitialState = {
     [FORM_KEYS.year]: '',
     [FORM_KEYS.posterUrl]: '',
     [FORM_KEYS.type]: 'Movie',
-    [FORM_KEYS.genres]: 'Crime',
+    [FORM_KEYS.genre]: 'Crime',
     [FORM_KEYS.plot]: '',
 }
 
@@ -39,7 +39,7 @@ export default function MovieEdit() {
         year: '',
         posterUrl: '',
         type: '',
-        genres: '',
+        genre: '',
         plot: '',
     });
 
@@ -147,12 +147,12 @@ export default function MovieEdit() {
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
                             <Form.Select
-                                aria-label="genres"
-                                name={FORM_KEYS.genres}
-                                value={movie.genres}
+                                aria-label="genre"
+                                name={FORM_KEYS.genre}
+                                value={movie.genre}
                                 onChange={changeHandler}
                             >
-                                {/* Genres */}
+                                {/* Genre */}
                                 <option value="crime">Crime</option>
                                 <option value="drama">Drama</option>
                                 <option value="action">Action</option>

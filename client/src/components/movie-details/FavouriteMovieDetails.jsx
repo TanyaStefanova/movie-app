@@ -49,7 +49,7 @@ export default function FavouriteMovieDetails() {
                         {movie.plot}
                     </Card.Text>
                     <Card.Text>
-                        Genre: {movie.genres}
+                        Genre: {movie.genre}
                     </Card.Text>
                     <Card.Text>
                         Released in {movie.year}
