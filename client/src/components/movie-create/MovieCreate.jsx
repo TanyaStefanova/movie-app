@@ -30,11 +30,12 @@ const formInitialState = {
 
 export default function MovieCreate() {
     const [formValues, setFormValues] = useState(formInitialState);
-    const navigate = useNavigate();
-    const {showModal, onClickClose} = useContext(AuthContext);
-
     const [formErrors, setFormErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
+    const [serverError, setServerError] = useState(null);
+ 
+    const navigate = useNavigate();
+    const {showModal, onClickClose} = useContext(AuthContext);
 
 
     const changeHandler = (e) => {
@@ -68,7 +69,7 @@ export default function MovieCreate() {
         setFormErrors(validate(formValues));
         setIsSubmit(true);
 
-        // TODO handle error
+        // TODO test error
         // try {
         //     await movieService.create(formValues);
         //     navigate('/movies');
@@ -85,10 +86,12 @@ export default function MovieCreate() {
         if (Object.keys(formErrors).length === 0 && isSubmit) {
             // console.log(values);
             
-            // TODO handle error
+            // TODO test error
             movieService.create(formValues)
                 .then(navigate('/movies'))
-                .catch (error => console.error(error)) 
+                .catch (error => {
+                    setServerError(error);
+                }) 
                     
                 // navigate('/movies');
         // console.log(formValues);
@@ -112,6 +115,7 @@ export default function MovieCreate() {
     }
     return (
         <>
+        {serverError && <p>An error occured: {serverError.message}</p>}
             <Modal show={showModal} onHide={onClickClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Add Movie</Modal.Title>

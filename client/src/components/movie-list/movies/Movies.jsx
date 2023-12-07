@@ -11,6 +11,7 @@ export default function Movies() {
     const { onClickOpen, addFavouriteMovie } = useContext(AuthContext);
     const [currentMovies, setCurrentMovies] = useState([]);
     const [offset, setOffset] = useState(0);
+    const [error, setError] = useState(null);
 
     const getCurrentMovies = async () => {
         const query = new URLSearchParams({
@@ -23,11 +24,13 @@ export default function Movies() {
         return result;
     }
 
-    // TODO handle error
+    // TODO test error
     useEffect(() => {
         getCurrentMovies()
             .then(setCurrentMovies)
-            .catch(error => console.error(error));
+            .catch(error => {
+                setError('An error occurred while fetching data. Please try again later.')
+            });
 
         // console.log(currentMovies);
     }, [offset])
@@ -49,6 +52,7 @@ export default function Movies() {
     return (
         <>
             <h3>Movies</h3>
+            {error && <p>{error}</p>}
             <div className={styles.containerFluid} >
 
                 <button className={`${styles.handle} ${styles.leftHandle}`} onClick={leftButtonClickHandler}></button>

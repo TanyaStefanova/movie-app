@@ -9,13 +9,16 @@ import * as favouriteService from "../../../services/favouriteService";
 export default function Favourites() {
   const { onClickOpen, ownerId, favourites } = useContext(AuthContext);
     const [favouriteMovies, setFavouriteMovies] = useState([]);
+    const [error, setError] = useState(null);
     const navigate = useNavigate();
 
-    // TODO handle error
+    // TODO test error
     useEffect(() => {
         favouriteService.getAllFavourites(ownerId)
         .then(setFavouriteMovies)
-        .catch(err => console.log(err));
+        .catch(error => {
+            setError('An error occurred while fetching data. Please try again later.')
+        });
     }, [ownerId, favourites]);
 
     const removeFavouriteHandler = async (movieId, title) => {
@@ -39,6 +42,7 @@ export default function Favourites() {
     return (
         <>
             <h2>My Favourite Movies</h2>
+            {error && <p>{error}</p>}
             <div className={styles.containerFluid}>
          
                 <div className={styles.row}>

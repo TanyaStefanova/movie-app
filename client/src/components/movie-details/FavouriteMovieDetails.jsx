@@ -11,15 +11,21 @@ import { Modal } from 'react-bootstrap';
 export default function FavouriteMovieDetails() {
 
     const { showModal, onClickClose, ownerId } = useContext(AuthContext);
+
     const [movie, setMovie] = useState({});
+    const [error, setError] = useState(null);
+
     const { id } = useParams();
     // const navigate = useNavigate();
 
-      // TODO handle error
+      // TODO test error
     useEffect(() => {
         favouriteService.getOne(id)
             .then(setMovie)
-            .catch(error => console.error(error));
+            .catch(error => {
+                setError('An error occurred while fetching data. Please try again later.');
+                console.log(error);
+            });
     }, [id]);
 
     // const deleteButtonClickHandler = async () => {
@@ -32,6 +38,8 @@ export default function FavouriteMovieDetails() {
     //     }
     // }
     return (
+        <>
+        {error && <p>{error}</p>}
         <Modal show={showModal} onHide={onClickClose}>
             <Card style={{ width: '100%' }}>
                 <Card.Img variant="top" src={movie.posterUrl} />
@@ -57,5 +65,6 @@ export default function FavouriteMovieDetails() {
                 </Card.Body>
             </Card>
         </Modal>
+        </>
     );
 }

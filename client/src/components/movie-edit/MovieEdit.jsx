@@ -30,6 +30,8 @@ const formInitialState = {
 export default function MovieEdit() {
     // const [formValues, setFormValues] = useState(formInitialState);
     const { showModal, onClickClose } = useContext(AuthContext);
+    const [error, setError] = useState(null);
+
     const navigate = useNavigate();
     const { id } = useParams();
     const [movie, setMovie] = useState({
@@ -41,12 +43,15 @@ export default function MovieEdit() {
         plot: '',
     });
 
-      // TODO handle error
+    // TODO test error
     useEffect(() => {
         movieService.getOne(id)
             .then(result => {
                 setMovie(result)
-            });
+            })
+            .catch(error => {
+                setError('An error occurred while fetching data. Please try again later.')
+            })
     }, [id]);
 
 
@@ -54,12 +59,17 @@ export default function MovieEdit() {
     const editSubmitHandler = async (e) => {
         e.preventDefault();
 
-        // TODO handle error
+        // TODO test error
         try {
-            await movieService.edit(id, movie);
+            const response = await movieService.edit(id, movie);
+            if (response.status == 204) {
+                // TODO do something
+            } else if (!response.ok) {
+                throw new Error('Server returned an error');
+            }
             navigate('/movies');
         } catch (error) {
-            console.error(error);
+            console.error('An error occured:', error);
         }
     }
 
@@ -84,6 +94,7 @@ export default function MovieEdit() {
 
     return (
         <>
+            {error && <p>{error}</p>}
             <Modal show={showModal} onHide={onClickClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Edit Movie</Modal.Title>

@@ -12,7 +12,7 @@ export default function MovieList() {
     // const [movies, setMovies] = useState([]);
     const [tvShows, setTvShows] = useState([]);
 
-    // TODO handle error
+  
     // useEffect(() => {
     //     movieService.getAllMovies()
     //         .then(result => setMovies(result))
@@ -20,9 +20,6 @@ export default function MovieList() {
     // }, []);
     // console.log(movies);
 
-    // TODO handle error
-   
-    // console.log(tvShows);
 
     return (
         <>

@@ -11,52 +11,71 @@ import { Modal } from 'react-bootstrap';
 export default function MovieDetails() {
 
     const { showModal, onClickClose, ownerId } = useContext(AuthContext);
+
     const [movie, setMovie] = useState({});
+    const [error, setError] = useState(null);
+
     const { id } = useParams();
     const navigate = useNavigate();
 
-      // TODO handle error
+    // TODO test error
     useEffect(() => {
         movieService.getOne(id)
             .then(setMovie)
-            .catch(error => console.error(error));
+            .catch(error => {
+                setError('An error occurred while fetching data. Please try again later.')
+            });
     }, [id]);
 
     const deleteButtonClickHandler = async () => {
         const hasConfirmed = confirm(`Are you sure you want to delete ${movie.title}?`);
 
-          // TODO handle error
-        if(hasConfirmed){
-           await movieService.remove(id);
+        // TODO test error
+        if (hasConfirmed) {
+            try {
+                const response = await movieService.remove(id);
 
-           navigate('/movies');
+                if (response.status == 204) {
+                    // TODO do something
+                } else if (!response.ok) {
+                    throw new Error('Server returned an error');
+                } 
+
+                navigate('/movies');
+            } catch (error) {
+                console.error('An error occured:', error);
+            }
+
         }
     }
     return (
-        <Modal show={showModal} onHide={onClickClose}>
-            <Card style={{ width: '100%' }}>
-                <Card.Img variant="top" src={movie.posterUrl} />
-                <Card.Body>
-                    <Card.Title>{movie.title}</Card.Title>
-                    <Card.Text>
-                        {movie.plot}
-                    </Card.Text>
-                    <Card.Text>
-                        Genre: {movie.genres}
-                    </Card.Text>
-                    <Card.Text>
-                        Released in {movie.year}
-                    </Card.Text>
-                    
-                    {ownerId === movie._ownerId && (
-                        <div>
-                           <Link to={`/movies/${id}/edit`}><Button variant="primary">Edit</Button></Link> 
-                          <Button variant="primary" onClick={deleteButtonClickHandler}>Delete</Button>
-                          <Button variant="primary" onClick={onClickClose}>Close</Button>
-                        </div>
-                    )}
-                </Card.Body>
-            </Card>
-        </Modal>
+        <>
+            {error && <p>{error}</p>}
+            <Modal show={showModal} onHide={onClickClose}>
+                <Card style={{ width: '100%' }}>
+                    <Card.Img variant="top" src={movie.posterUrl} />
+                    <Card.Body>
+                        <Card.Title>{movie.title}</Card.Title>
+                        <Card.Text>
+                            {movie.plot}
+                        </Card.Text>
+                        <Card.Text>
+                            Genre: {movie.genres}
+                        </Card.Text>
+                        <Card.Text>
+                            Released in {movie.year}
+                        </Card.Text>
+
+                        {ownerId === movie._ownerId && (
+                            <div>
+                                <Link to={`/movies/${id}/edit`}><Button variant="primary">Edit</Button></Link>
+                                <Button variant="primary" onClick={deleteButtonClickHandler}>Delete</Button>
+                                <Button variant="primary" onClick={onClickClose}>Close</Button>
+                            </div>
+                        )}
+                    </Card.Body>
+                </Card>
+            </Modal>
+        </>
     );
 }
