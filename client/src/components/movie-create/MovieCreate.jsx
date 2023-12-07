@@ -68,15 +68,6 @@ export default function MovieCreate() {
 
         setFormErrors(validate(formValues));
         setIsSubmit(true);
-
-        // TODO test error
-        // try {
-        //     await movieService.create(formValues);
-        //     navigate('/movies');
-        // } catch (error) {
-        //     console.log(error);
-        // }
-        // console.log(formValues);
     }
 
 

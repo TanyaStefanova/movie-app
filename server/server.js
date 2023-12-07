@@ -1610,7 +1610,7 @@
             "7b02a947-2069-41e9-8685-0d7e423fce74": {
                 genre:"comedy",
                 plot:"6 friends who go through just about every life experience imaginable together; love, marriage, divorce, children, heartbreaks,                fights, new jobs and job losses and all sorts of drama.",
-                posterUrl:"https://img.posterstore.com/zoom/wb0074-8friends-milkshake50x70.jpg",
+                posterUrl:"https://www.postergully.com/cdn/shop/products/LowRes_1Friends_1024x1024.jpg?v=1678204822",
                 title:"Friends",
                 type:"tvShow",
                 year:"1994",
@@ -1622,7 +1622,7 @@
 
                 genre:"Crime",
                 plot:"The story of Frank Underwood (Kevin Spacey), a Democrat from South Carolina's 5th congressional district and the House Majority Whip, who, after getting passed over for appointment as Secretary of State, decides to exact his revenge on those who betrayed him.",
-                posterUrl:"https://m.media-amazon.com/images/M/MV5BNmM4ODU1MzItODYyYi00Y2U0LWFjZjItYTRhZWIwOGMyZTRhXkEyXkFqcGdeQXVyNjc2NTQ4Nzk@._V1_FMjpg_UX1000_.jpg",
+                posterUrl:"https://myhotposters.com/cdn/shop/products/mL0923_9cef8f31-dffb-49b3-a807-425e3f963268_1024x1024.jpg?v=1571445243",
                 title:"House of Cards",
                 type:"tvShow",
                 year:"2013",
@@ -1638,7 +1638,7 @@
                 type: "tvShow",
                 genre: "Comedy",
                 plot: "How one man, Ted Mosby (Josh Radnor), met the mother of his children. The story is narrated by Future Ted (voiced by Bob Saget), who, in the year 2030, tells his children about how he met their mother.",
-                posterUrl: "https://m.media-amazon.com/images/M/MV5BNjg1MDQ5MjQ2N15BMl5BanBnXkFtZTYwNjI5NjA3._V1_FMjpg_UX1000_.jpg",
+                posterUrl: "https://www.tallengestore.com/cdn/shop/products/HowIMetYourMother-ClassicTVShowPoster4_06c050b2-0206-4298-9a80-7ac1bcadbd70.jpg?v=1596545651",
                 _createdOn: 1701986870567,
                 _id: "be40e319-bede-4451-8c1d-325479bf67da"
             },
@@ -1660,7 +1660,7 @@
                 type: "tvShow",
                 genre: "Comedy",
                 plot: "An American reporter goes to the Australian outback to meet an eccentric crocodile poacher and invites him to New York City.",
-                posterUrl: "https://img.posterstore.com/zoom/wb0081-8thebigbangtheory-gang50x70.jpg",
+                posterUrl: "https://i.ebayimg.com/images/g/gVgAAOSwpuBZwsXf/s-l1200.jpg",
                 _createdOn: 1701987176380,
                 _id: "b10ac513-1c38-453c-a65d-ea7c67a318e8"
             },
