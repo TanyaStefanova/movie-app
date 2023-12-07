@@ -15,9 +15,11 @@ export default function FavouriteMovieDetails() {
     const { id } = useParams();
     // const navigate = useNavigate();
 
+      // TODO handle error
     useEffect(() => {
         favouriteService.getOne(id)
-            .then(setMovie);
+            .then(setMovie)
+            .catch(error => console.error(error));
     }, [id]);
 
     // const deleteButtonClickHandler = async () => {

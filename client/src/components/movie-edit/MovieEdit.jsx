@@ -41,6 +41,7 @@ export default function MovieEdit() {
         plot: '',
     });
 
+      // TODO handle error
     useEffect(() => {
         movieService.getOne(id)
             .then(result => {
@@ -58,7 +59,7 @@ export default function MovieEdit() {
             await movieService.edit(id, movie);
             navigate('/movies');
         } catch (error) {
-            console.log(error);
+            console.error(error);
         }
     }
 

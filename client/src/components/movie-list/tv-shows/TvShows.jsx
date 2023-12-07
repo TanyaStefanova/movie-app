@@ -1,23 +1,96 @@
+// import styles from './TvShows.module.css'
+// import AddFavourites from '../../add-favourites/AddFavourites';
+// import { Link } from 'react-router-dom'
+// import { useContext } from 'react';
+// import AuthContext from '../../../contexts/authContext';
+
+// export default function TvShows({ tvShows }) {
+//     const { showModal, onClickOpen, addFavouriteMovie } = useContext(AuthContext);
+
+//     return (
+//         <>
+//             <h3>TV Shows</h3>
+//             <div className={styles.containerFluid}>
+
+//                 <div className={styles.row} >
+
+//                     {tvShows.map(movie => (
+//                         <div className={styles.imageContainer} key={movie._id}>
+//                            <Link to={`/movies/${movie._id}`} onClick={onClickOpen}><img
+                               
+//                                 src={movie.posterUrl}
+//                                 className={styles.rowPoster}
+//                                 alt={movie.name}
+//                                 style={{ width: '11em', height: '100%' }} /></Link>
+//                             <div onClick={() => addFavouriteMovie(movie)} className={`${styles.overlay} d-flex align-items-center justify-content-center`}><AddFavourites /></div>
+//                         </div>
+//                     ))}
+
+//                 </div>
+//             </div>
+//         </>
+//     );
+// }
+
 import styles from './TvShows.module.css'
 import AddFavourites from '../../add-favourites/AddFavourites';
 import { Link } from 'react-router-dom'
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import AuthContext from '../../../contexts/authContext';
+import * as request from "../../../lib/request";
 
-export default function TvShows({ tvShows }) {
-    const { showModal, onClickOpen, addFavouriteMovie } = useContext(AuthContext);
+
+
+export default function TvShows() {
+    const { onClickOpen, addFavouriteMovie } = useContext(AuthContext);
+    const [currentShows, setCurrentShows] = useState([]);
+    const [offset, setOffset] = useState(0);
+
+    const getCurrentShows = async () => {
+        const query = new URLSearchParams({
+            offset: `${offset}`,
+            pageSize: 9
+        })
+
+        const result = await request.get(`http://localhost:3030/data/tvshows?${query}`);
+        setCurrentShows(result)
+        return result;
+    }
+
+    // TODO handle error
+    useEffect(() => {
+        getCurrentShows()
+            .then(setCurrentShows)
+            .catch(error => console.error(error));
+
+        // console.log(currentShows);
+    }, [offset])
+
+    const rightButtonClickHandler = () => {
+        setOffset(state => state + 3);
+        if(currentShows.length <=4) {
+            setOffset(0);
+        }
+    }
+
+    const leftButtonClickHandler = () => {
+        setOffset(state => state - 5);
+        if(currentShows.length <=5) {
+            setOffset(0);
+        }
+    }
 
     return (
         <>
-            <h3>TV Shows</h3>
-            <div className={styles.containerFluid}>
+            <h3>Tv Shows</h3>
+            <div className={styles.containerFluid} >
 
+                <button className={`${styles.handle} ${styles.leftHandle}`} onClick={leftButtonClickHandler}></button>
                 <div className={styles.row} >
 
-                    {tvShows.map(movie => (
+                    {currentShows.map(movie => (
                         <div className={styles.imageContainer} key={movie._id}>
-                           <Link to={`/movies/${movie._id}`} onClick={onClickOpen}><img
-                               
+                            <Link to={`/movies/${movie._id}`} onClick={onClickOpen}><img
                                 src={movie.posterUrl}
                                 className={styles.rowPoster}
                                 alt={movie.name}
@@ -27,6 +100,8 @@ export default function TvShows({ tvShows }) {
                     ))}
 
                 </div>
+                <button className={`${styles.handle} ${styles.rightHandle}`} onClick={rightButtonClickHandler}></button>
+
             </div>
         </>
     );

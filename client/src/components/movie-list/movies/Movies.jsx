@@ -23,10 +23,11 @@ export default function Movies() {
         return result;
     }
 
-    // console.log(currentMovies);
+    // TODO handle error
     useEffect(() => {
         getCurrentMovies()
-            .then(setCurrentMovies);
+            .then(setCurrentMovies)
+            .catch(error => console.error(error));
 
         // console.log(currentMovies);
     }, [offset])

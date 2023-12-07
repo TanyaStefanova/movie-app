@@ -57,9 +57,9 @@ export default function MovieCreate() {
         }));
     }
 
-    const resetFormHandler = (e) => {
-        setFormValues(formInitialState);
-    }
+    // const resetFormHandler = (e) => {
+    //     setFormValues(formInitialState);
+    // }
 
     const submitHandler = async (e) => {
         e.preventDefault();
@@ -85,9 +85,10 @@ export default function MovieCreate() {
         if (Object.keys(formErrors).length === 0 && isSubmit) {
             // console.log(values);
             
+            // TODO handle error
             movieService.create(formValues)
                 .then(navigate('/movies'))
-                .catch (error => console.log(error)) 
+                .catch (error => console.error(error)) 
                     
                 // navigate('/movies');
         // console.log(formValues);

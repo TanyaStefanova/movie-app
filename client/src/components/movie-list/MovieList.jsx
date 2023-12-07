@@ -20,16 +20,12 @@ export default function MovieList() {
     // }, []);
     // console.log(movies);
 
-    useEffect(() => {
-        movieService.getAllTvShows()
-            .then(setTvShows)
-            .catch(err => console.log(err));
-    }, [])
+    // TODO handle error
+   
     // console.log(tvShows);
 
     return (
         <>
-            {/* Display favorites if any and only for logged in user!!!*/}
 
             {isAuthenticated && (
                 <Favourites />
@@ -38,7 +34,8 @@ export default function MovieList() {
             <Movies />
 
             {/* <TvShows movies={movies} /> */}
-            <TvShows tvShows={tvShows} />
+            {/* <TvShows tvShows={tvShows} /> */}
+            <TvShows />
         </>
     );
 }

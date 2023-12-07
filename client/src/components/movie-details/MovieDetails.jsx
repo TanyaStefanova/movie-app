@@ -15,14 +15,17 @@ export default function MovieDetails() {
     const { id } = useParams();
     const navigate = useNavigate();
 
+      // TODO handle error
     useEffect(() => {
         movieService.getOne(id)
-            .then(setMovie);
+            .then(setMovie)
+            .catch(error => console.error(error));
     }, [id]);
 
     const deleteButtonClickHandler = async () => {
         const hasConfirmed = confirm(`Are you sure you want to delete ${movie.title}?`);
 
+          // TODO handle error
         if(hasConfirmed){
            await movieService.remove(id);
 
