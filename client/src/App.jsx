@@ -48,8 +48,6 @@ function App() {
   const registerSubmitHandler = async (values) => {
     const result = await authService.register(values.email, values.password);
 
-    // Validate if password == confirmPassword!!!
-
     setAuth(result);
     localStorage.setItem('accessToken', result.accessToken);
     navigate('/movies');

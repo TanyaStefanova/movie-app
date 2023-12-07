@@ -9,7 +9,6 @@ export default function Layout ({onClickOpen}){
         <>
         <Header onClickOpen={onClickOpen}/>
         <Home />
-        {/* <MovieList/> */}
         <Outlet/> 
         <Footer />
         </>

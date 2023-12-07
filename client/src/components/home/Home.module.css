@@ -1,10 +1,13 @@
 body {
     background: #141414;
+    background-image: url("https://www.themoviedb.org/assets/2/v4/marketing/red_pipes-594140f35efb300741add9827cc4f41053b0a4bb7ba249a40375377cc9d22d47.svg");
+
     padding: 0;
 }
 
 .heroContainer {
-    background-image: url("https://www.shutterstock.com/image-vector/old-cinema-background-vector-illustration-260nw-770497021.jpg");
+    /* background-image: url("https://www.shutterstock.com/image-vector/old-cinema-background-vector-illustration-260nw-770497021.jpg"); */
+    background-image: url("https://www.themoviedb.org/assets/2/v4/marketing/red_pipes-594140f35efb300741add9827cc4f41053b0a4bb7ba249a40375377cc9d22d47.svg");
     background-size: cover;
     color: '#fffff';
 }
@@ -12,6 +15,7 @@ body {
 .homeContainer {
     background-image: url("https://www.themoviedb.org/assets/2/v4/marketing/red_pipes-594140f35efb300741add9827cc4f41053b0a4bb7ba249a40375377cc9d22d47.svg");
     background-size: cover;
+    padding-left: 70px;
     color: '#fffff';
 }
 
