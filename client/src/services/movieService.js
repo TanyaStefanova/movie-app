@@ -71,7 +71,7 @@ export const create = async (movieData) => {
 
     if (movieData.type == 'tvShow') {
         baseUrl = 'http://localhost:3030/data/tvshows'
-    } else if (movieData.type == 'movie') {
+    } else if (movieData.type == 'Movie') {
         baseUrl = 'http://localhost:3030/data/movies'
     }
     console.log(movieData);
