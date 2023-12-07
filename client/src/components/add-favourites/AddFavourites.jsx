@@ -17,7 +17,7 @@ export default function AddFavourites() {
 
     return (
         <div >
-            <span style={{ color: 'white', fontSize: '13px', marginRight: '5px' }}>Add to Favourites</span>
+            <span style={{ color: 'white', fontSize: '13px', paddingRight: '5px' }}>Add to Favourites</span>
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"

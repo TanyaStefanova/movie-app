@@ -13,7 +13,7 @@ export default function Header() {
   const { onClickOpen, isAuthenticated } = useContext(AuthContext);
 
   return (
-    <Navbar bg="dark" data-bs-theme="dark">
+    <Navbar className={styles.header} data-bs-theme="dark">
       <Container>
         <h2><Link to="/" className={styles.logo}>Filmster</Link></h2>
         <Nav>

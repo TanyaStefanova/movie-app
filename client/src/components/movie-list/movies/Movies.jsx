@@ -67,7 +67,7 @@ export default function Movies() {
                                 src={movie.posterUrl}
                                 className={styles.rowPoster}
                                 alt={movie.name}
-                                style={{ width: '11em', height: '100%' }} /></Link>
+                                style={{ width: '10em', height: '100%' }} /></Link>
                             <div onClick={() => addFavouriteMovie(movie)} className={`${styles.overlay} d-flex align-items-center justify-content-center`}><AddFavourites /></div>
                         </div>
                     ))}

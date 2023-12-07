@@ -42,11 +42,13 @@ export default function Home() {
                         </Form>
                         <p className={styles.searchError}>{formErrors.search}</p>
                     </Container>
+                    <div>
+                        <h2 style={{ color: 'white', fontSize: '3.5rem', textAlign: 'center' }}>We are glad you're here</h2>
+                        <p style={{ color: 'white' }}>Millions of movies, TV shows and people to discover. Explore now.Millions of movies, TV shows and people to discover. Explore now.Millions of movies, TV shows and people to discover. Explore now.Millions of movies, TV shows and people to discover. Explore now.Millions of movies, TV shows and people to discover. Explore now.</p>
+                    </div>
 
-                    <h2 style={{ color: 'white', fontSize: '3.5rem' }}>We are glad you're here</h2>
-                    <p style={{ color: 'white' }}>Millions of movies, TV shows and people to discover. Explore now.</p>
                 </Container>
-            )} 
+            )}
             {!ownerId && (
                 <Container className={styles.homeContainer}>
 
@@ -78,12 +80,12 @@ export default function Home() {
                     {/* <Button variant="primary" className={styles.searchButton} onClick={onSubmit}>Register</Button> */}
 
                 </Container>
-                
+
             )}
 
 
 
-          
+
 
         </>
     );
