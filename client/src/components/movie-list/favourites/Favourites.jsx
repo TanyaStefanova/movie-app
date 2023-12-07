@@ -1,12 +1,13 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import styles from './Favourites.module.css'
-
+import RemoveFromFavourites from '../../remove-favourites/RemoveFromFavourites';
 import AuthContext from '../../../contexts/authContext';
 import * as favouriteService from "../../../services/favouriteService";
+import { Button } from 'react-bootstrap';
 
 
-export default function Favourites({ searchedMovies }) {
+export default function Favourites() {
 
     const { onClickOpen, ownerId, favourites } = useContext(AuthContext);
     const [favouriteMovies, setFavouriteMovies] = useState([]);
@@ -36,10 +37,9 @@ export default function Favourites({ searchedMovies }) {
 
             setFavouriteMovies(newFavouriteList);
 
-            navigate('/movies');
+            navigate('/movies/favourites');
         }
     }
-    console.log(favouriteMovies);
 
     return (
         <>
@@ -55,13 +55,20 @@ export default function Favourites({ searchedMovies }) {
                     <div key={movie._id} style={{marginTop: '20px', backgroundColor:'#212529'}} className="card v4 tight">
                         <div className="wrapper">
                             <div className={styles.image} >
-                            <Link to={`/favourites/${movie._id}`} onClick={onClickOpen}><div style={{float: 'left', width: '10%'}}><img style={{ width: '94px', height: '141px' }} src={movie.posterUrl} alt="movie-poster" /> </div></Link>
+                            <Link to={`/favourites/${movie._id}`} onClick={onClickOpen}>
+                                <div style={{float: 'left', width: '10%'}}> 
+                                <img style={{ width: '94px', height: '141px' }}
+                                src={movie.posterUrl}  alt="movie-poster" /> </div> </Link>
+                               
                                
                                 <div className={styles.details}>
-                                    <div className={styles.title}><h2>{movie.title}</h2></div>
+                                    <div className={styles.title}><h2>{movie.title}</h2>
+                                    <div onClick={() => removeFavouriteHandler(movie._id, movie.title)} className={`${styles.removeIcon} `}><RemoveFromFavourites /></div></div>
                                     <div className={styles.overview}><p>{movie.plot}</p></div>
-                                </div>
                             </div>
+                                   
+                                  {/* <div onClick={() => removeFavouriteHandler(movie._id, movie.title)} className={`${styles.overlay} d-flex align-items-center justify-content-center`}><RemoveFromFavourites /></div> */}
+                                </div>
                         </div>
                     </div>
                 ))}

@@ -5,8 +5,8 @@ import { useContext, useEffect, useState } from 'react';
 import AuthContext from '../../../contexts/authContext';
 import * as request from "../../../lib/request";
 
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 
 export default function Movies() {
     const { onClickOpen, addFavouriteMovie } = useContext(AuthContext);
