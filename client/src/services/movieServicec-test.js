@@ -83,8 +83,8 @@ export const edit = async (movieId, movieData, initialMovieType) => {
     console.log(initialMovieType);
     console.log(movieData.type);
     let result;
-    let output;
-    let finalOutput;
+    // let output;
+    // let finalOutput;
     if (initialMovieType == movieData.type) {
         if (movieData.type == 'tvShow') {
             baseUrl = 'http://localhost:3030/data/tvshows'
@@ -93,22 +93,23 @@ export const edit = async (movieId, movieData, initialMovieType) => {
         }
         result = await request.put(`${baseUrl}/${movieId}`, movieData);
         return result;
-    }else if(movieData.type == 'tvShow'){
+    } else if (movieData.type == 'tvShow') {
         baseUrl = 'http://localhost:3030/data/tvshows'
-        finalOutput = request.remove(`http://localhost:3030/data/movies/${movieId}`)
-        output = await request.post(baseUrl, movieData);
-        // result = await request.put(`${baseUrl}/${movieId}`, movieData);
-    }
-    else if(movieData.type == 'Movie'){
-        baseUrl = 'http://localhost:3030/data/movies'
-        finalOutput = request.remove(`http://localhost:3030/data/tvshows/${movieId}`)
-        output = await request.post(baseUrl, movieData);
+        result = await request.post(baseUrl, movieData);
+        result = request.remove(`http://localhost:3030/data/movies/${movieId}`)
         result = await request.put(`${baseUrl}/${movieId}`, movieData);
+        result = await request.put(`http://localhost:3030/data/movies/${movieId}`, movieData);
     }
+    // else if (movieData.type == 'Movie') {
+    //     baseUrl = 'http://localhost:3030/data/movies'
+    //     finalOutput = request.remove(`http://localhost:3030/data/tvshows/${movieId}`)
+    //     output = await request.post(baseUrl, movieData);
+    //     result = await request.put(`${baseUrl}/${movieId}`, movieData);
+    // }
 
     console.log(movieData);
 
-    return {result, output, finalOutput};
+    return result;
 }
 
 export const remove = async (movieId, type) => {

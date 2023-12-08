@@ -57,27 +57,21 @@ export default function MovieEdit() {
             
     }, [id]);
 
-// useEffect(() => {
-//     setInitialMovieType(movie.type)
-
-//     console.log(initialMovieType);
-// }, [movie])
-
+    useEffect(() => {
+        setInitialMovieType(movie.type)
+       
+    }, [movie.title, movie.year, movie.posterUrl,movie.genre, movie.plot])
+   
+    console.log(movie.type);
+    console.log(initialMovieType);
+    
     const editSubmitHandler = async (e) => {
         e.preventDefault();
 
         // TODO test error
         try {
-            const response = await movieService.edit(id, movie);
-            // console.log(response);
-            // console.log(response.status);
-            // if (response.status == 204) {
-            //     // TODO do something
-            // }
-            
-            // if (!response.ok) {
-            //     throw new Error('Server returned an error');
-            // }
+            const response = await movieService.edit(id, movie, initialMovieType);
+         
             navigate('/movies');
         } catch (error) {
             console.error(error.message);
@@ -85,7 +79,6 @@ export default function MovieEdit() {
     }
 
     const changeHandler = (e) => {
-        // console.log(e.target.value);
         let value = e.target.value;
 
         if (e.target.type === 'number') {

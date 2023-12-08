@@ -79,14 +79,45 @@ export const create = async (movieData) => {
     return result;
 }
 
-export const edit = async (movieId, movieData) => {
+// export const edit = async (movieId, movieData) => {
+//     if (movieData.type == 'tvShow') {
+//         baseUrl = 'http://localhost:3030/data/tvshows'
+//     } else if (movieData.type == 'movie') {
+//         baseUrl = 'http://localhost:3030/data/movies'
+//     }
+//     console.log(movieData);
+//     const result = await request.put(`${baseUrl}/${movieId}`, movieData);
+
+//     return result;
+// }
+
+export const edit = async (movieId, movieData, initialMovieType) => {
+
+    let result;
+
+    if (initialMovieType == movieData.type) {
+        if (movieData.type == 'tvShow') {
+            baseUrl = 'http://localhost:3030/data/tvshows'
+        } else if (movieData.type == 'movie' || movieData.type == 'Movie') {
+            baseUrl = 'http://localhost:3030/data/movies'
+        }
+        result = await request.put(`${baseUrl}/${movieId}`, movieData);
+        return result;
+    } 
+
     if (movieData.type == 'tvShow') {
         baseUrl = 'http://localhost:3030/data/tvshows'
-    } else if (movieData.type == 'movie') {
-        baseUrl = 'http://localhost:3030/data/movies'
+        result = await request.post(baseUrl, movieData);
+        result = request.remove(`http://localhost:3030/data/movies/${movieId}`)
+ 
     }
-    console.log(movieData);
-    const result = await request.put(`${baseUrl}/${movieId}`, movieData);
+
+    if (movieData.type == 'movie' || movieData.type == 'Movie') {
+        baseUrl = 'http://localhost:3030/data/movies'
+        result = request.remove(`http://localhost:3030/data/tvshows/${movieId}`)
+        result = await request.post(baseUrl, movieData);
+       
+    }
 
     return result;
 }

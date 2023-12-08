@@ -31,7 +31,7 @@ export default function MovieEdit() {
     // const [formValues, setFormValues] = useState(formInitialState);
     const { showModal, onClickClose } = useContext(AuthContext);
     const [error, setError] = useState(null);
-    const [initialMovieType, setInitialMovieType] = useState('');
+    const [initialTvShowType, setInitialTvShowType] = useState('');
 
     const navigate = useNavigate();
     const { id } = useParams();
@@ -53,20 +53,23 @@ export default function MovieEdit() {
             .catch(error => {
                 setError('An error occurred while fetching data. Please try again later.')
             })
+           
     }, [id]);
 
-    // useEffect(() => {
-    //     setInitialMovieType(tvShow.type)
-    
-    //     console.log(initialMovieType);
-    // }, [tvShow])
+    useEffect(() => {
+        setInitialTvShowType(tvShow.type)
+    }, [tvShow.title, tvShow.year, tvShow.posterUrl,tvShow.genre, tvShow.plot])
 
+    console.log(tvShow.type);
+    console.log(initialTvShowType);
+    console.log(tvShow);
+    
     const editSubmitHandler = async (e) => {
         e.preventDefault();
 
         // TODO test error
         try {
-            const response = await movieService.edit(id, tvShow);
+            const response = await movieService.edit(id, tvShow, initialTvShowType);
        
             navigate('/movies');
         } catch (error) {
