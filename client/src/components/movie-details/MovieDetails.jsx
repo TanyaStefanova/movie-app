@@ -69,9 +69,9 @@ export default function MovieDetails() {
 
                         {ownerId === movie._ownerId && (
                             <div>
-                                <Link to={`/movies/${id}/edit`}><Button variant="primary">Edit</Button></Link>
+                                <Link to={`/movies/${id}/edit`}><Button variant="primary" style={{marginRight: '20px'}}>Edit</Button></Link>
                                 <Button variant="primary" onClick={deleteButtonClickHandler}>Delete</Button>
-                                <Button variant="primary" onClick={onClickClose}>Close</Button>
+                                <Button variant="primary" onClick={onClickClose} style={{float: 'inline-end'}}>Close</Button>
                             </div>
                         )}
                     </Card.Body>
