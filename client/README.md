@@ -22,17 +22,17 @@ Once the installation is complete, you can start the server: node .\server.js
 You can start the react vite app: npm run dev
 
 ## Features
-Browse Movies: Explore a vast collection of movies and tv shows with detailed information.
-Search Functionality: Find specific movies using the search feature.
-Toast Notifications: React Toastify is integrated to provide user-friendly notifications.
-Add Favourites: Make a list of all your favourite movies and tv shows.
-Create movies/tv shows that you can edit and delete whenever you want.
+- Browse Movies: Explore a vast collection of movies and tv shows with detailed information.
+- Search Functionality: Find specific movies using the search feature.
+- Toast Notifications: React Toastify is integrated to provide user-friendly notifications.
+- Add Favourites: Make a list of all your favourite movies and tv shows.
+- Create movies/tv shows that you can edit and delete whenever you want.
 
 ## Dependencies
 The Movie App project relies on the following key dependencies:
 
-React.js: A JavaScript library for building user interfaces.
-React Bootstrap: Bootstrap components as React components.
-React Toastify: A library for toast notifications in React applications.
+- React.js: A JavaScript library for building user interfaces.
+- React Bootstrap: Bootstrap components as React components.
+- React Toastify: A library for toast notifications in React applications.
 For a complete list of dependencies, please refer to the package.json file.
 
