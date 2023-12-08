@@ -33,13 +33,9 @@ export const getAllTvShows = async () => {
 }
 
 export const getSearchedValues = async (value) => {
-    // const query = new URLSearchParams({
-    //     where: `title LIKE "${value}"`,
-    // })
-
+   
     const query = encodeURIComponent(`title LIKE "${value}"`)
 
-    // const result = await request.get(`${baseUrl}?where=${query}`);
     const tvShowResult = await request.get(`http://localhost:3030/data/tvshows?where=${query}`);
     const movieResult = await request.get(`http://localhost:3030/data/movies?where=${query}`);
     const result = tvShowResult.concat(movieResult);
@@ -73,23 +69,10 @@ export const create = async (movieData) => {
     } else if (movieData.type == 'Movie') {
         baseUrl = 'http://localhost:3030/data/movies'
     }
-    // console.log(movieData);
     const result = await request.post(baseUrl, movieData);
 
     return result;
 }
-
-// export const edit = async (movieId, movieData) => {
-//     if (movieData.type == 'tvShow') {
-//         baseUrl = 'http://localhost:3030/data/tvshows'
-//     } else if (movieData.type == 'movie') {
-//         baseUrl = 'http://localhost:3030/data/movies'
-//     }
-//     console.log(movieData);
-//     const result = await request.put(`${baseUrl}/${movieId}`, movieData);
-
-//     return result;
-// }
 
 export const edit = async (movieId, movieData, initialMovieType) => {
 

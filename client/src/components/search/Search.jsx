@@ -7,7 +7,6 @@ import styles from './Search.module.css'
 export default function Search({ searchedMovies }) {
     const { onClickOpen } = useContext(AuthContext);
 
-
     return (
         <>
             <h1 className={styles.title}>Search Results</h1>
@@ -32,7 +31,6 @@ export default function Search({ searchedMovies }) {
                                 src={movie.posterUrl}  alt="movie-poster" /> </div> </Link>
                                 )}
                            
-                               
                                 <div className={styles.details}>
                                     <div className={styles.movieTitle}><h2>{movie.title}</h2></div>
                                     <div className={styles.overview}><p>{movie.plot}</p></div>
@@ -44,5 +42,4 @@ export default function Search({ searchedMovies }) {
             </div>
         </>
     );
-
 }

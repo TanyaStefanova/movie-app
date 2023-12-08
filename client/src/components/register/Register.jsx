@@ -77,7 +77,6 @@ export default function Register() {
                 </Form>
             </Modal.Body>
             <Modal.Footer style={{justifyContent: 'flex-start'}}>
-                {/* TODO make the link to not refresh the page + style*/}
                 <div style={{marginRight: '15px'}}><p>Click <Link to="/login">here</Link> if you already have an account</p></div>
                 <Button variant="primary" type="submit" onClick={onSubmit}>
                     Register

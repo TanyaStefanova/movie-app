@@ -37,10 +37,8 @@ export default function MovieCreate() {
     const navigate = useNavigate();
     const {showModal, onClickClose} = useContext(AuthContext);
 
-
     const changeHandler = (e) => {
-        // console.log(e.target.name);
-        // console.log(e.target.value);
+      
         let value = e.target.value;
 
         if (e.target.type === 'number') {
@@ -58,47 +56,29 @@ export default function MovieCreate() {
         }));
     }
 
-    // const resetFormHandler = (e) => {
-    //     setFormValues(formInitialState);
-    // }
-
     const submitHandler = async (e) => {
         e.preventDefault();
-        // resetFormHandler();
 
         setFormErrors(validate(formValues));
         setIsSubmit(true);
     }
 
-
     useEffect(() => {
-        // console.log(formErrors);
 
         if (Object.keys(formErrors).length === 0 && isSubmit) {
-            // console.log(values);
             
-            // TODO test error
             movieService.create(formValues)
                 .then(navigate('/movies'))
                 .catch (error => {
                     setServerError(error);
                 }) 
-                    
-                // navigate('/movies');
-        // console.log(formValues);
+             
         }
     }, [formErrors]);
 
     const validate = (formValues) => {
         const errors = {};
 
-        // if (values.title !== undefined) {
-            // if (!formValues.title || !formValues.year || !formValues.posterUrl || !formValues.plot) {
-            //     errors.title = 'All fields are required!';
-            //     errors.year = 'All fields are required!';
-            //     errors.posterUrl = 'All fields are required!';
-            //     errors.plot = 'All fields are required!';
-            // } 
             if(!formValues.title) {
                 errors.title = 'Title is required!';
             }
@@ -112,7 +92,6 @@ export default function MovieCreate() {
             if(!formValues.plot){
                 errors.plot = 'Movie plot is required!';
             }
-        // }
 
         return errors;
 
@@ -131,7 +110,6 @@ export default function MovieCreate() {
                             <Form.Control
                                 type="text"
                                 name={FORM_KEYS.title}
-                                // id="title"
                                 value={formValues.title}
                                 onChange={changeHandler}
                                 placeholder="Fast and Furious"
@@ -145,7 +123,6 @@ export default function MovieCreate() {
                             <Form.Control
                                 type="number"
                                 name={FORM_KEYS.year}
-                                // id="year"
                                 value={formValues.year}
                                 onChange={changeHandler}
                                 placeholder="1974"
@@ -158,7 +135,6 @@ export default function MovieCreate() {
                             <Form.Control
                                 type="text"
                                 name={FORM_KEYS.posterUrl}
-                                // id="posterUrl"
                                 value={formValues.posterUrl}
                                 onChange={changeHandler}
                                 placeholder="https://images-na.ssl-images-amazon.com/images/M/MV5BMTUwODE3MDE0MV5BMl5BanBnXkFtZTgwNTk1MjI4MzE@._V1_SX300.jpg"
@@ -171,11 +147,9 @@ export default function MovieCreate() {
                                 aria-label="type"
                                 placeholder="Type"
                                 name={FORM_KEYS.type}
-                                // id="type"
                                 value={formValues.type}
                                 onChange={changeHandler}
                             >
-                                {/* <option>Type</option> */}
                                 <option value="movie">Movie</option>
                                 <option value="tvShow">TV Show</option>
                             </Form.Select>
@@ -185,11 +159,9 @@ export default function MovieCreate() {
                                 aria-label="genre"
                                 placeholder="Genre"
                                 name={FORM_KEYS.genre}
-                                // id="genre"
                                 value={formValues.genre}
                                 onChange={changeHandler}
                             >
-                                {/* Genres */}
                                 <option value="crime">Crime</option>
                                 <option value="drama">Drama</option>
                                 <option value="action">Action</option>
@@ -206,7 +178,6 @@ export default function MovieCreate() {
                                 rows={3}
                                 type="text"
                                 name={FORM_KEYS.plot}
-                                // id="plot"
                                 value={formValues.plot}
                                 onChange={changeHandler}
                             />

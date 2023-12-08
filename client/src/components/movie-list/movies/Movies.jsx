@@ -24,7 +24,6 @@ export default function Movies() {
         return result;
     }
 
-    // TODO test error
     useEffect(() => {
         getCurrentMovies()
             .then(setCurrentMovies)
@@ -32,7 +31,6 @@ export default function Movies() {
                 setError('An error occurred while fetching data. Please try again later.')
             });
 
-        // console.log(currentMovies);
     }, [offset])
 
 
@@ -69,13 +67,13 @@ export default function Movies() {
                                 style={{ width: '10em', height: '100%' }} /></Link>
 
                             {!ownerId && (
-
                                 <Link to="/login"><div onClick={onClickOpen} className={`${styles.overlay} d-flex align-items-center justify-content-center`}><AddFavourites /></div></Link>
                             )}
 
                             {ownerId && (
                                 <div onClick={() => addFavouriteMovie(movie)} className={`${styles.overlay} d-flex align-items-center justify-content-center`}><AddFavourites /></div>
                             )}
+
                         </div>
                     ))}
 

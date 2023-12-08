@@ -42,8 +42,8 @@ export default function Home() {
                         <p className={styles.searchError}>{formErrors.search}</p>
                     </Container>
                     <div>
-                        <h2 style={{ color: 'white', fontSize: '3.5rem', textAlign: 'center' }}>We are glad you're here</h2>
-                        <p style={{ color: 'white' }}>Millions of movies, TV shows and people to discover. Explore now.Millions of movies, TV shows and people to discover. Explore now.Millions of movies, TV shows and people to discover. Explore now.Millions of movies, TV shows and people to discover. Explore now.Millions of movies, TV shows and people to discover. Explore now.</p>
+                        <h2 className={styles.title}>We are glad you're here</h2>
+                        <p className={styles.text}>Millions of movies, TV shows and people to discover. Explore now.Millions of movies, TV shows and people to discover. Explore now.Millions of movies, TV shows and people to discover. Explore now.Millions of movies, TV shows and people to discover. Explore now.Millions of movies, TV shows and people to discover. Explore now.</p>
                     </div>
 
                 </Container>
@@ -75,8 +75,8 @@ export default function Home() {
                         <p className={styles.searchError}>{formErrors.search}</p>
                     </Container>
 
-                    <h2 style={{ color: 'white', fontSize: '3.5rem' }}>Join today</h2>
-                    <p style={{ color: 'white' }}>Get access to maintain your own custom personal lists, track what you've seen and search and filter for what to watch next—regardless if it's in theatres, on TV or available on popular streaming services like Netflix, Amazon Prime Video, Apple TV Plus, MUBI, and Curiosity Stream.</p>
+                    <h2 className={styles.title}>Join today</h2>
+                    <p className={styles.text}>Get access to maintain your own custom personal lists, track what you've seen and search and filter for what to watch next—regardless if it's in theatres, on TV or available on popular streaming services like Netflix, Amazon Prime Video, Apple TV Plus, MUBI, and Curiosity Stream.</p>
                 </Container>
 
             )}

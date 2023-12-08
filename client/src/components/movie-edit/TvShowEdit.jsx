@@ -17,18 +17,7 @@ const FORM_KEYS = {
     plot: 'plot',
 }
 
-const formInitialState = {
-    [FORM_KEYS.title]: '',
-    [FORM_KEYS.year]: '',
-    [FORM_KEYS.posterUrl]: '',
-    [FORM_KEYS.type]: 'Movie',
-    [FORM_KEYS.genre]: 'Crime',
-    [FORM_KEYS.plot]: '',
-}
-
-
 export default function MovieEdit() {
-    // const [formValues, setFormValues] = useState(formInitialState);
     const { showModal, onClickClose } = useContext(AuthContext);
     const [error, setError] = useState(null);
     const [initialTvShowType, setInitialTvShowType] = useState('');
@@ -44,7 +33,6 @@ export default function MovieEdit() {
         plot: '',
     });
 
-    // TODO test error
     useEffect(() => {
         movieService.getOneTvShow(id)
             .then(result => {
@@ -67,7 +55,6 @@ export default function MovieEdit() {
     const editSubmitHandler = async (e) => {
         e.preventDefault();
 
-        // TODO test error
         try {
             const response = await movieService.edit(id, tvShow, initialTvShowType);
        
@@ -78,7 +65,6 @@ export default function MovieEdit() {
     }
 
     const changeHandler = (e) => {
-        // console.log(e.target.value);
         let value = e.target.value;
 
         if (e.target.type === 'number') {
@@ -89,14 +75,7 @@ export default function MovieEdit() {
             ...state,
             [e.target.name]: value,
         }));
-
-        // setFormValues(state => ({
-        //     ...state,
-        //     [e.target.name]: value,
-        // }));
     }
-
-
 
     return (
         <>
@@ -142,7 +121,6 @@ export default function MovieEdit() {
                                 value={tvShow.type}
                                 onChange={changeHandler}
                             >
-                                {/* <option>Type</option> */}
                                 <option value="movie">Movie</option>
                                 <option value="tvShow">TV Show</option>
                             </Form.Select>
@@ -154,7 +132,6 @@ export default function MovieEdit() {
                                 value={tvShow.genre}
                                 onChange={changeHandler}
                             >
-                                {/* Genre */}
                                 <option value="crime">Crime</option>
                                 <option value="drama">Drama</option>
                                 <option value="action">Action</option>

@@ -6,7 +6,6 @@ body {
 }
 
 .heroContainer {
-    /* background-image: url("https://www.shutterstock.com/image-vector/old-cinema-background-vector-illustration-260nw-770497021.jpg"); */
     background-image: url("https://www.themoviedb.org/assets/2/v4/marketing/red_pipes-594140f35efb300741add9827cc4f41053b0a4bb7ba249a40375377cc9d22d47.svg");
     background-size: cover;
     color: '#fffff';
@@ -54,4 +53,14 @@ body {
     color: white;
     font-size: 14px;
     padding-left: 2%;
+}
+
+.title{
+    color: white;
+    font-size: 3.5rem;
+    /* text-align: center; */
+}
+
+.text {
+    color: white;
 }

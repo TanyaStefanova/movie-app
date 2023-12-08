@@ -17,20 +17,20 @@ export default function Favourites() {
     // TODO test error
     useEffect(() => {
         favouriteService.getAllFavourites(ownerId)
-        .then(setFavouriteMovies)
-        .catch(error => {
-            setError('An error occurred while fetching data. Please try again later.')
-        });
+            .then(setFavouriteMovies)
+            .catch(error => {
+                setError('An error occurred while fetching data. Please try again later.')
+            });
     }, [ownerId, favourites]);
 
     const removeFavouriteHandler = async (movieId, title) => {
-   
+
         const hasConfirmed = confirm(`Are you sure you want to remove ${title} from favourites?`);
 
         if (hasConfirmed) {
-            
+
             await favouriteService.remove(movieId);
-            
+
             const newFavouriteList = favouriteMovies.filter(
                 favourite => favourite._id !== movieId
             );
@@ -46,28 +46,26 @@ export default function Favourites() {
             <h2 className={styles.title}>My Favourite Movies</h2>
             {error && <p>{error}</p>}
 
-          
+
             <div className="container">
-            {favouriteMovies.length == 0 && (
+                {favouriteMovies.length == 0 && (
                     <h1 className={styles.message}>You haven't added your favourites yet :)</h1>
-                   )}
+                )}
                 {favouriteMovies.map(movie => (
-                    <div key={movie._id} style={{marginTop: '20px', backgroundColor:'#212529'}} className="card v4 tight">
+                    <div key={movie._id} style={{ marginTop: '20px', backgroundColor: '#212529' }} className="card v4 tight">
                         <div className="wrapper">
                             <div className={styles.image} >
-                            <Link to={`/favourites/${movie._id}`} onClick={onClickOpen}>
-                                <div style={{float: 'left', width: '10%'}}> 
-                                <img style={{ width: '94px', height: '141px' }}
-                                src={movie.posterUrl}  alt="movie-poster" /> </div> </Link>
-                               
+                                <Link to={`/favourites/${movie._id}`} onClick={onClickOpen}>
+                                    <div className={styles.posterContainer}>
+                                        <img className={styles.poster}
+                                            src={movie.posterUrl} alt="movie-poster" /> </div> </Link>
+
                                 <div className={styles.details}>
                                     <div className={styles.movieTitle}><h2>{movie.title}</h2>
-                                    <div onClick={() => removeFavouriteHandler(movie._id, movie.title)} className={`${styles.removeIcon} `}><RemoveFromFavourites /></div></div>
+                                        <div onClick={() => removeFavouriteHandler(movie._id, movie.title)} className={`${styles.removeIcon} `}><RemoveFromFavourites /></div></div>
                                     <div className={styles.overview}><p>{movie.plot}</p></div>
-                            </div>
-                                   
-                                  {/* <div onClick={() => removeFavouriteHandler(movie._id, movie.title)} className={`${styles.overlay} d-flex align-items-center justify-content-center`}><RemoveFromFavourites /></div> */}
                                 </div>
+                            </div>
                         </div>
                     </div>
                 ))}

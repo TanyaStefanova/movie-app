@@ -17,7 +17,6 @@ export default function FavouriteMovieDetails() {
 
     const { id } = useParams();
 
-      // TODO test error
     useEffect(() => {
         favouriteService.getOne(id)
             .then(setMovie)
@@ -44,10 +43,7 @@ export default function FavouriteMovieDetails() {
                     <Card.Text>
                         Released in {movie.year}
                     </Card.Text>
-                    
-                  
                         <div>
-                      
                           <Button style={{float: 'inline-end'}} variant="primary" onClick={onClickClose}>Close</Button>
                         </div>
                   

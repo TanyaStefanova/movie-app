@@ -1,32 +1,3 @@
-// No validations hook:
-
-// import { useState } from "react";
-
-// export default function useForm(submitHandler, initialValues) {
-//     const [values, setValues] = useState(initialValues);
-
-//     const onChange = (e) => {
-//         setValues(state => ({
-//             ...state,
-//             [e.target.name]: e.target.value,
-//         }));
-//     }
-
-//     const onSubmit = (e) => {
-//         e.preventDefault();
-
-//         submitHandler(values);
-//     }
-
-//     return {
-//         values,
-//         onChange,
-//         onSubmit
-//     }
-// }
-
-
-
 import { useEffect, useState } from "react";
 
 export default function useForm(submitHandler, initialValues) {
@@ -69,7 +40,6 @@ export default function useForm(submitHandler, initialValues) {
 
     const validate = (values) => {
         const errors = {};
-        // const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2, }$/;
         const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
         if (values.email !== undefined) {
@@ -103,7 +73,6 @@ export default function useForm(submitHandler, initialValues) {
                 errors.password = 'Passwords don\'t match';
             }
         }
-
 
         return errors;
     }

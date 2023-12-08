@@ -1,23 +1,10 @@
-import { useContext } from "react";
-import AuthContext from "../../contexts/authContext";
-import { useNavigate } from "react-router-dom";
+import styles from './AddFavourites.module.css'
 
 export default function AddFavourites() {
 
-    const {  ownerId, isAuthenticated } = useContext(AuthContext);
-    // const navigate = useNavigate();
-    
-
-    //    {!isAuthenticated && (
-    //     navigate('/register')
-    // )} 
-    
-
-    
-
     return (
         <div >
-            <span style={{ color: 'white', fontSize: '13px', paddingRight: '5px' }}>Add to Favourites</span>
+            <span className={styles.overlay}>Add to Favourites</span>
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"

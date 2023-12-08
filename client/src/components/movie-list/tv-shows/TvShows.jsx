@@ -1,45 +1,9 @@
-// import styles from './TvShows.module.css'
-// import AddFavourites from '../../add-favourites/AddFavourites';
-// import { Link } from 'react-router-dom'
-// import { useContext } from 'react';
-// import AuthContext from '../../../contexts/authContext';
-
-// export default function TvShows({ tvShows }) {
-//     const { showModal, onClickOpen, addFavouriteMovie } = useContext(AuthContext);
-
-//     return (
-//         <>
-//             <h3>TV Shows</h3>
-//             <div className={styles.containerFluid}>
-
-//                 <div className={styles.row} >
-
-//                     {tvShows.map(movie => (
-//                         <div className={styles.imageContainer} key={movie._id}>
-//                            <Link to={`/movies/${movie._id}`} onClick={onClickOpen}><img
-
-//                                 src={movie.posterUrl}
-//                                 className={styles.rowPoster}
-//                                 alt={movie.name}
-//                                 style={{ width: '11em', height: '100%' }} /></Link>
-//                             <div onClick={() => addFavouriteMovie(movie)} className={`${styles.overlay} d-flex align-items-center justify-content-center`}><AddFavourites /></div>
-//                         </div>
-//                     ))}
-
-//                 </div>
-//             </div>
-//         </>
-//     );
-// }
-
 import styles from './TvShows.module.css'
 import AddFavourites from '../../add-favourites/AddFavourites';
 import { Link } from 'react-router-dom'
 import { useContext, useEffect, useState } from 'react';
 import AuthContext from '../../../contexts/authContext';
 import * as request from "../../../lib/request";
-
-
 
 export default function TvShows() {
     const { onClickOpen, addFavouriteMovie, ownerId } = useContext(AuthContext);
@@ -58,7 +22,6 @@ export default function TvShows() {
         return result;
     }
 
-    // TODO test error
     useEffect(() => {
         getCurrentShows()
             .then(setCurrentShows)
@@ -66,7 +29,6 @@ export default function TvShows() {
                 setError('An error occurred while fetching data. Please try again later.')
             });
 
-        // console.log(currentShows);
     }, [offset]);
 
     const rightButtonClickHandler = () => {
@@ -99,7 +61,6 @@ export default function TvShows() {
                                 className={styles.rowPoster}
                                 alt={movie.name}
                                 style={{ width: '10em', height: '100%' }} /></Link>
-                            {/* <div onClick={() => addFavouriteMovie(movie)} className={`${styles.overlay} d-flex align-items-center justify-content-center`}><AddFavourites /></div> */}
 
                             {!ownerId && (
                                 <Link to="/login"><div onClick={onClickOpen} className={`${styles.overlay} d-flex align-items-center justify-content-center`}><AddFavourites /></div></Link>

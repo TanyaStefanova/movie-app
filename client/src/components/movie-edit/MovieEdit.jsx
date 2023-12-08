@@ -17,18 +17,7 @@ const FORM_KEYS = {
     plot: 'plot',
 }
 
-const formInitialState = {
-    [FORM_KEYS.title]: '',
-    [FORM_KEYS.year]: '',
-    [FORM_KEYS.posterUrl]: '',
-    [FORM_KEYS.type]: 'Movie',
-    [FORM_KEYS.genre]: 'Crime',
-    [FORM_KEYS.plot]: '',
-}
-
-
 export default function MovieEdit() {
-    // const [formValues, setFormValues] = useState(formInitialState);
     const { showModal, onClickClose } = useContext(AuthContext);
     const [error, setError] = useState(null);
     const [initialMovieType, setInitialMovieType] = useState('');
@@ -44,7 +33,6 @@ export default function MovieEdit() {
         plot: '',
     });
 
-    // TODO test error
     useEffect(() => {
         movieService.getOne(id)
             .then(result => {
@@ -53,8 +41,6 @@ export default function MovieEdit() {
             .catch(error => {
                 setError('An error occurred while fetching data. Please try again later.')
             });
-
-            
     }, [id]);
 
     useEffect(() => {
@@ -68,7 +54,6 @@ export default function MovieEdit() {
     const editSubmitHandler = async (e) => {
         e.preventDefault();
 
-        // TODO test error
         try {
             const response = await movieService.edit(id, movie, initialMovieType);
          
@@ -89,11 +74,6 @@ export default function MovieEdit() {
             ...state,
             [e.target.name]: value,
         }));
-
-        // setFormValues(state => ({
-        //     ...state,
-        //     [e.target.name]: value,
-        // }));
     }
 
     return (

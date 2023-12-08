@@ -18,14 +18,12 @@ export default function TvShowDetails() {
     const { id } = useParams();
     const navigate = useNavigate();
 
-    // TODO test error
     useEffect(() => {
         movieService.getOneTvShow(id)
             .then(setTvShow)
             .catch(error => {
                 setError('An error occurred while fetching data. Please try again later.')
             });
-        
     }, [id]);
 
     const deleteButtonClickHandler = async () => {
@@ -39,9 +37,9 @@ export default function TvShowDetails() {
             } catch (error) {
                 console.error('An error occured:', error);
             }
-
         }
     }
+
     return (
         <>
             {error && <p>{error}</p>}

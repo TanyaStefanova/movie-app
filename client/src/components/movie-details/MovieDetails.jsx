@@ -18,7 +18,6 @@ export default function MovieDetails() {
     const { id } = useParams();
     const navigate = useNavigate();
 
-    // TODO test error
     useEffect(() => {
         movieService.getOne(id)
             .then(setMovie)
@@ -31,17 +30,9 @@ export default function MovieDetails() {
     const deleteButtonClickHandler = async () => {
         const hasConfirmed = confirm(`Are you sure you want to delete ${movie.title}?`);
 
-        // TODO test error
         if (hasConfirmed) {
             try {
                 const response = await movieService.remove(id, movie.type);
-
-                // if (response.status == 204) {
-                //     // TODO do something
-                // } else if (!response.ok) {
-                //     throw new Error('Server returned an error');
-                // } 
-
                 navigate('/movies');
             } catch (error) {
                 console.error('An error occured:', error);

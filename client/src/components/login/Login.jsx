@@ -65,8 +65,8 @@ export default function Login (){
         <p className={styles.password}>{formErrors.password}</p>
       </Form>
       </Modal.Body>
-                <Modal.Footer style={{justifyContent: 'flex-start'}}>
-                   <div style={{marginRight: '30px'}}><p>Click <Link to="/register">here</Link> if you don't have an account</p></div>
+                <Modal.Footer className={styles.footer}>
+                   <div className={styles.footerLink}><p>Click <Link to="/register">here</Link> if you don't have an account</p></div>
                     <Button variant="primary" type="submit" onClick={onSubmit}>
                        Login
                     </Button>

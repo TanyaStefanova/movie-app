@@ -45,3 +45,13 @@
     text-align: center;
     margin: 60px 0px;
 }
+
+.posterContainer {
+    float: left;
+    width: 10%;
+}
+
+.poster {
+    width: 94px;
+     height: 141px;
+}

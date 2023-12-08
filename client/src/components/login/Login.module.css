@@ -9,3 +9,11 @@
     font-size: 12px;
     padding-left: 18%;
 }
+
+.footer {
+    justify-content: flex-start;
+}
+
+.footerLink {
+    margin-right: 30px;
+}
