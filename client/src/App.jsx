@@ -22,12 +22,10 @@ import FavouriteMovieDetails from './components/movie-details/FavouriteMovieDeta
 import Search from './components/search/Search';
 import Favourites from './components/movie-list/favourites/Favourites';
 
-
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-  // TODO check if you need a different state for every modal
   const [showModal, setShowModal] = useState(false);
   const [auth, setAuth] = useState({});
   const [favourites, setFavourites] = useState([]);
@@ -36,21 +34,28 @@ function App() {
   const navigate = useNavigate();
 
   const loginSubmitHandler = async (values) => {
-    const result = await authService.login(values.email, values.password);
+    try {
+      const result = await authService.login(values.email, values.password);
 
-    // Catch the error!!!
-    console.log(result);
-    setAuth(result);
-    localStorage.setItem('accessToken', result.accessToken);
-    navigate('/movies');
+      setAuth(result);
+      localStorage.setItem('accessToken', result.accessToken);
+      navigate('/movies');
+
+    } catch (error) {
+      alert(error.message)
+    }
   }
 
   const registerSubmitHandler = async (values) => {
-    const result = await authService.register(values.email, values.password);
+    try {
+      const result = await authService.register(values.email, values.password);
+      setAuth(result);
+      localStorage.setItem('accessToken', result.accessToken);
+      navigate('/movies');
+    } catch (error) {
+      alert(error.message)
+    }
 
-    setAuth(result);
-    localStorage.setItem('accessToken', result.accessToken);
-    navigate('/movies');
   }
 
   const logoutHandler = () => {
@@ -69,38 +74,21 @@ function App() {
   const notify = () => toast("Succesfully added to favourites!");
 
   const addFavouriteMovie = (movie) => {
-    if (auth._id) {
       movie.isFavouredBy = auth._id;
       const newFavouriteList = [...favourites, movie];
       setFavourites(newFavouriteList);
       favouriteService.create(movie);
-
       notify();
-      
-    } else {
-      navigate('/login');
-    }
-
   }
-
 
   const seacrhSubmitHandler = async ({ search }) => {
     try {
-
-
-      // const list = await movieService.getAll();
-      // const filteredList = list.filter(movie => movie.title.toLowerCase().includes(search));      
-      // setSearched(filteredList);
-
       const list = await movieService.getSearchedValues(search);
       setSearched(list);
-
-      // console.log(searched);
       navigate('/movies/search');
     } catch (error) {
       console.log(error);
     }
-    // navigate('/movies/search');
   }
 
   const values = {

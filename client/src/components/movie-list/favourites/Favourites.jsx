@@ -63,7 +63,7 @@ export default function Favourites() {
                                
                                 <div className={styles.details}>
                                     <div className={styles.title}><h2>{movie.title}</h2>
-                                    <div onClick={() => removeFavouriteHandler(movie._id, movie.title)} className={`${styles.overlay} `}><RemoveFromFavourites /></div></div>
+                                    <div onClick={() => removeFavouriteHandler(movie._id, movie.title)} className={`${styles.removeIcon} `}><RemoveFromFavourites /></div></div>
                                     <div className={styles.overview}><p>{movie.plot}</p></div>
                             </div>
                                    

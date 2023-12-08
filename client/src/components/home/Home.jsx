@@ -5,7 +5,6 @@ import AuthContext from '../../contexts/authContext';
 
 import styles from './Home.module.css'
 
-
 export default function Home() {
 
     const { seacrhSubmitHandler, ownerId } = useContext(AuthContext);
@@ -16,7 +15,6 @@ export default function Home() {
 
     return (
         <>
-            {/* Make text different for users and guests */}
             {ownerId && (
                 <Container className={styles.homeContainer}>
 
@@ -30,7 +28,7 @@ export default function Home() {
                                 id='search'
                                 value={values.search}
                                 onChange={onChange}
-                                placeholder="Search"
+                                placeholder="Type movie title..."
                                 className="mr-sm-2"
                                 style={{
                                     display: 'inline',
@@ -62,7 +60,7 @@ export default function Home() {
                                 id='search'
                                 value={values.search}
                                 onChange={onChange}
-                                placeholder="Search"
+                                placeholder="Type movie title..."
                                 className="mr-sm-2"
                                 style={{
                                     display: 'inline',
@@ -77,16 +75,9 @@ export default function Home() {
 
                     <h2 style={{ color: 'white', fontSize: '3.5rem' }}>Join today</h2>
                     <p style={{ color: 'white' }}>Get access to maintain your own custom personal lists, track what you've seen and search and filter for what to watch next—regardless if it's in theatres, on TV or available on popular streaming services like Netflix, Amazon Prime Video, Apple TV Plus, MUBI, and Curiosity Stream.</p>
-                    {/* <Button variant="primary" className={styles.searchButton} onClick={onSubmit}>Register</Button> */}
-
                 </Container>
 
             )}
-
-
-
-
-
         </>
     );
 }

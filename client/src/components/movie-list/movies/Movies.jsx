@@ -6,10 +6,9 @@ import AuthContext from '../../../contexts/authContext';
 import * as request from "../../../lib/request";
 
 import { ToastContainer } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
 
 export default function Movies() {
-    const { onClickOpen, addFavouriteMovie } = useContext(AuthContext);
+    const { onClickOpen, addFavouriteMovie, ownerId } = useContext(AuthContext);
     const [currentMovies, setCurrentMovies] = useState([]);
     const [offset, setOffset] = useState(0);
     const [error, setError] = useState(null);
@@ -39,21 +38,21 @@ export default function Movies() {
 
     const rightButtonClickHandler = () => {
         setOffset(state => state + 3);
-        if(currentMovies.length <=4) {
+        if (currentMovies.length <= 4) {
             setOffset(0);
         }
     }
 
     const leftButtonClickHandler = () => {
         setOffset(state => state - 5);
-        if(currentMovies.length <=5) {
+        if (currentMovies.length <= 5) {
             setOffset(0);
         }
     }
 
     return (
         <>
-        <ToastContainer />
+            <ToastContainer />
             <h3>Movies</h3>
             {error && <p>{error}</p>}
             <div className={styles.containerFluid} >
@@ -68,7 +67,14 @@ export default function Movies() {
                                 className={styles.rowPoster}
                                 alt={movie.name}
                                 style={{ width: '10em', height: '100%' }} /></Link>
-                            <div onClick={() => addFavouriteMovie(movie)} className={`${styles.overlay} d-flex align-items-center justify-content-center`}><AddFavourites /></div>
+                            {!ownerId && (
+
+                                <Link to="/login"><div onClick={onClickOpen} className={`${styles.overlay} d-flex align-items-center justify-content-center`}><AddFavourites /></div></Link>
+                            )}
+
+                            {ownerId && (
+                                <div onClick={() => addFavouriteMovie(movie)} className={`${styles.overlay} d-flex align-items-center justify-content-center`}><AddFavourites /></div>
+                            )}
                         </div>
                     ))}
 
