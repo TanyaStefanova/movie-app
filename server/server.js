@@ -1345,7 +1345,7 @@
             "133f9b54-d9ff-4dd9-956c-cc09568945e4": {
                 genre: "Crime",
                 plot: "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-                posterUrl: "https://img.fruugo.com/product/5/55/14452555_max.jpg",
+                posterUrl: "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_.jpg",
                 title: "The Shawshank Redemption",
                 type: "Movie",
                 year: "1994",
@@ -1481,7 +1481,7 @@
             "1d5e960e-8905-46df-8b28-71fb55d53262": {
                 genre: "Crime",
                 plot: "A botched card game in London triggers four friends, thugs, weed-growers, hard gangsters, loan sharks and debt collectors to collide with each other in a series of unexpected events, all for the sake of weed, cash and two antique shotguns.",
-                posterUrl: "MV5BMTAyN2JmZmEtNjAyMy00NzYwLThmY2MtYWQ3OGNhNjExMmM4XkEyXkFqcGdeQXVyNDk3NzU2MTQ",
+                posterUrl: "https://cdn.posteritati.com/posters/000/000/053/126/lock-stock-and-two-smoking-barrels-md-web.jpg",
                 title: "Lock, Stock and Two Smoking Barrels",
                 type: "Movie",
                 year: "1998",
@@ -1536,7 +1536,7 @@
             "0feb2e6b-b7e6-4c7c-8121-44e1f891f251": {
                 genre: "adventure",
                 plot: "The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring.",
-                posterUrl: "https://images-na.ssl-images-amazon.com/images/M/MV5BMzU0NDY0NDEzNV5BMl5BanBnXkFtZTgwOTIxNDU1MDE@._V1_SX300.jpg",
+                posterUrl: "https://cineboom.bg/wp-content/uploads/2012/11/562341_679385958739334_228756538_n.jpg",
                 title: "The Hobbit: The Desolation of Smaug",
                 type: "Movie",
                 year: "2013",
