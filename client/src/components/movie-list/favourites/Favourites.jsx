@@ -43,13 +43,13 @@ export default function Favourites() {
 
     return (
         <>
-            <h2>My Favourite Movies</h2>
+            <h2 className={styles.title}>My Favourite Movies</h2>
             {error && <p>{error}</p>}
 
           
             <div className="container">
             {favouriteMovies.length == 0 && (
-                    <h1>No Favourite Movies Added</h1>
+                    <h1 className={styles.message}>You haven't added your favourites yet :)</h1>
                    )}
                 {favouriteMovies.map(movie => (
                     <div key={movie._id} style={{marginTop: '20px', backgroundColor:'#212529'}} className="card v4 tight">
@@ -60,9 +60,8 @@ export default function Favourites() {
                                 <img style={{ width: '94px', height: '141px' }}
                                 src={movie.posterUrl}  alt="movie-poster" /> </div> </Link>
                                
-                               
                                 <div className={styles.details}>
-                                    <div className={styles.title}><h2>{movie.title}</h2>
+                                    <div className={styles.movieTitle}><h2>{movie.title}</h2>
                                     <div onClick={() => removeFavouriteHandler(movie._id, movie.title)} className={`${styles.removeIcon} `}><RemoveFromFavourites /></div></div>
                                     <div className={styles.overview}><p>{movie.plot}</p></div>
                             </div>

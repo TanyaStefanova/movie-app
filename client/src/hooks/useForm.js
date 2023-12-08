@@ -33,17 +33,18 @@ export default function useForm(submitHandler, initialValues) {
     const [values, setValues] = useState(initialValues);
     const [formErrors, setFormErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
+    const [isSubmitSuccessful, setIsSubmitSuccessful] = useState(false);
 
     const onChange = (e) => {
         setValues(state => ({
             ...state,
             [e.target.name]: e.target.value,
         }));
-
         setFormErrors(state => ({
             ...state,
             [e.target.name]: ''
         }));
+
     }
 
     const onSubmit = (e) => {
@@ -51,16 +52,20 @@ export default function useForm(submitHandler, initialValues) {
 
         setFormErrors(validate(values));
         setIsSubmit(true);
+        setIsSubmitSuccessful(true)
     }
 
     useEffect(() => {
-        // console.log(formErrors);
 
         if (Object.keys(formErrors).length === 0 && isSubmit) {
-            // console.log(values);
             submitHandler(values);
+            setIsSubmitSuccessful(false);
         }
-    }, [formErrors])
+    }, [formErrors]);
+
+    useEffect(() => {
+        setValues(initialValues);
+    }, [isSubmitSuccessful])
 
     const validate = (values) => {
         const errors = {};

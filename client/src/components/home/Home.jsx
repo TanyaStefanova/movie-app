@@ -13,6 +13,7 @@ export default function Home() {
         search: ''
     });
 
+  
     return (
         <>
             {ownerId && (
@@ -69,6 +70,7 @@ export default function Home() {
                                 }}
                             />
                             <Button variant="primary" className={styles.searchButton} onClick={onSubmit}>Search</Button>
+
                         </Form>
                         <p className={styles.searchError}>{formErrors.search}</p>
                     </Container>

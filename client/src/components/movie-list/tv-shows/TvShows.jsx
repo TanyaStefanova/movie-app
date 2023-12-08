@@ -17,7 +17,7 @@
 //                     {tvShows.map(movie => (
 //                         <div className={styles.imageContainer} key={movie._id}>
 //                            <Link to={`/movies/${movie._id}`} onClick={onClickOpen}><img
-                               
+
 //                                 src={movie.posterUrl}
 //                                 className={styles.rowPoster}
 //                                 alt={movie.name}
@@ -42,7 +42,7 @@ import * as request from "../../../lib/request";
 
 
 export default function TvShows() {
-    const { onClickOpen, addFavouriteMovie } = useContext(AuthContext);
+    const { onClickOpen, addFavouriteMovie, ownerId } = useContext(AuthContext);
     const [currentShows, setCurrentShows] = useState([]);
     const [offset, setOffset] = useState(0);
     const [error, setError] = useState(null);
@@ -71,21 +71,21 @@ export default function TvShows() {
 
     const rightButtonClickHandler = () => {
         setOffset(state => state + 3);
-        if(currentShows.length <=4) {
+        if (currentShows.length <= 4) {
             setOffset(0);
         }
     }
 
     const leftButtonClickHandler = () => {
         setOffset(state => state - 5);
-        if(currentShows.length <=5) {
+        if (currentShows.length <= 5) {
             setOffset(0);
         }
     }
 
     return (
         <>
-            <h3>Tv Shows</h3>
+            <h3 className={styles.title}>TV Shows</h3>
             {error && <p>{error}</p>}
             <div className={styles.containerFluid} >
 
@@ -99,7 +99,15 @@ export default function TvShows() {
                                 className={styles.rowPoster}
                                 alt={movie.name}
                                 style={{ width: '10em', height: '100%' }} /></Link>
-                            <div onClick={() => addFavouriteMovie(movie)} className={`${styles.overlay} d-flex align-items-center justify-content-center`}><AddFavourites /></div>
+                            {/* <div onClick={() => addFavouriteMovie(movie)} className={`${styles.overlay} d-flex align-items-center justify-content-center`}><AddFavourites /></div> */}
+
+                            {!ownerId && (
+                                <Link to="/login"><div onClick={onClickOpen} className={`${styles.overlay} d-flex align-items-center justify-content-center`}><AddFavourites /></div></Link>
+                            )}
+
+                            {ownerId && (
+                                <div onClick={() => addFavouriteMovie(movie)} className={`${styles.overlay} d-flex align-items-center justify-content-center`}><AddFavourites /></div>
+                            )}
                         </div>
                     ))}
 

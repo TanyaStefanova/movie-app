@@ -53,7 +53,7 @@ export default function Movies() {
     return (
         <>
             <ToastContainer />
-            <h3>Movies</h3>
+            <h3 className={styles.title}>Movies</h3>
             {error && <p>{error}</p>}
             <div className={styles.containerFluid} >
 
@@ -67,6 +67,7 @@ export default function Movies() {
                                 className={styles.rowPoster}
                                 alt={movie.name}
                                 style={{ width: '10em', height: '100%' }} /></Link>
+
                             {!ownerId && (
 
                                 <Link to="/login"><div onClick={onClickOpen} className={`${styles.overlay} d-flex align-items-center justify-content-center`}><AddFavourites /></div></Link>
