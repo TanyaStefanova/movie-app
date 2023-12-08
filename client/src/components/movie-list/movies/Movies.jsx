@@ -14,14 +14,20 @@ export default function Movies() {
     const [error, setError] = useState(null);
 
     const getCurrentMovies = async () => {
-        const query = new URLSearchParams({
-            offset: `${offset}`,
-            pageSize: 9
-        })
+        try {
+            const query = new URLSearchParams({
+                offset: `${offset}`,
+                pageSize: 9
+            })
 
-        const result = await request.get(`http://localhost:3030/data/movies?${query}`);
-        setCurrentMovies(result)
-        return result;
+            const result = await request.get(`http://localhost:3030/data/movies?${query}`);
+            setCurrentMovies(result);
+            return result;
+        } catch (err) {
+            setError('An error occurred while fetching data. Please try again later.')
+        }
+
+
     }
 
     useEffect(() => {
@@ -42,8 +48,8 @@ export default function Movies() {
     }
 
     const leftButtonClickHandler = () => {
-        setOffset(state => state - 5);
-        if (currentMovies.length <= 5) {
+        setOffset(state => state - 3);
+        if (currentMovies.length <= 4) {
             setOffset(0);
         }
     }
@@ -52,7 +58,7 @@ export default function Movies() {
         <>
             <ToastContainer />
             <h3 className={styles.title}>Movies</h3>
-            {error && <p>{error}</p>}
+            {error && <h2 style={{ color: 'white' }}>{error}</h2>}
             <div className={styles.containerFluid} >
 
                 <button className={`${styles.handle} ${styles.leftHandle}`} onClick={leftButtonClickHandler}></button>

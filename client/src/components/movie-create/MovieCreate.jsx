@@ -98,7 +98,7 @@ export default function MovieCreate() {
     }
     return (
         <>
-        {serverError && <p>An error occured: {serverError.message}</p>}
+        {serverError && <h2 style={{color: 'white'}}>An error occured: {serverError.message}</h2>}
             <Modal show={showModal} onHide={onClickClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Add Movie</Modal.Title>

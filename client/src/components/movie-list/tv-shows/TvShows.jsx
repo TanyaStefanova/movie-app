@@ -12,14 +12,21 @@ export default function TvShows() {
     const [error, setError] = useState(null);
 
     const getCurrentShows = async () => {
-        const query = new URLSearchParams({
-            offset: `${offset}`,
-            pageSize: 9
-        })
 
-        const result = await request.get(`http://localhost:3030/data/tvshows?${query}`);
-        setCurrentShows(result)
-        return result;
+        try {
+            const query = new URLSearchParams({
+                offset: `${offset}`,
+                pageSize: 9
+            })
+
+            const result = await request.get(`http://localhost:3030/data/tvshows?${query}`);
+            setCurrentShows(result)
+            return result;
+        } catch (error) {
+            setError('An error occurred while fetching data. Please try again later.')
+
+        }
+
     }
 
     useEffect(() => {
@@ -39,8 +46,8 @@ export default function TvShows() {
     }
 
     const leftButtonClickHandler = () => {
-        setOffset(state => state - 5);
-        if (currentShows.length <= 5) {
+        setOffset(state => state - 3);
+        if (currentShows.length <= 4) {
             setOffset(0);
         }
     }
@@ -48,7 +55,7 @@ export default function TvShows() {
     return (
         <>
             <h3 className={styles.title}>TV Shows</h3>
-            {error && <p>{error}</p>}
+            {error && <h2 style={{ color: 'white' }}>{error}</h2>}
             <div className={styles.containerFluid} >
 
                 <button className={`${styles.handle} ${styles.leftHandle}`} onClick={leftButtonClickHandler}></button>

@@ -42,7 +42,7 @@ export default function TvShowDetails() {
 
     return (
         <>
-            {error && <p>{error}</p>}
+            {error && <h2 style={{color: 'white'}}>{error}</h2>}
             <Modal show={showModal} onHide={onClickClose}>
                 <Card style={{ width: '100%' }}>
                     <Card.Img variant="top" src={tvShow.posterUrl} />

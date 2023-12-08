@@ -44,7 +44,7 @@ export default function Favourites() {
     return (
         <>
             <h2 className={styles.title}>My Favourite Movies</h2>
-            {error && <p>{error}</p>}
+            {error && <h2 style={{color: 'white'}}>{error}</h2>}
 
 
             <div className="container">

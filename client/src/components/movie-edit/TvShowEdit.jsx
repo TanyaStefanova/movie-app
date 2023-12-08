@@ -79,7 +79,7 @@ export default function MovieEdit() {
 
     return (
         <>
-            {error && <p>{error}</p>}
+            {error && <h2 style={{color: 'white'}}>{error}</h2>}
             <Modal show={showModal} onHide={onClickClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Edit Tv Show</Modal.Title>
