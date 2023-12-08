@@ -31,16 +31,9 @@ export default function TvShowDetails() {
     const deleteButtonClickHandler = async () => {
         const hasConfirmed = confirm(`Are you sure you want to delete ${tvShow.title}?`);
 
-        // TODO test error
         if (hasConfirmed) {
             try {
                 const response = await movieService.remove(id, tvShow.type);
-
-                // if (response.status == 204) {
-                //     // TODO do something
-                // } else if (!response.ok) {
-                //     throw new Error('Server returned an error');
-                // } 
 
                 navigate('/movies');
             } catch (error) {
@@ -71,6 +64,11 @@ export default function TvShowDetails() {
                             <div>
                                 <Link to={`/tvshows/${id}/edit`}><Button variant="primary" style={{marginRight: '20px'}}>Edit</Button></Link>
                                 <Button variant="primary" onClick={deleteButtonClickHandler}>Delete</Button>
+                                <Button variant="primary" onClick={onClickClose} style={{float: 'inline-end'}}>Close</Button>
+                            </div>
+                        )}
+                         {ownerId !== tvShow._ownerId && (
+                            <div>
                                 <Button variant="primary" onClick={onClickClose} style={{float: 'inline-end'}}>Close</Button>
                             </div>
                         )}

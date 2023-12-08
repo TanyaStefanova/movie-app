@@ -79,16 +79,36 @@ export const create = async (movieData) => {
     return result;
 }
 
-export const edit = async (movieId, movieData) => {
-    if (movieData.type == 'tvShow') {
+export const edit = async (movieId, movieData, initialMovieType) => {
+    console.log(initialMovieType);
+    console.log(movieData.type);
+    let result;
+    let output;
+    let finalOutput;
+    if (initialMovieType == movieData.type) {
+        if (movieData.type == 'tvShow') {
+            baseUrl = 'http://localhost:3030/data/tvshows'
+        } else if (movieData.type == 'movie') {
+            baseUrl = 'http://localhost:3030/data/movies'
+        }
+        result = await request.put(`${baseUrl}/${movieId}`, movieData);
+        return result;
+    }else if(movieData.type == 'tvShow'){
         baseUrl = 'http://localhost:3030/data/tvshows'
-    } else if (movieData.type == 'movie') {
-        baseUrl = 'http://localhost:3030/data/movies'
+        finalOutput = request.remove(`http://localhost:3030/data/movies/${movieId}`)
+        output = await request.post(baseUrl, movieData);
+        // result = await request.put(`${baseUrl}/${movieId}`, movieData);
     }
-    console.log(movieData);
-    const result = await request.put(`${baseUrl}/${movieId}`, movieData);
+    else if(movieData.type == 'Movie'){
+        baseUrl = 'http://localhost:3030/data/movies'
+        finalOutput = request.remove(`http://localhost:3030/data/tvshows/${movieId}`)
+        output = await request.post(baseUrl, movieData);
+        result = await request.put(`${baseUrl}/${movieId}`, movieData);
+    }
 
-    return result;
+    console.log(movieData);
+
+    return {result, output, finalOutput};
 }
 
 export const remove = async (movieId, type) => {
@@ -99,3 +119,28 @@ export const remove = async (movieId, type) => {
     }
     request.remove(`${baseUrl}/${movieId}`)
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// export const edit = async (movieId, movieData) => {
+//     if (movieData.type == 'tvShow') {
+//         baseUrl = 'http://localhost:3030/data/tvshows'
+//     } else if (movieData.type == 'movie') {
+//         baseUrl = 'http://localhost:3030/data/movies'
+//     }
+//     console.log(movieData);
+//     const result = await request.put(`${baseUrl}/${movieId}`, movieData);
+
+//     return result;
+// }

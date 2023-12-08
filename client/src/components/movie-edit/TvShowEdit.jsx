@@ -31,6 +31,7 @@ export default function MovieEdit() {
     // const [formValues, setFormValues] = useState(formInitialState);
     const { showModal, onClickClose } = useContext(AuthContext);
     const [error, setError] = useState(null);
+    const [initialMovieType, setInitialMovieType] = useState('');
 
     const navigate = useNavigate();
     const { id } = useParams();
@@ -54,7 +55,11 @@ export default function MovieEdit() {
             })
     }, [id]);
 
-
+    // useEffect(() => {
+    //     setInitialMovieType(tvShow.type)
+    
+    //     console.log(initialMovieType);
+    // }, [tvShow])
 
     const editSubmitHandler = async (e) => {
         e.preventDefault();
@@ -62,15 +67,7 @@ export default function MovieEdit() {
         // TODO test error
         try {
             const response = await movieService.edit(id, tvShow);
-            console.log(response);
-            console.log(response.status);
-            // if (response.status == 204) {
-            //     // TODO do something
-            // }
-            
-            // if (!response.ok) {
-            //     throw new Error('Server returned an error');
-            // }
+       
             navigate('/movies');
         } catch (error) {
             console.error(error.message);
@@ -95,6 +92,8 @@ export default function MovieEdit() {
         //     [e.target.name]: value,
         // }));
     }
+
+
 
     return (
         <>

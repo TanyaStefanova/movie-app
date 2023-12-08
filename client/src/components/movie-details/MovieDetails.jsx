@@ -74,6 +74,11 @@ export default function MovieDetails() {
                                 <Button variant="primary" onClick={onClickClose} style={{float: 'inline-end'}}>Close</Button>
                             </div>
                         )}
+                          {ownerId !== movie._ownerId && (
+                            <div>
+                                <Button variant="primary" onClick={onClickClose} style={{float: 'inline-end'}}>Close</Button>
+                            </div>
+                        )}
                     </Card.Body>
                 </Card>
             </Modal>

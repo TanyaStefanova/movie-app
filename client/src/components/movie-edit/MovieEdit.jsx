@@ -31,6 +31,7 @@ export default function MovieEdit() {
     // const [formValues, setFormValues] = useState(formInitialState);
     const { showModal, onClickClose } = useContext(AuthContext);
     const [error, setError] = useState(null);
+    const [initialMovieType, setInitialMovieType] = useState('');
 
     const navigate = useNavigate();
     const { id } = useParams();
@@ -51,10 +52,16 @@ export default function MovieEdit() {
             })
             .catch(error => {
                 setError('An error occurred while fetching data. Please try again later.')
-            })
+            });
+
+            
     }, [id]);
 
+// useEffect(() => {
+//     setInitialMovieType(movie.type)
 
+//     console.log(initialMovieType);
+// }, [movie])
 
     const editSubmitHandler = async (e) => {
         e.preventDefault();
@@ -62,8 +69,8 @@ export default function MovieEdit() {
         // TODO test error
         try {
             const response = await movieService.edit(id, movie);
-            console.log(response);
-            console.log(response.status);
+            // console.log(response);
+            // console.log(response.status);
             // if (response.status == 204) {
             //     // TODO do something
             // }

@@ -1447,7 +1447,7 @@
             "7df9e59c-1df5-4182-8cca-08a68fd31610": {
                 genre: "drama",
                 plot: "With the help of a German bounty hunter, a freed slave sets out to rescue his wife from a brutal Mississippi plantation owner.",
-                posterUrl: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAA",
+                posterUrl: "https://m.media-amazon.com/images/I/912vL7muRwL.jpg",
                 title: "Django Unchained",
                 type: "Movie",
                 year: "2012",

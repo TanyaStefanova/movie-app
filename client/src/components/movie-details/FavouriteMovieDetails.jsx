@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import * as favouriteService from '../../services/favouriteService'
 
@@ -16,7 +16,6 @@ export default function FavouriteMovieDetails() {
     const [error, setError] = useState(null);
 
     const { id } = useParams();
-    // const navigate = useNavigate();
 
       // TODO test error
     useEffect(() => {
@@ -27,16 +26,7 @@ export default function FavouriteMovieDetails() {
                 console.log(error);
             });
     }, [id]);
-
-    // const deleteButtonClickHandler = async () => {
-    //     const hasConfirmed = confirm(`Are you sure you want to delete ${movie.title}?`);
-
-    //     if(hasConfirmed){
-    //        await favouriteService.remove(id);
-
-    //        navigate('/movies');
-    //     }
-    // }
+    
     return (
         <>
         {error && <p>{error}</p>}
@@ -57,8 +47,7 @@ export default function FavouriteMovieDetails() {
                     
                   
                         <div>
-                           {/* <Link to={`/movies/${id}/edit`}><Button variant="primary">Edit</Button></Link>  */}
-                          {/* <Button variant="primary" onClick={deleteButtonClickHandler}>Delete</Button> */}
+                      
                           <Button style={{float: 'inline-end'}} variant="primary" onClick={onClickClose}>Close</Button>
                         </div>
                   

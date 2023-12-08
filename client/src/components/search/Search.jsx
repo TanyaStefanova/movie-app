@@ -32,7 +32,6 @@ export default function Search({ searchedMovies }) {
                                 src={movie.posterUrl}  alt="movie-poster" /> </div> </Link>
                                 )}
                            
-                                {/* <div style={{float: 'left', width: '10%'}}><img style={{ width: '94px', height: '141px' }} src={movie.posterUrl} alt="movie-poster" /> */}
                                
                                 <div className={styles.details}>
                                     <div className={styles.movieTitle}><h2>{movie.title}</h2></div>
