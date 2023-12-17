@@ -51,7 +51,7 @@ export default function Home() {
             {!ownerId && (
                 <Container className={styles.homeContainer}>
 
-                    <h2 className={styles.heading}>Welcome!</h2>
+                    <h2 className={styles.heading}>Welcome</h2>
                     <img src="https://www.themoviedb.org/assets/2/v4/marketing/deadpool-06f2a06d7a418ec887300397b6861383bf1e3b72f604ddd5f75bce170e81dce9.png" alt="" />
                     <Container className="mt-4">
                         <Form onSubmit={onSubmit}>
