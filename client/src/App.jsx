@@ -21,6 +21,7 @@ import PageNotFound from './components/page-not-found/PageNotFound';
 import FavouriteMovieDetails from './components/movie-details/FavouriteMovieDetails';
 import Search from './components/search/Search';
 import Favourites from './components/movie-list/favourites/Favourites';
+import AuthGuard from './components/guards/AuthGuard';
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -74,11 +75,11 @@ function App() {
   const notify = () => toast("Succesfully added to favourites!");
 
   const addFavouriteMovie = (movie) => {
-      movie.isFavouredBy = auth._id;
-      const newFavouriteList = [...favourites, movie];
-      setFavourites(newFavouriteList);
-      favouriteService.create(movie);
-      notify();
+    movie.isFavouredBy = auth._id;
+    const newFavouriteList = [...favourites, movie];
+    setFavourites(newFavouriteList);
+    favouriteService.create(movie);
+    notify();
   }
 
   const seacrhSubmitHandler = async ({ search }) => {
@@ -112,17 +113,21 @@ function App() {
         <Routes>
           <Route path='/' element={<Layout onClickOpen={onClickOpen} />}>
             <Route path='movies' element={<MovieList />} />
-            <Route path='movies/create' element={<MovieCreate />} />
-            <Route path='movies/favourites' element={<Favourites />} />
             <Route path='login' element={<Login />} />
             <Route path='register' element={<Register />} />
-            <Route path='logout' element={<Logout />} />
             <Route path='movies/:id' element={<MovieDetails />} />
             <Route path='tvshows/:id' element={<TvShowDetails />} />
-            <Route path='favourites/:id' element={<FavouriteMovieDetails />} />
-            <Route path='movies/:id/edit' element={<MovieEdit />} />
-            <Route path='tvshows/:id/edit' element={<TvShowEdit />} />
             <Route path='movies/search' element={<Search searchedMovies={searched} />} />
+
+            <Route element={<AuthGuard />}>
+              <Route path='movies/create' element={<MovieCreate />} />
+              <Route path='movies/favourites' element={<Favourites />} />
+              <Route path='favourites/:id' element={<FavouriteMovieDetails />} />
+              <Route path='movies/:id/edit' element={<MovieEdit />} />
+              <Route path='tvshows/:id/edit' element={<TvShowEdit />} />
+              <Route path='logout' element={<Logout />} />
+            </Route>
+
           </Route>
           <Route path='*' element={<PageNotFound />} />
 
