@@ -4,17 +4,17 @@ import AuthContext from '../../contexts/authContext';
 import { Link } from 'react-router-dom'
 import styles from './Search.module.css'
 
-export default function Search({ searchedMovies }) {
-    const { onClickOpen } = useContext(AuthContext);
+export default function Search() {
+    const { onClickOpen, searched } = useContext(AuthContext);
 
     return (
         <>
             <h1 className={styles.title}>Search Results</h1>
             <div className="container">
-                {searchedMovies.length == 0 && (
+                {searched.length == 0 && (
                     <h1 className={styles.message}>No movie with this title</h1>
                 )}
-                {searchedMovies.map(movie => (
+                {searched.map(movie => (
                     <div key={movie._id} style={{marginTop: '20px', backgroundColor:'#212529'}} className="card v4 tight">
                         <div className="wrapper">
                             <div className={styles.image} >
