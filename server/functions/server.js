@@ -86,6 +86,7 @@
             let status = 200;
             let headers = {
                 'Access-Control-Allow-Origin': '*',
+                // 'Access-Control-Allow-Origin': 'https://api-ryvt2kla5a-uc.a.run.app',
                 'Content-Type': 'application/json'
             };
             let result = '';

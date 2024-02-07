@@ -19,7 +19,8 @@ export default function TvShows() {
                 pageSize: 9
             })
 
-            const result = await request.get(`http://localhost:3030/data/tvshows?${query}`);
+            // const result = await request.get(`http://localhost:3030/data/tvshows?${query}`);
+            const result = await request.get(`${import.meta.env.VITE_API_URL}/data/tvshows?${query}`);
             setCurrentShows(result)
             return result;
         } catch (error) {

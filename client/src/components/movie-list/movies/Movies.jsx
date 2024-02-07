@@ -20,7 +20,8 @@ export default function Movies() {
                 pageSize: 9
             })
 
-            const result = await request.get(`http://localhost:3030/data/movies?${query}`);
+            // const result = await request.get(`http://localhost:3030/data/movies?${query}`);
+            const result = await request.get(`${import.meta.env.VITE_API_URL}/data/movies?${query}`);
             setCurrentMovies(result);
             return result;
         } catch (err) {

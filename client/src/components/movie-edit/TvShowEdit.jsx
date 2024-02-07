@@ -48,9 +48,9 @@ export default function MovieEdit() {
         setInitialTvShowType(tvShow.type)
     }, [tvShow.title, tvShow.year, tvShow.posterUrl,tvShow.genre, tvShow.plot])
 
-    console.log(tvShow.type);
-    console.log(initialTvShowType);
-    console.log(tvShow);
+    // console.log(tvShow.type);
+    // console.log(initialTvShowType);
+    // console.log(tvShow);
     
     const editSubmitHandler = async (e) => {
         e.preventDefault();
