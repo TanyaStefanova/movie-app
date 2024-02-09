@@ -1,14 +1,23 @@
 ## Movie App Project
 
 ## Overview
-This web application is using React.js, React Bootstrap, and React Toastify to provide users with a delightful experience while exploring and discovering information about movies. The app uses the SoftUni practice server to fetch and display movie information.
+This web application is using React.js, React Bootstrap, and React Toastify to provide users with a delightful experience while exploring and discovering information about movies. The app uses the SoftUni practice server to fetch and display movie information. Both the client and the server are deployed on Firebase.
 
 ## Table of Contents
+- How to see the prod version
 - Installation
 - Usage
 - Features
 - Dependencies
 
+## How to see the prod version
+Please click on the following link: https://react-movie-app-319ec.web.app/
+
+To login you can use one of test accounts:
+- peter@abv.bg : 123456
+- george@abv.bg : 123456
+
+You can also register your own account and explore the app.
 
 ## Installation
 To set up and run the Movie App on your local machine, follow these steps:
